@@ -15,7 +15,7 @@
     <!-- Fonts: Inter for Sans, Playfair for Serif -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Alex+Brush&family=Inter:wght@300;400;500;700;900&family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700;900&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,700;1,300;1,400&family=Great+Vibes&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     
     <!-- Styles -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/locomotive-scroll@4.1.4/dist/locomotive-scroll.min.css">
@@ -65,15 +65,14 @@
         <div class="nav-overlay__content">
             <div class="nav-overlay__close"><i data-lucide="x"></i></div>
             <div class="nav-overlay__links">
-                <a href="#hero" class="nav-link" data-index="01">Início</a>
-                <a href="#about" class="nav-link" data-index="02">Sobre</a>
-                <a href="#program" class="nav-link" data-index="03">O Programa</a>
-                <a href="#episodes" class="nav-link" data-index="04">Episódios</a>
-                <a href="#blog" class="nav-link" data-index="05">Blog</a>
-                <a href="#performance" class="nav-link" data-index="06">Performance</a>
-                <a href="#sponsors" class="nav-link" data-index="07">Parceiros</a>
-                <a href="#gallery" class="nav-link" data-index="08">Universo</a>
-                <a href="#contact" class="nav-link" data-index="09">Contato</a>
+                <a href="#hero" class="nav-link" data-index="01">Home</a>
+                <a href="#about" class="nav-link" data-index="02">Manifesto</a>
+                <a href="#ecossistema" class="nav-link" data-index="03">O Ecossistema</a>
+                <a href="#program" class="nav-link" data-index="04">O Programa</a>
+                <a href="#episodes" class="nav-link" data-index="05">Episódios</a>
+                <a href="#gallery" class="nav-link" data-index="06">Galeria</a>
+                <a href="#performance" class="nav-link" data-index="07">Performance</a>
+                <a href="#contact" class="nav-link" data-index="08">Contato</a>
             </div>
             <div class="nav-overlay__footer">
                 <div class="nav-overlay__social">
@@ -88,7 +87,7 @@
     <!-- Header -->
     <header class="header">
         <div class="header__logo" data-scroll data-scroll-speed="1">
-            <span class="logo-text">Conexões que <span class="italic gold">Transformam</span></span>
+            <span class="logo-text" style="font-family: var(--font-body); font-weight: 300; font-size: 0.9rem; letter-spacing: 0.15em; text-transform: none;">Mentes que Inspiram — <span class="gold" style="font-weight: 500;">conexões que transformam</span></span>
         </div>
         <div class="header__menu-toggle">
             <div class="menu-text">Menu</div>
@@ -119,7 +118,7 @@
                 </div>
                 <h1 class="hero__title">
                     <div data-scroll data-scroll-speed="1"><span class="hero__line"><span>Mentes Que</span></span></div>
-                    <div data-scroll data-scroll-speed="2"><span class="hero__line"><span class="gold logo-font">Inspiram</span></span></div>
+                    <div data-scroll data-scroll-speed="1"><span class="hero__line"><span class="gold logo-font"><span class="logo-font__char-i">I</span>nspiram<span class="hero__sparkle">✦</span></span></span></div>
                 </h1>
             </div>
             <!-- Scroll indicator fora do hero__inner para posicionar relativo ao .hero -->
@@ -147,7 +146,7 @@
                     <div class="host__content">
                         <h3 class="host__name">Vanessa Sanceverino Esteves</h3>
                         <p class="host__role">Gestora educacional | Comunicadora | Idealizadora</p>
-                        <p class="host__desc">Conduz entrevistas que unem profundidade, sensibilidade e relevância social. Sua presença traduz a essência do projeto: escutar com inteligência e comunicar com elegância.</p>
+                        <p class="host__desc">Com trajetória sólida construída na educação, na liderança pedagógica e na comunicação com propósito, Vanessa conduz entrevistas que unem <span class="gold-underline">profundidade, sensibilidade e relevância social</span>. Sua presença em cena traduz a essência do projeto: escutar com inteligência, comunicar com elegância e transformar conversas em conteúdo que inspira, informa e gera impacto real.</p>
                         <div class="host__actions">
                             <button id="btn-scroll-episodes" class="btn btn--gold">Assista aos Episódios</button>
                         </div>
@@ -156,120 +155,124 @@
             </div>
         </section>
 
-
-        <!-- Eixos de Atuação Section -->
-        <section id="eixos" class="pillars" data-scroll-section style="padding-bottom: 2vh;">
+        <!-- O ECOSSISTEMA Section -->
+        <section id="ecossistema" class="ecossistema" data-scroll-section>
             <div class="container">
-                <div class="section-header">
+                <div class="section-header" data-scroll data-scroll-class="revealed">
                     <span class="section-num">03 /</span>
-                    <h2 class="section-title reveal-text"><span>Eixos de Atuação</span></h2>
+                    <h2 class="section-title reveal-text"><span>O Ecossistema</span></h2>
                 </div>
-                <div class="pillars__grid">
-                    <!-- Pillar 1 -->
-                    <div data-scroll data-scroll-speed="0.5" data-scroll-class="revealed" data-scroll-offset="20%">
-                        <div class="pillar-card">
-                            <div class="pillar-card__img"><img src="img/mentes1.jpeg" alt=""></div>
-                            <div class="pillar-card__content">
-                                <h4 class="pillar-card__title">Educação & Inovação</h4>
-                                <p class="pillar-card__desc">Reflexões sobre aprendizagem, gestão educacional e o futuro da educação.</p>
-                            </div>
-                            <div class="pillar-card__touch-hint"><i data-lucide="mouse-pointer-click"></i></div>
+                <p class="ecossistema__desc" data-scroll data-scroll-speed="0.5">
+                    O Mentes que Inspiram é mais do que um programa — é um ecossistema completo de produtos e experiências que reforçam o posicionamento estratégico da Vanessa como marca.
+                </p>
+
+                <!-- Featured: Programa / Produção -->
+                <div class="ecossistema__grid">
+                    <a href="#episodes" class="eco-card eco-card--featured" data-scroll data-scroll-class="revealed" data-scroll-offset="10%">
+                        <div class="eco-card__icon">
+                            <i data-lucide="play-circle"></i>
                         </div>
+                        <div>
+                            <h3 class="eco-card__title">Programa / Produção</h3>
+                            <p class="eco-card__subtitle">Espaço dedicado aos episódios completos do programa. Assista a todas as temporadas com entrevistas que unem educação, inclusão e desenvolvimento humano.</p>
+                            <span class="eco-card__badge eco-card__badge--active">✦ Assistir Episódios</span>
+                        </div>
+                    </a>
+
+                    <!-- Livro -->
+                    <div class="eco-card" data-scroll data-scroll-class="revealed" data-scroll-offset="10%">
+                        <div class="eco-card__icon">
+                            <i data-lucide="book-open"></i>
+                        </div>
+                        <h3 class="eco-card__title">Livro</h3>
+                        <p class="eco-card__subtitle">Publicação que aprofunda os temas abordados no programa com reflexões e histórias inspiradoras.</p>
+                        <span class="eco-card__badge eco-card__badge--soon">Em breve</span>
                     </div>
-                    <!-- Pillar 2 -->
-                    <div data-scroll data-scroll-speed="1.2" data-scroll-class="revealed" data-scroll-offset="20%">
-                        <div class="pillar-card">
-                            <div class="pillar-card__img"><img src="img/mentes2.jpeg" alt=""></div>
-                            <div class="pillar-card__content">
-                                <h4 class="pillar-card__title">Inclusão & Diversidade</h4>
-                                <p class="pillar-card__desc">Pautas sobre acessibilidade, maternidade atípica, equidade e pertencimento.</p>
-                            </div>
-                            <div class="pillar-card__touch-hint"><i data-lucide="mouse-pointer-click"></i></div>
+
+                    <!-- Educação e Cursos -->
+                    <div class="eco-card" data-scroll data-scroll-class="revealed" data-scroll-offset="10%">
+                        <div class="eco-card__icon">
+                            <i data-lucide="graduation-cap"></i>
                         </div>
+                        <h3 class="eco-card__title">Educação e Cursos</h3>
+                        <p class="eco-card__subtitle">Formações e cursos voltados ao desenvolvimento profissional e pessoal com foco em educação e liderança.</p>
+                        <span class="eco-card__badge eco-card__badge--soon">Em breve</span>
                     </div>
-                    <!-- Pillar 3 -->
-                    <div data-scroll data-scroll-speed="0.8" data-scroll-class="revealed" data-scroll-offset="20%">
-                        <div class="pillar-card">
-                            <div class="pillar-card__img"><img src="img/mentes6.jpeg" alt=""></div>
-                            <div class="pillar-card__content">
-                                <h4 class="pillar-card__title">Desenvolvimento Humano</h4>
-                                <p class="pillar-card__desc">Comportamento, saúde emocional, carreira, propósito e bem-estar.</p>
-                            </div>
-                            <div class="pillar-card__touch-hint"><i data-lucide="mouse-pointer-click"></i></div>
+
+                    <!-- Capacitação -->
+                    <div class="eco-card" data-scroll data-scroll-class="revealed" data-scroll-offset="10%">
+                        <div class="eco-card__icon">
+                            <i data-lucide="award"></i>
                         </div>
+                        <h3 class="eco-card__title">Capacitação</h3>
+                        <p class="eco-card__subtitle">Programas de capacitação para profissionais que desejam ampliar suas competências e impacto social.</p>
+                        <span class="eco-card__badge eco-card__badge--soon">Em breve</span>
                     </div>
-                    <!-- Pillar 4 -->
-                    <div data-scroll data-scroll-speed="1" data-scroll-class="revealed" data-scroll-offset="20%">
-                        <div class="pillar-card">
-                            <div class="pillar-card__img"><img src="img/mentes11.jpeg" alt=""></div>
-                            <div class="pillar-card__content">
-                                <h4 class="pillar-card__title">Liderança & Inspiração</h4>
-                                <p class="pillar-card__desc">Trajetórias que mobilizam e inspiram transformação verdadeira.</p>
-                            </div>
-                            <div class="pillar-card__touch-hint"><i data-lucide="hand-pointing"></i></div>
+
+                    <!-- Consultorias -->
+                    <div class="eco-card" data-scroll data-scroll-class="revealed" data-scroll-offset="10%">
+                        <div class="eco-card__icon">
+                            <i data-lucide="briefcase"></i>
                         </div>
+                        <h3 class="eco-card__title">Consultorias</h3>
+                        <p class="eco-card__subtitle">Assessoria estratégica em comunicação, gestão educacional e posicionamento de marca com propósito.</p>
+                        <span class="eco-card__badge eco-card__badge--soon">Em breve</span>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Program & Pillars Section (Diferenciais) -->
-        <section id="program" class="pillars" data-scroll-section style="padding-top: 4vh;">
+        <!-- O Programa Section (Eixos de Atuação Unificados) -->
+        <section id="program" class="pillars" data-scroll-section style="padding-top: 6vh; padding-bottom: 6vh;">
             <div class="container">
-                <div class="section-header" style="flex-direction: column; align-items: center; text-align: center; margin-bottom: 6vh; gap: 1rem;">
-                    <span class="section-num" style="align-self: flex-start;">04 /</span>
-                    <h2 class="section-title">Diferenciais do Mentes que Inspiram</h2>
-                    <p style="color: var(--white-dim); font-size: 1.1rem; max-width: 800px; line-height: 1.6; margin-top: 1rem; font-family: 'Inter', sans-serif;">Um espaço de entrevistas voltado a conversas que geram valor, consciência e impacto. Com linguagem sofisticada e acessível, aborda temas contemporâneos conectando especialistas, educadores e histórias inspiradoras.</p>
+                <div class="section-header" data-scroll data-scroll-class="revealed" style="flex-direction: column; align-items: center; text-align: center; margin-bottom: 6vh; gap: 1rem;">
+                    <span class="section-num">04 /</span>
+                    <h2 class="section-title reveal-text"><span>O Programa</span></h2>
+                    <p style="color: var(--white-dim); font-size: 1.25rem; max-width: 800px; line-height: 1.7; margin-top: 1rem; font-family: var(--font-editorial); font-style: italic;">
+                        Um espaço de entrevistas voltado a conversas que geram valor, consciência e impacto. Com linguagem sofisticada e acessível, aborda temas contemporâneos conectando especialistas, educadores e histórias inspiradoras.
+                    </p>
                 </div>
                 <div class="pillars__grid">
-                    <!-- Pillar 1 -->
+                    <!-- Card 1 -->
                     <div data-scroll data-scroll-speed="0.2">
                         <div class="icon-card">
-                            <div class="icon-card__icon"><i data-lucide="target"></i></div>
-                            <h4 class="pillar-card__title">Curadoria de Temas com Relevância</h4>
-                            <p class="pillar-card__desc">O programa trata de assuntos atuais, necessários e de alto valor para a sociedade.</p>
+                            <div class="icon-card__icon"><i data-lucide="book-open"></i></div>
+                            <h4 class="pillar-card__title">Educação e Inovação</h4>
+                            <p class="pillar-card__desc">Reflexões sobre aprendizagem, gestão educacional, neuroeducação, práticas pedagógicas e o futuro da educação.</p>
                         </div>
                     </div>
-                    <!-- Pillar 2 -->
+                    <!-- Card 2 -->
                     <div data-scroll data-scroll-speed="0.4">
                         <div class="icon-card">
-                            <div class="icon-card__icon"><i data-lucide="feather"></i></div>
-                            <h4 class="pillar-card__title">Profundidade e Leveza</h4>
-                            <p class="pillar-card__desc">A condução da apresentadora equilibra perfeitamente acolhimento, inteligência e autoridade.</p>
+                            <div class="icon-card__icon"><i data-lucide="heart"></i></div>
+                            <h4 class="pillar-card__title">Inclusão e Diversidade</h4>
+                            <p class="pillar-card__desc">Pautas que ampliam o debate sobre acessibilidade, autismo, maternidade atípica, equidade e pertencimento.</p>
                         </div>
                     </div>
-                    <!-- Pillar 3 -->
+                    <!-- Card 3 -->
                     <div data-scroll data-scroll-speed="0.3">
                         <div class="icon-card">
-                            <div class="icon-card__icon"><i data-lucide="gem"></i></div>
-                            <h4 class="pillar-card__title">Estética Premium e Marcante</h4>
-                            <p class="pillar-card__desc">Forte apelo visual e posicionamento elegante, fortalecendo a percepção de valor no mercado.</p>
+                            <div class="icon-card__icon"><i data-lucide="users"></i></div>
+                            <h4 class="pillar-card__title">Desenvolvimento Humano</h4>
+                            <p class="pillar-card__desc">Comportamento, saúde emocional, relações humanas, carreira, propósito e bem-estar.</p>
                         </div>
                     </div>
-                    <!-- Pillar 4 -->
+                    <!-- Card 4 -->
                     <div data-scroll data-scroll-speed="0.5">
                         <div class="icon-card">
-                            <div class="icon-card__icon"><i data-lucide="heart"></i></div>
-                            <h4 class="pillar-card__title">Conexão Emocional com a Audiência</h4>
-                            <p class="pillar-card__desc">O conteúdo aproxima, sensibiliza e gera uma identificação genuína e duradoura com o público.</p>
-                        </div>
-                    </div>
-                    <!-- Pillar 5 -->
-                    <div data-scroll data-scroll-speed="0.2">
-                        <div class="icon-card" style="grid-column: 1 / -1; max-width: 600px; margin: 0 auto;">
-                            <div class="icon-card__icon"><i data-lucide="smartphone"></i></div>
-                            <h4 class="pillar-card__title">Vocação Multiplataforma</h4>
-                            <p class="pillar-card__desc">Cada episódio se desdobra em cortes, reels, chamadas, bastidores e conteúdos de alto potencial de alcance.</p>
+                            <div class="icon-card__icon"><i data-lucide="compass"></i></div>
+                            <h4 class="pillar-card__title">Liderança e Inspiração</h4>
+                            <p class="pillar-card__desc">Trajetórias, experiências e visões que mobilizam, ensinam e inspiram transformação verdadeira.</p>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
 
-<!-- Episodes Section -->
+        <!-- Episodes Section -->
         <section id="episodes" class="timeline" data-scroll-section>
             <div class="container">
-                <div class="section-header">
+                <div class="section-header" data-scroll data-scroll-class="revealed">
                     <span class="section-num">05 /</span>
                     <h2 class="section-title reveal-text"><span>Episódios</span></h2>
                     
@@ -293,66 +296,26 @@
             </div>
         </section>
 
-        
-
-
-
         <!-- Spotify CTA Block -->
         <section class="spotify-cta" data-scroll-section>
             <div class="container">
                 <div class="spotify-cta__inner" data-scroll data-scroll-class="revealed" data-scroll-offset="20%">
-                     <p class="spotify-cta__label">Acompanhe o Programa</p>
+                     <div class="spotify-cta__label-container">
+                         <p class="spotify-cta__label">Acompanhe o Programa</p>
+                     </div>
                      <h2 class="spotify-cta__title">Conversas profundas. Histórias reais. Ideias que geram transformação.<br>Educação, inclusão, desenvolvimento humano e impacto social em um só lugar.</h2>
                      <a href="#" class="btn btn--outline mt-4" style="margin-bottom: 0.5rem;">Ouvir Episódios no Spotify</a>
-                     <span style="color: var(--gold); font-size: 0.9rem; font-family: 'Inter', sans-serif; display: block;">em breve</span>
+                     <span style="color: var(--gold); font-size: 0.9rem; font-family: var(--font-body); display: block;">em breve</span>
                 </div>
             </div>
         </section>
 
-        <!-- Blog Section -->
-        <section id="blog" class="blog" data-scroll-section>
-            <div class="container">
-                <div class="section-header">
-                    <span class="section-num">06 /</span>
-                    <h2 class="section-title reveal-text"><span>Insights & Reflexões</span></h2>
-                </div>
-                <div class="blog__grid">
-                    <div class="blog__card" data-scroll data-scroll-class="revealed" data-scroll-offset="10%">
-                        <div class="blog__img reveal-img"><img src="img/mentes2.jpeg" alt="" loading="lazy"></div>
-                        <div class="blog__content">
-                            <span class="blog__date">24 Mar 2026</span>
-                            <h3 class="blog__title">O futuro da liderança corporativa na era 5.0</h3>
-                            <a href="#" class="blog__link">Ler Artigo</a>
-                        </div>
-                    </div>
-                    <div class="blog__card" data-scroll data-scroll-class="revealed" data-scroll-offset="10%">
-                        <div class="blog__img reveal-img"><img src="img/mentes7.jpeg" alt="" loading="lazy"></div>
-                        <div class="blog__content">
-                            <span class="blog__date">18 Mar 2026</span>
-                            <h3 class="blog__title">Como a inclusão transforma a educação</h3>
-                            <a href="#" class="blog__link">Ler Artigo</a>
-                        </div>
-                    </div>
-                    <div class="blog__card" data-scroll data-scroll-class="revealed" data-scroll-offset="10%">
-                        <div class="blog__img reveal-img"><img src="img/mentes11.jpeg" alt="" loading="lazy"></div>
-                        <div class="blog__content">
-                            <span class="blog__date">10 Mar 2026</span>
-                            <h3 class="blog__title">Gestão emocional para alta performance</h3>
-                            <a href="#" class="blog__link">Ler Artigo</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-
-
-        <!-- Gallery / Universe (Marquee) -->
+        <!-- Gallery / Galeria Momentos dos Bastidores -->
         <section id="gallery" class="gallery" data-scroll-section>
             <div class="container pt-gallery">
-                <div class="section-header">
-                    <span class="section-num">07 /</span>
-                    <h2 class="section-title reveal-text"><span>Bastidores & Momentos</span></h2>
+                <div class="section-header" data-scroll data-scroll-class="revealed">
+                    <span class="section-num">06 /</span>
+                    <h2 class="section-title reveal-text"><span>Bastidores</span></h2>
                 </div>
             </div>
             <div class="gallery__marquee">
@@ -379,19 +342,18 @@
             </div>
         </section>
 
-        
         <!-- Commercial Opportunities -->
         <section class="commercial" data-scroll-section>
             <div class="container">
-                <div class="section-header">
-                    <span class="section-num">08 /</span>
-                    <h2 class="section-title reveal-text"><span>Oportunidade para Marcas</span></h2>
+                <div class="section-header" data-scroll data-scroll-class="revealed">
+                    <span class="section-num">07 /</span>
+                    <h2 class="section-title reveal-text"><span>Parcerias</span></h2>
                 </div>
                 <div class="commercial__grid">
                     <div class="commercial-card" data-scroll data-scroll-class="revealed" data-scroll-offset="10%">
                         <i data-lucide="monitor"></i>
                         <h4>Visibilidade Cenográfica</h4>
-                        <p>Inserção orgânica e sofisticada da sua marca no cenário e em elementos visuais do programa.</p>
+                        <p>Inserção orgânica e sofisticada da sua marca no cenário e em elements visuais do programa.</p>
                     </div>
                     <div class="commercial-card" data-scroll data-scroll-class="revealed" data-scroll-offset="10%">
                         <i data-lucide="message-square-quote"></i>
@@ -412,64 +374,180 @@
             </div>
         </section>
 
-        <!-- Performance Stats (Marquee) -->
-        <section id="performance" class="performance" data-scroll-section>
+        <!-- Performance Dashboard -->
+        <section id="performance" class="perf-dashboard" data-scroll-section>
             <div class="container">
-                <div class="performance__label">Alcance Global</div>
-            </div>
-            <div class="performance__marquee-wrapper">
-                <div class="performance__marquee animate-marquee">
-                    <div class="stat">
-                        <span class="stat__num">2.08M</span>
-                        <span class="stat__label">Views no Instagram</span>
+                <div class="section-header" data-scroll data-scroll-class="revealed">
+                    <span class="section-num">08 /</span>
+                    <h2 class="section-title reveal-text"><span>Performance</span></h2>
+                </div>
+
+                <!-- Highlight Card -->
+                <div class="perf-dashboard__highlight" data-scroll data-scroll-class="revealed" data-scroll-offset="10%">
+                    <div class="perf-highlight__main">
+                        <span class="perf-highlight__badge">Mentes que Inspiram · Streaming &amp; Emissora</span>
+                        <div class="perf-highlight__number"><span>5</span> Milhões</div>
+                        <span class="perf-highlight__label">Audiência Mensal</span>
                     </div>
-                    <div class="stat">
-                        <span class="stat__num">84.4K</span>
-                        <span class="stat__label">Views no YouTube</span>
+                    <div class="perf-highlight__meta">
+                        <div class="perf-meta-item">
+                            <i data-lucide="flame"></i>
+                            <span class="perf-meta-item__value">17h - 23h</span>
+                            <span class="perf-meta-item__label">Horário de Pico</span>
+                        </div>
+                        <div class="perf-meta-item">
+                            <i data-lucide="activity"></i>
+                            <span class="perf-meta-item__value">Alto Engajamento</span>
+                            <span class="perf-meta-item__label">Retenção e Interações</span>
+                        </div>
                     </div>
-                    <div class="stat">
-                        <span class="stat__num">12.5K</span>
-                        <span class="stat__label">Seguidores Ativos</span>
+                </div>
+
+                <!-- Platform Cards -->
+                <div class="perf-dashboard__cards">
+                    <!-- YouTube -->
+                    <div class="perf-card" data-scroll data-scroll-class="revealed" data-scroll-offset="10%">
+                        <div class="perf-card__header">
+                            <div class="perf-card__platform-icon perf-card__platform-icon--yt">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z"/><polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02" fill="#fff"/></svg>
+                            </div>
+                            <div>
+                                <span class="perf-card__platform-name">YouTube</span>
+                                <span class="perf-card__platform-sub">Mentes que Inspiram</span>
+                            </div>
+                        </div>
+                        <div class="perf-card__stats">
+                            <div class="perf-stat">
+                                <span class="perf-stat__value">224.8K</span>
+                                <span class="perf-stat__label">Visualizações</span>
+                            </div>
+                            <div class="perf-stat">
+                                <span class="perf-stat__value">7.9K</span>
+                                <span class="perf-stat__label">Horas</span>
+                            </div>
+                            <div class="perf-stat">
+                                <span class="perf-stat__value">+1.3K</span>
+                                <span class="perf-stat__label">Novos Inscritos</span>
+                            </div>
+                        </div>
+                        <div class="perf-card__growth">
+                            <i data-lucide="trending-up"></i> +61% Visualizações
+                        </div>
                     </div>
-                    <!-- Duplicate for infinite loop -->
-                    <div class="stat">
-                        <span class="stat__num">2.08M</span>
-                        <span class="stat__label">Views no Instagram</span>
+
+                    <!-- Instagram -->
+                    <div class="perf-card" data-scroll data-scroll-class="revealed" data-scroll-offset="10%">
+                        <div class="perf-card__header">
+                            <div class="perf-card__platform-icon perf-card__platform-icon--ig">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></svg>
+                            </div>
+                            <div>
+                                <span class="perf-card__platform-name">Instagram</span>
+                                <span class="perf-card__platform-sub">Mentes que Inspiram</span>
+                            </div>
+                        </div>
+                        <div class="perf-card__stats">
+                            <div class="perf-stat">
+                                <span class="perf-stat__value">876.4K</span>
+                                <span class="perf-stat__label">Alcance</span>
+                            </div>
+                            <div class="perf-stat">
+                                <span class="perf-stat__value">33.6K</span>
+                                <span class="perf-stat__label">Interações</span>
+                            </div>
+                            <div class="perf-stat">
+                                <span class="perf-stat__value">+1.0K</span>
+                                <span class="perf-stat__label">Novos Seguidores</span>
+                            </div>
+                        </div>
+                        <div class="perf-card__growth">
+                            <i data-lucide="trending-up"></i> Forte impacto na base
+                        </div>
                     </div>
-                    <div class="stat">
-                        <span class="stat__num">84.4K</span>
-                        <span class="stat__label">Views no YouTube</span>
-                    </div>
-                    <div class="stat">
-                        <span class="stat__num">12.5K</span>
-                        <span class="stat__label">Seguidores Ativos</span>
-                    </div>
-                    <!-- Duplicate for infinite loop -->
-                    <div class="stat">
-                        <span class="stat__num">2.08M</span>
-                        <span class="stat__label">Views no Instagram</span>
-                    </div>
-                    <div class="stat">
-                        <span class="stat__num">84.4K</span>
-                        <span class="stat__label">Views no YouTube</span>
-                    </div>
-                    <div class="stat">
-                        <span class="stat__num">12.5K</span>
-                        <span class="stat__label">Seguidores Ativos</span>
+
+                    <!-- TikTok -->
+                    <div class="perf-card" data-scroll data-scroll-class="revealed" data-scroll-offset="10%">
+                        <div class="perf-card__header">
+                            <div class="perf-card__platform-icon perf-card__platform-icon--tt">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1v-3.5a6.37 6.37 0 0 0-.79-.05A6.34 6.34 0 0 0 3.15 15a6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.34-6.34V8.76a8.16 8.16 0 0 0 4.76 1.51V6.83a4.85 4.85 0 0 1-1-.14z"/></svg>
+                            </div>
+                            <div>
+                                <span class="perf-card__platform-name">TikTok</span>
+                                <span class="perf-card__platform-sub">Mentes que Inspiram</span>
+                            </div>
+                        </div>
+                        <div class="perf-card__stats">
+                            <div class="perf-stat">
+                                <span class="perf-stat__value">46K</span>
+                                <span class="perf-stat__label">Visualizações</span>
+                            </div>
+                            <div class="perf-stat">
+                                <span class="perf-stat__value">1.5K</span>
+                                <span class="perf-stat__label">Curtidas</span>
+                            </div>
+                            <div class="perf-stat">
+                                <span class="perf-stat__value">39</span>
+                                <span class="perf-stat__label">Compartilhamentos</span>
+                            </div>
+                        </div>
+                        <div class="perf-card__growth">
+                            <i data-lucide="trending-up"></i> +55% de Engajamento
+                        </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Sponsors Section -->
+        <!-- Sponsors / Parceiros e Apoiadores & Perfil do Público -->
         <section id="sponsors" class="sponsors" data-scroll-section>
-            <div class="container container--center" data-scroll data-scroll-class="revealed" data-scroll-offset="10%">
-                <div class="section-header" style="justify-content: center; margin-bottom: 3rem;"><h3 style="font-family: \'Playfair Display\', serif; font-size: 2rem; color: var(--gold); text-align: center;">Apoio e Patrocínio</h3></div>
-                <div class="sponsors__grid">
-                    <div class="sponsor"><img src="https://upload.wikimedia.org/wikipedia/commons/2/2f/Google_2015_logo.svg" alt="Google"></div>
-                    <div class="sponsor"><img src="https://upload.wikimedia.org/wikipedia/commons/5/51/IBM_logo.svg" alt="IBM"></div>
-                    <div class="sponsor"><img src="https://upload.wikimedia.org/wikipedia/commons/b/b1/Tata_Consultancy_Services_Logo.svg" alt="TCS"></div>
-                    <div class="sponsor"><img src="https://upload.wikimedia.org/wikipedia/commons/4/44/Microsoft_logo.svg" alt="Microsoft"></div>
+            <div class="container">
+                <div class="sponsors__split-grid">
+                    
+                    <!-- Perfil do Público -->
+                    <div class="public-profile" data-scroll data-scroll-class="revealed" data-scroll-offset="10%">
+                        <h3 class="public-profile__title">Perfil do Público</h3>
+                        <p class="public-profile__desc">
+                            Dialogamos com um público que busca conteúdo com profundidade, qualidade e propósito.
+                        </p>
+                        <ul class="public-profile__list">
+                            <li class="public-profile__item">
+                                <i data-lucide="check-circle-2"></i>
+                                <span>Educadores, gestores e famílias.</span>
+                            </li>
+                            <li class="public-profile__item">
+                                <i data-lucide="check-circle-2"></i>
+                                <span>Profissionais da saúde e desenvolvimento.</span>
+                            </li>
+                            <li class="public-profile__item">
+                                <i data-lucide="check-circle-2"></i>
+                                <span>Empreendedores e líderes corporativos.</span>
+                            </li>
+                            <li class="public-profile__item">
+                                <i data-lucide="check-circle-2"></i>
+                                <span>Interessados em inclusão, educação e bem-estar.</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- Parceiros e Apoiadores -->
+                    <div class="sponsors-logos" data-scroll data-scroll-class="revealed" data-scroll-offset="10%">
+                        <h3 class="sponsors-logos__title">Parceiros e Apoiadores</h3>
+                        <div class="sponsors__grid">
+                            <div class="sponsor">
+                                <img src="https://upload.wikimedia.org/wikipedia/commons/2/2f/Google_2015_logo.svg" alt="Google">
+                            </div>
+                            <div class="sponsor">
+                                <img src="https://upload.wikimedia.org/wikipedia/commons/5/51/IBM_logo.svg" alt="IBM">
+                            </div>
+                            <div class="sponsor">
+                                <img src="https://upload.wikimedia.org/wikipedia/commons/b/b1/Tata_Consultancy_Services_Logo.svg" alt="TCS">
+                            </div>
+                            <div class="sponsor">
+                                <img src="https://upload.wikimedia.org/wikipedia/commons/4/44/Microsoft_logo.svg" alt="Microsoft">
+                            </div>
+                        </div>
+                    </div>
+
                 </div>
             </div>
         </section>
@@ -484,11 +562,15 @@
                     <p class="contact__desc" data-scroll>Sua marca conectada a um conteúdo que inspira, informa e deixa legado.</p>
                     <div class="contact__links">
                         <a href="https://www.instagram.com/mentesqueinspiramoficial?igsh=MTZ3M2xmcXZvZXhjZw==" target="_blank" class="contact-link">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></svg>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                                <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+                            </svg>
                             <span>Instagram</span>
                         </a>
                         <a href="https://www.youtube.com/@ProgramaMentesqueInspiram" target="_blank" class="contact-link">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z"/><polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"/></svg>
+                            <img src="img/youtube.png" alt="YouTube" class="contact-icon-img">
                             <span>YouTube</span>
                         </a>
                         <a href="mailto:comercial@mentesqueinspiram.com" class="contact-link">

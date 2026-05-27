@@ -54,36 +54,36 @@ document.addEventListener('DOMContentLoaded', () => {
     // --- 0. DYNAMIC EPISODES DATA ---
     const allEpisodes = [
         // Temporada 1
-        { id: 1, season: 1, title: "Abertura da Série e Propósito", desc: "Episódio 01 • 15/10/2025", img: "img/mentes1.jpeg", link: "http://www.youtube.com/watch?v=zoPlruHqBJI" },
-        { id: 2, season: 1, title: "Judô e Educação Criativa (Milena Mendes)", desc: "Episódio 02 • 25/10/2025", img: "thumbs/Judô e Educação Criativa (Milena Mendes) - [Referente ao Ep 2].jpeg", link: "http://www.youtube.com/watch?v=no0fjMc_vjQ" },
-        { id: 3, season: 1, title: "Educação, Inclusão e Amor (Alberto Moura)", desc: "Episódio 03 • 02/11/2025", img: "thumbs/Educação, Inclusão e Amor (Alberto Moura) - [Referente ao Ep 3].jpeg", link: "http://www.youtube.com/watch?v=DV_rVqoURbE" },
-        { id: 4, season: 1, title: "Voluntariado que Cura - Parte 1 (Esquadrão da Alegria)", desc: "Episódio 04 • 08/11/2025", img: "thumbs/Voluntariado que Cura - Parte 1 (Esquadrão da Alegria) - [Referente ao Ep 4].jpeg", link: "http://www.youtube.com/watch?v=-4kiM2Kui20" },
-        { id: 5, season: 1, title: "Voluntariado que Cura - Parte 2 (Esquadrão da Alegria)", desc: "Episódio 05 • 12/11/2025", img: "thumbs/Voluntariado que Cura - Parte 2 (Esquadrão da Alegria) - [Referente ao Ep 5].jpeg", link: "https://www.youtube.com/watch?v=6mC-IqW77cQ" },
-        { id: 6, season: 1, title: "Educar com Amor e Criatividade (Fernanda Badia)", desc: "Episódio 06 • 16/11/2025", img: "thumbs/Educar com Amor e Criatividade (Fernanda Badia) - [Referente ao Ep 6].jpeg", link: "http://www.youtube.com/watch?v=X8GFOMbq3uY" },
-        { id: 7, season: 1, title: "Empatia que Transforma (Saúde, Histórias e Propósito)", desc: "Episódio 07 • 30/11/2025", img: "thumbs/Empatia que Transforma (Saúde, Histórias e Propósito) - [Referente ao Ep 7].jpeg", link: "https://www.youtube.com/watch?v=DOfV8nZ7jYo" },
-        { id: 8, season: 1, title: "Quando a Música encontra a Voz (Comunicação/Expressão)", desc: "Episódio 08 • 07/12/2025", img: "thumbs/Quando a Música encontra a Voz (ComunicaçãoExpressão) - [Referente ao Ep 8].jpeg", link: "https://www.youtube.com/watch?v=H70KqZ2_TzQ" },
-        { id: 9, season: 1, title: "Quando Histórias Educam (Narrativas e Transformação)", desc: "Episódio 09 • 14/12/2025", img: "thumbs/Quando Histórias Educam (Narrativas e Transformação) - [Referente ao Ep 9].jpeg", link: "https://www.youtube.com/watch?v=I7X8G4_P0Fw" },
-        { id: 10, season: 1, title: "Conhecimento que muda destinos (Rumo ao sucesso)", desc: "Episódio 10 • 18/12/2025", img: "thumbs/Conhecimento que muda destinos (Rumo ao sucesso) - [Referente ao Ep 10].jpeg", link: "https://www.youtube.com/watch?v=S6Y4k_R9F8g" },
-        { id: 11, season: 1, title: "Energia que Transforma (Intenção e novos começos)", desc: "Episódio 11 • 20/12/2025", img: "thumbs/Energia que Transforma (Intenção e novos começos) - [Referente ao Ep 11].jpeg", link: "http://www.youtube.com/watch?v=Atg-QFVYdJc" },
-        { id: 12, season: 1, title: "Educação Antirracista (Diversidade e Inclusão)", desc: "Episódio 12 • 28/12/2025", img: "thumbs/Educação Antirracista (Diversidade e Inclusão) - [Referente ao Ep 12].jpeg", link: "https://www.youtube.com/watch?v=T8W9U5_L9F0" },
-        { id: 13, season: 1, title: "Quando a Neurociência encontra a Humanização", desc: "Episódio 13 • 04/01/2026", img: "thumbs/Quando a Neurociência encontra a Humanização - [Referente ao Ep 13].jpeg", link: "https://www.youtube.com/watch?v=V7B8Z1_K9E8" },
-        { id: 14, season: 1, title: "Saúde, Propósito e Conexões (Sigrid e Vanessa)", desc: "Episódio 14 • 11/01/2026", img: "thumbs/Saúde, Propósito e Conexões (Sigrid e Vanessa) - [Referente ao Ep 14].jpeg", link: "http://www.youtube.com/watch?v=QMOrzozHlJc" },
+        { id: 1, season: 1, title: "Empatia, Força e Propósito — A Jornada Inspiradora da Sensei Milena Mendes (Milena Mendes)", desc: "Episódio 01", img: "thumbs/Empatia, Força e Propósito - [Referente ao Ep 18].jpeg", link: "https://www.youtube.com/watch?v=2SH3wdR4cks" },
+        { id: 2, season: 1, title: "Judô e Educação Criativa (Milena Mendes & Fernanda Badia)", desc: "Episódio 02", img: "thumbs/Judô e Educação Criativa (Milena Mendes) - [Referente ao Ep 2].jpeg", link: "http://www.youtube.com/watch?v=no0fjMc_vjQ" },
+        { id: 3, season: 1, title: "Educação, Inclusão e Amor (Alberto Moura)", desc: "Episódio 03", img: "thumbs/Educação, Inclusão e Amor (Alberto Moura) - [Referente ao Ep 3].jpeg", link: "http://www.youtube.com/watch?v=DV_rVqoURbE" },
+        { id: 4, season: 1, title: "Quando a Música Encontra a Voz (Natália Magalhães & Carolina Laux)", desc: "Episódio 04", img: "thumbs/Quando a Música encontra a Voz (ComunicaçãoExpressão) - [Referente ao Ep 8].jpeg", link: "https://www.youtube.com/watch?v=xRGv5r4inZQ&t=113s" },
+        { id: 5, season: 1, title: "Poder da Presença com Propósito — Cuidado que Transforma (Filipe Geyer)", desc: "Episódio 05", img: "thumbs/Poder da Presença com Propósito (Cuidado que transforma) - [Referente ao Ep 28].jpeg", link: "https://www.youtube.com/watch?v=wAnElgj8-II" },
+        { id: 6, season: 1, title: "Educar com Amor e Criatividade (Fernanda Badia)", desc: "Episódio 06", img: "thumbs/Educar com Amor e Criatividade (Fernanda Badia) - [Referente ao Ep 6].jpeg", link: "http://www.youtube.com/watch?v=X8GFOMbq3uY" },
+        { id: 7, season: 1, title: "Quando a Neurociência Encontra a Humanização — Uma Conversa Profunda (Dra. Rochele Paz)", desc: "Episódio 07", img: "thumbs/Quando a Neurociência encontra a Humanização - [Referente ao Ep 13].jpeg", link: "https://www.youtube.com/watch?v=lcmCLSFOto8&t=22s" },
+        { id: 8, season: 1, title: "Maternidade Atípica, Luta e Transformação Social (Beta Vargas)", desc: "Episódio 08", img: "img/mentes1.jpeg", link: "https://www.youtube.com/watch?v=n_pXpG4xLZc" },
+        { id: 9, season: 1, title: "Voluntariado que Cura — Histórias Reais do Esquadrão da Alegria (Esquadrão da Alegria)", desc: "Episódio 09", img: "thumbs/Voluntariado que Cura - Parte 1 (Esquadrão da Alegria) - [Referente ao Ep 4].jpeg", link: "https://www.youtube.com/watch?v=BoAKRgZgHJ8&t=2s" },
+        { id: 10, season: 1, title: "Voluntariado que Cura — Histórias Reais do Esquadrão da Alegria — Parte 2 (Esquadrão da Alegria)", desc: "Episódio 10", img: "thumbs/Voluntariado que Cura - Parte 2 (Esquadrão da Alegria) - [Referente ao Ep 5].jpeg", link: "https://www.youtube.com/watch?v=IYqbKBwEz10&t=504s" },
+        { id: 11, season: 1, title: "Empatia que Transforma — Saúde, Histórias e Propósito (Vanessa Leite)", desc: "Episódio 11", img: "thumbs/Empatia que Transforma (Saúde, Histórias e Propósito) - [Referente ao Ep 7].jpeg", link: "https://www.youtube.com/watch?v=0EaEkYPdQts&t=795s" },
+        { id: 12, season: 1, title: "Energia que Transforma — Intenção e Novos Começos (Nivia Bernardes)", desc: "Episódio 12", img: "thumbs/Energia que Transforma (Intenção e novos começos) - [Referente ao Ep 11].jpeg", link: "https://www.youtube.com/watch?v=M_t-K1eUqVU" },
+        { id: 13, season: 1, title: "Conhecimento que Muda Destinos — Rumo ao Sucesso (Sigrid Kersting)", desc: "Episódio 13", img: "thumbs/Conhecimento que muda destinos (Rumo ao sucesso) - [Referente ao Ep 10].jpeg", link: "https://www.youtube.com/watch?v=S3Azg39aPtU&t=1266s" },
+        { id: 14, season: 1, title: "Saúde, Propósito e Conexões (Sigrid Kersting & Vanessa Leite)", desc: "Episódio 14", img: "thumbs/Saúde, Propósito e Conexões (Sigrid e Vanessa) - [Referente ao Ep 14].jpeg", link: "https://www.youtube.com/watch?v=QMOrzozHlJc" },
 
         // Temporada 2
-        { id: 15, season: 2, title: "A Educação está adoecendo (E como virar o jogo)", desc: "Episódio 15 • 18/01/2026", img: "thumbs/A Educação está adoecendo (E como virar o jogo) - [Referente ao Ep 15].jpeg", link: "https://www.youtube.com/watch?v=Z0E1N3_O9F2" },
-        { id: 16, season: 2, title: "A Leitura pode salvar uma vida (Léia Cassol)", desc: "Episódio 16 • 26/01/2026", img: "thumbs/A Leitura pode salvar uma vida (Léia Cassol) - [Referente ao Ep 16].jpeg", link: "http://www.youtube.com/watch?v=v3B5L4TgGR8" },
-        { id: 17, season: 2, title: "Educação, Inclusão e Transição (Mariângela Pozza)", desc: "Episódio 17 • 03/02/2026", img: "thumbs/Educação, Inclusão e Transição (Mariângela Pozza) - [Referente ao Ep 17].jpeg", link: "http://www.youtube.com/watch?v=OCU17kT-xxw" },
-        { id: 18, season: 2, title: "Empatia, Força e Propósito", desc: "Episódio 18 • 10/02/2026", img: "thumbs/Empatia, Força e Propósito - [Referente ao Ep 18].jpeg", link: "https://www.youtube.com/watch?v=C3H4R6_S9F5" },
-        { id: 19, season: 2, title: "Inclusão que Transforma a Educação", desc: "Episódio 19 • 17/02/2026", img: "thumbs/Inclusão que Transforma a Educação - [Referente ao Ep 19].jpeg", link: "https://www.youtube.com/watch?v=D4I5S7_T9F6" },
-        { id: 20, season: 2, title: "1ª Infância: Brincar, Vínculo e Presença", desc: "Episódio 20 • 25/02/2026", img: "thumbs/1ª Infância Brincar, Vínculo e Presença (João Luiz) - [Referente ao Ep 20].jpeg", link: "http://www.youtube.com/watch?v=J_fMP73BW14" },
-        { id: 21, season: 2, title: "Menopausa sem Tabu! (Márcia Selister)", desc: "Episódio 21 • 05/03/2026", img: "thumbs/Menopausa sem Tabu! (Márcia Selister) - [Referente ao Ep 21].jpeg", link: "http://www.youtube.com/watch?v=L3E5qhV_emg" },
-        { id: 22, season: 2, title: "Experiência Lux: Autoestima e Imagem", desc: "Episódio 22 • 10/03/2026", img: "thumbs/Experiência Lux Autoestima e Imagem - [Referente ao Ep 22].jpeg", link: "https://www.youtube.com/watch?v=G7L8V0_W9F9" },
-        { id: 23, season: 2, title: "Maternidade Atípica: Luta e Transformação - Parte 1", desc: "Episódio 23 • 14/03/2026", img: "thumbs/Maternidade Atípica Luta e Transformação - Parte 1 - [Referente ao Ep 23].jpeg", link: "http://www.youtube.com/watch?v=3P0Li3OZcyg" },
-        { id: 24, season: 2, title: "Maternidade Atípica: Autismo - Parte 2", desc: "Episódio 24 • 22/03/2026", img: "thumbs/Maternidade Atípica Autismo - Parte 2 - [Referente ao Ep 24].jpeg", link: "http://www.youtube.com/watch?v=EiQp6ojyM6s" },
-        { id: 25, season: 2, title: "Educação, Liderança e Inovação - Parte 1 (Cris Vieira)", desc: "Episódio 25 • 31/03/2026", img: "thumbs/Educação, Liderança e Inovação - Parte 1 (Cris Vieira) - [Referente ao Ep 25].jpeg", link: "http://www.youtube.com/watch?v=zrL6AGN8fv4" },
-        { id: 26, season: 2, title: "Educação, Liderança e Inovação - Parte 2 (Cris Vieira)", desc: "Episódio 26 • 05/04/2026", img: "thumbs/Educação, Liderança e Inovação - Parte 2 (Cris Vieira) - [Referente ao Ep 26].jpeg", link: "http://www.youtube.com/watch?v=-hu9Y1KPxFE" },
-        { id: 27, season: 2, title: "Carreira, Empreendedorismo e Direito Trabalhista", desc: "Episódio 27 • 13/04/2026", img: "thumbs/Carreira, Empreendedorismo e Direito Trabalhista (Catharine) - [Referente ao Ep 27.jpeg", link: "http://www.youtube.com/watch?v=OeAHWnX10Q0" },
-        { id: 28, season: 2, title: "Poder da Presença com Propósito (Cuidado que Transforma)", desc: "Episódio 28 • 25/04/2026", img: "thumbs/Poder da Presença com Propósito (Cuidado que transforma) - [Referente ao Ep 28].jpeg", link: "https://www.youtube.com/watch?v=paikAGUZqx8" }
+        { id: 15, season: 2, title: "Quando as Histórias Educam, o Mundo Floresce (Léia Cassol)", desc: "Episódio 15", img: "thumbs/Quando Histórias Educam (Narrativas e Transformação) - [Referente ao Ep 9].jpeg", link: "https://www.youtube.com/watch?v=sTXSEvPEAT4&t=3s" },
+        { id: 16, season: 2, title: "A Leitura Pode Salvar uma Vida — Histórias Reais com Léia Cassol (Léia Cassol)", desc: "Episódio 16", img: "thumbs/A Leitura pode salvar uma vida (Léia Cassol) - [Referente ao Ep 16].jpeg", link: "https://www.youtube.com/watch?v=v3B5L4TgGR8" },
+        { id: 17, season: 2, title: "Educação, Inclusão e Transição para o Ensino Superior (Mariângela Pozza)", desc: "Episódio 17", img: "thumbs/Educação, Inclusão e Transição (Mariângela Pozza) - [Referente ao Ep 17].jpeg", link: "https://www.youtube.com/watch?v=OCU17kT-xxw&t=25s" },
+        { id: 18, season: 2, title: "Inclusão que Transforma a Educação (Mariângela Pozza & Karla Wunder)", desc: "Episódio 18", img: "thumbs/Inclusão que Transforma a Educação - [Referente ao Ep 19].jpeg", link: "https://www.youtube.com/watch?v=LmUsirVP1iE" },
+        { id: 19, season: 2, title: "A Educação Está Adoecendo — Como Virar o Jogo (Mariângela Pozza)", desc: "Episódio 19", img: "thumbs/A Educação está adoecendo (E como virar o jogo) - [Referente ao Ep 15].jpeg", link: "https://www.youtube.com/watch?v=0m-9JNJ9dg0&t=12s" },
+        { id: 20, season: 2, title: "Primeira Infância — Brincar, Vínculo e Presença (João Luiz da Silva Rosa)", desc: "Episódio 20", img: "thumbs/1ª Infância Brincar, Vínculo e Presença (João Luiz) - [Referente ao Ep 20].jpeg", link: "http://www.youtube.com/watch?v=J_fMP73BW14" },
+        { id: 21, season: 2, title: "Menopausa sem Tabu (Márcia Selister)", desc: "Episódio 21", img: "thumbs/Menopausa sem Tabu! (Márcia Selister) - [Referente ao Ep 21].jpeg", link: "http://www.youtube.com/watch?v=L3E5qhV_emg" },
+        { id: 22, season: 2, title: "Educação Antirracista, Diversidade e Inclusão (Vanessa Deimling)", desc: "Episódio 22", img: "thumbs/Educação Antirracista (Diversidade e Inclusão) - [Referente ao Ep 12].jpeg", link: "https://www.youtube.com/watch?v=4y2rx9wcIdE&t=2s" },
+        { id: 23, season: 2, title: "Maternidade Atípica e Autismo — Parte 1 (Debora Saueressig)", desc: "Episódio 23", img: "thumbs/Maternidade Atípica Luta e Transformação - Parte 1 - [Referente ao Ep 23].jpeg", link: "https://www.youtube.com/watch?v=3P0Li3OZcyg" },
+        { id: 24, season: 2, title: "Maternidade Atípica e Autismo — Parte 2 (Debora Saueressig)", desc: "Episódio 24", img: "thumbs/Maternidade Atípica Autismo - Parte 2 - [Referente ao Ep 24].jpeg", link: "https://www.youtube.com/watch?v=EiQp6ojyM6s" },
+        { id: 25, season: 2, title: "Educação, Liderança e Inovação — Parte 1 (Cris Vieira)", desc: "Episódio 25", img: "thumbs/Educação, Liderança e Inovação - Parte 1 (Cris Vieira) - [Referente ao Ep 25].jpeg", link: "http://www.youtube.com/watch?v=zrL6AGN8fv4" },
+        { id: 26, season: 2, title: "Educação, Liderança e Inovação — Parte 2 (Cris Vieira)", desc: "Episódio 26", img: "thumbs/Educação, Liderança e Inovação - Parte 2 (Cris Vieira) - [Referente ao Ep 26].jpeg", link: "http://www.youtube.com/watch?v=-hu9Y1KPxFE" },
+        { id: 27, season: 2, title: "Carreira, Empreendedorismo e Direito Trabalhista (Catharine)", desc: "Episódio 27", img: "thumbs/Carreira, Empreendedorismo e Direito Trabalhista (Catharine) - [Referente ao Ep 27.jpeg", link: "http://www.youtube.com/watch?v=OeAHWnX10Q0" },
+        { id: 28, season: 2, title: "Experiência Lux (Larissa Brucki, Tati Brucki & Dani Barcellos)", desc: "Episódio 28", img: "thumbs/Experiência Lux Autoestima e Imagem - [Referente ao Ep 22].jpeg", link: "https://www.youtube.com/watch?v=gApYi0s7g6o" }
     ];
 
     const timelineTrack = document.querySelector('.timeline__track--episodes');
@@ -411,6 +411,15 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
+    // Card "Programa / Produção" — scroll suave via Locomotive
+    const cardEpisodes = document.querySelector('.eco-card--featured');
+    if (cardEpisodes) {
+        cardEpisodes.addEventListener('click', (e) => {
+            e.preventDefault();
+            scroll.scrollTo('#episodes');
+        });
+    }
+
     // --- 5. SCROLL REVEAL SYSTEM ---
     gsap.utils.toArray('.reveal-img, .reveal-text').forEach(el => {
         ScrollTrigger.create({
@@ -423,27 +432,18 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // FALLBACK: Se o ScrollTrigger não disparar (ex: no deploy em produção),
-    // revela todos os elementos após 3s para garantir que nada fique escondido
+    // revela todos os elementos após 2s para garantir que nada fique escondido
     setTimeout(() => {
         document.querySelectorAll('.reveal-img, .reveal-text').forEach(el => {
             el.classList.add('revealed');
         });
-        // Também revela elementos com data-scroll-class="revealed"
-        document.querySelectorAll('[data-scroll-class="revealed"]').forEach(el => {
+        // Também revela e garante visibilidade de elementos essenciais
+        document.querySelectorAll('[data-scroll-class="revealed"], .section-header, .about__text, .pillar-card, .commercial-card').forEach(el => {
             el.classList.add('revealed');
+            el.style.opacity = '1';
+            el.style.transform = 'none';
         });
-    }, 3000);
-
-    gsap.utils.toArray('.section-header').forEach(header => {
-        gsap.from(header, {
-            scrollTrigger: {
-                trigger: header,
-                scroller: '[data-scroll-container]',
-                start: 'top 85%',
-            },
-            y: 50, opacity: 0, duration: 1, ease: 'power3.out'
-        });
-    });
+    }, 2000);
 
     gsap.from('.about__text', {
         scrollTrigger: {
@@ -509,12 +509,8 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     };
-
-    if (document.readyState === 'complete') {
-        startApp();
-    } else {
-        window.addEventListener('load', startApp);
-    }
+    // Start immediately on DOMContentLoaded instead of waiting for heavy media loads
+    startApp();
 
     // Emergency Fallback
     setTimeout(() => {
