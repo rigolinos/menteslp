@@ -61,7 +61,7 @@ document.addEventListener('DOMContentLoaded', () => {
         { id: 5, season: 1, title: "Poder da Presença com Propósito — Cuidado que Transforma (Filipe Geyer)", desc: "Episódio 05", img: "thumbs/Poder da Presença com Propósito (Cuidado que transforma) - [Referente ao Ep 28].jpeg", link: "https://www.youtube.com/watch?v=wAnElgj8-II" },
         { id: 6, season: 1, title: "Educar com Amor e Criatividade (Fernanda Badia)", desc: "Episódio 06", img: "thumbs/Educar com Amor e Criatividade (Fernanda Badia) - [Referente ao Ep 6].jpeg", link: "http://www.youtube.com/watch?v=X8GFOMbq3uY" },
         { id: 7, season: 1, title: "Quando a Neurociência Encontra a Humanização — Uma Conversa Profunda (Dra. Rochele Paz)", desc: "Episódio 07", img: "thumbs/Quando a Neurociência encontra a Humanização - [Referente ao Ep 13].jpeg", link: "https://www.youtube.com/watch?v=lcmCLSFOto8&t=22s" },
-        { id: 8, season: 1, title: "Maternidade Atípica, Luta e Transformação Social (Beta Vargas)", desc: "Episódio 08", img: "img/mentes1.jpeg", link: "https://www.youtube.com/watch?v=n_pXpG4xLZc" },
+        { id: 8, season: 1, title: "Maternidade Atípica, Luta e Transformação Social (Beta Vargas)", desc: "Episódio 08", img: "thumbs/Maternidade Atípica Luta e Transformação - Parte 1 - [Referente ao Ep 23].jpeg", link: "https://www.youtube.com/watch?v=n_pXpG4xLZc" },
         { id: 9, season: 1, title: "Voluntariado que Cura — Histórias Reais do Esquadrão da Alegria (Esquadrão da Alegria)", desc: "Episódio 09", img: "thumbs/Voluntariado que Cura - Parte 1 (Esquadrão da Alegria) - [Referente ao Ep 4].jpeg", link: "https://www.youtube.com/watch?v=BoAKRgZgHJ8&t=2s" },
         { id: 10, season: 1, title: "Voluntariado que Cura — Histórias Reais do Esquadrão da Alegria — Parte 2 (Esquadrão da Alegria)", desc: "Episódio 10", img: "thumbs/Voluntariado que Cura - Parte 2 (Esquadrão da Alegria) - [Referente ao Ep 5].jpeg", link: "https://www.youtube.com/watch?v=IYqbKBwEz10&t=504s" },
         { id: 11, season: 1, title: "Empatia que Transforma — Saúde, Histórias e Propósito (Vanessa Leite)", desc: "Episódio 11", img: "thumbs/Empatia que Transforma (Saúde, Histórias e Propósito) - [Referente ao Ep 7].jpeg", link: "https://www.youtube.com/watch?v=0EaEkYPdQts&t=795s" },
@@ -78,7 +78,7 @@ document.addEventListener('DOMContentLoaded', () => {
         { id: 20, season: 2, title: "Primeira Infância — Brincar, Vínculo e Presença (João Luiz da Silva Rosa)", desc: "Episódio 20", img: "thumbs/1ª Infância Brincar, Vínculo e Presença (João Luiz) - [Referente ao Ep 20].jpeg", link: "http://www.youtube.com/watch?v=J_fMP73BW14" },
         { id: 21, season: 2, title: "Menopausa sem Tabu (Márcia Selister)", desc: "Episódio 21", img: "thumbs/Menopausa sem Tabu! (Márcia Selister) - [Referente ao Ep 21].jpeg", link: "http://www.youtube.com/watch?v=L3E5qhV_emg" },
         { id: 22, season: 2, title: "Educação Antirracista, Diversidade e Inclusão (Vanessa Deimling)", desc: "Episódio 22", img: "thumbs/Educação Antirracista (Diversidade e Inclusão) - [Referente ao Ep 12].jpeg", link: "https://www.youtube.com/watch?v=4y2rx9wcIdE&t=2s" },
-        { id: 23, season: 2, title: "Maternidade Atípica e Autismo — Parte 1 (Debora Saueressig)", desc: "Episódio 23", img: "thumbs/Maternidade Atípica Luta e Transformação - Parte 1 - [Referente ao Ep 23].jpeg", link: "https://www.youtube.com/watch?v=3P0Li3OZcyg" },
+        { id: 23, season: 2, title: "Maternidade Atípica e Autismo — Parte 1 (Debora Saueressig)", desc: "Episódio 23", img: "thumbs/Maternidade Atípica Autismo - Parte 2 - [Referente ao Ep 24].jpeg", link: "https://www.youtube.com/watch?v=3P0Li3OZcyg" },
         { id: 24, season: 2, title: "Maternidade Atípica e Autismo — Parte 2 (Debora Saueressig)", desc: "Episódio 24", img: "thumbs/Maternidade Atípica Autismo - Parte 2 - [Referente ao Ep 24].jpeg", link: "https://www.youtube.com/watch?v=EiQp6ojyM6s" },
         { id: 25, season: 2, title: "Educação, Liderança e Inovação — Parte 1 (Cris Vieira)", desc: "Episódio 25", img: "thumbs/Educação, Liderança e Inovação - Parte 1 (Cris Vieira) - [Referente ao Ep 25].jpeg", link: "http://www.youtube.com/watch?v=zrL6AGN8fv4" },
         { id: 26, season: 2, title: "Educação, Liderança e Inovação — Parte 2 (Cris Vieira)", desc: "Episódio 26", img: "thumbs/Educação, Liderança e Inovação - Parte 2 (Cris Vieira) - [Referente ao Ep 26].jpeg", link: "http://www.youtube.com/watch?v=-hu9Y1KPxFE" },
@@ -299,7 +299,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // SET INITIAL STATES IN JS (Safety)
-    gsap.set('.hero__line span', { y: '100%' });
+    gsap.set('.hero__line span', { y: '150%' });
     gsap.set('.header', { y: -100, opacity: 0 });
     // No mobile, não aplicamos scale no vídeo para evitar conflicts com CSS transforms
     if (!isMobile) {

@@ -118,7 +118,7 @@
                 </div>
                 <h1 class="hero__title">
                     <div data-scroll data-scroll-speed="1"><span class="hero__line"><span>Mentes Que</span></span></div>
-                    <div data-scroll data-scroll-speed="1"><span class="hero__line"><span class="gold logo-font"><span class="logo-font__char-i">I</span>nspiram<span class="hero__sparkle">✦</span></span></span></div>
+                    <div data-scroll data-scroll-speed="1" class="hero__row--logo"><span class="hero__line"><span class="gold logo-font"><span class="logo-font__char-i">I</span>nspiram<span class="hero__sparkle">✦</span></span></span></div>
                 </h1>
             </div>
             <!-- Scroll indicator fora do hero__inner para posicionar relativo ao .hero -->
@@ -166,47 +166,42 @@
                     O Mentes que Inspiram é mais do que um programa — é um ecossistema completo de produtos e experiências que reforçam o posicionamento estratégico da Vanessa como marca.
                 </p>
 
-                <!-- Featured: Programa / Produção -->
+                <!-- Ecossistema: Todos os cards como retângulos horizontais otimizados -->
                 <div class="ecossistema__grid">
+                    <!-- Programa / Produção -->
                     <a href="#episodes" class="eco-card eco-card--featured" data-scroll data-scroll-class="revealed" data-scroll-offset="10%">
                         <div class="eco-card__icon">
                             <i data-lucide="play-circle"></i>
                         </div>
-                        <div>
+                        <div class="eco-card__content">
                             <h3 class="eco-card__title">Programa / Produção</h3>
                             <p class="eco-card__subtitle">Espaço dedicado aos episódios completos do programa. Assista a todas as temporadas com entrevistas que unem educação, inclusão e desenvolvimento humano.</p>
                             <span class="eco-card__badge eco-card__badge--active">✦ Assistir Episódios</span>
                         </div>
                     </a>
 
-                    <!-- Livro -->
-                    <div class="eco-card" data-scroll data-scroll-class="revealed" data-scroll-offset="10%">
-                        <div class="eco-card__icon">
-                            <i data-lucide="book-open"></i>
-                        </div>
-                        <h3 class="eco-card__title">Livro</h3>
-                        <p class="eco-card__subtitle">Publicação que aprofunda os temas abordados no programa com reflexões e histórias inspiradoras.</p>
-                        <span class="eco-card__badge eco-card__badge--soon">Em breve</span>
-                    </div>
-
                     <!-- Educação e Cursos -->
                     <div class="eco-card" data-scroll data-scroll-class="revealed" data-scroll-offset="10%">
                         <div class="eco-card__icon">
                             <i data-lucide="graduation-cap"></i>
                         </div>
-                        <h3 class="eco-card__title">Educação e Cursos</h3>
-                        <p class="eco-card__subtitle">Formações e cursos voltados ao desenvolvimento profissional e pessoal com foco em educação e liderança.</p>
-                        <span class="eco-card__badge eco-card__badge--soon">Em breve</span>
+                        <div class="eco-card__content">
+                            <h3 class="eco-card__title">Educação e Cursos</h3>
+                            <p class="eco-card__subtitle">Formações e cursos voltados ao desenvolvimento profissional e pessoal com foco em educação e liderança.</p>
+                            <span class="eco-card__badge eco-card__badge--soon">Em breve</span>
+                        </div>
                     </div>
 
-                    <!-- Capacitação -->
+                    <!-- Livro -->
                     <div class="eco-card" data-scroll data-scroll-class="revealed" data-scroll-offset="10%">
                         <div class="eco-card__icon">
-                            <i data-lucide="award"></i>
+                            <i data-lucide="book-open"></i>
                         </div>
-                        <h3 class="eco-card__title">Capacitação</h3>
-                        <p class="eco-card__subtitle">Programas de capacitação para profissionais que desejam ampliar suas competências e impacto social.</p>
-                        <span class="eco-card__badge eco-card__badge--soon">Em breve</span>
+                        <div class="eco-card__content">
+                            <h3 class="eco-card__title">Livro</h3>
+                            <p class="eco-card__subtitle">Publicação que aprofunda os temas abordados no programa com reflexões e histórias inspiradoras.</p>
+                            <span class="eco-card__badge eco-card__badge--soon">Em breve</span>
+                        </div>
                     </div>
 
                     <!-- Consultorias -->
@@ -214,9 +209,23 @@
                         <div class="eco-card__icon">
                             <i data-lucide="briefcase"></i>
                         </div>
-                        <h3 class="eco-card__title">Consultorias</h3>
-                        <p class="eco-card__subtitle">Assessoria estratégica em comunicação, gestão educacional e posicionamento de marca com propósito.</p>
-                        <span class="eco-card__badge eco-card__badge--soon">Em breve</span>
+                        <div class="eco-card__content">
+                            <h3 class="eco-card__title">Consultorias</h3>
+                            <p class="eco-card__subtitle">Assessoria estratégica em comunicação, gestão educacional e posicionamento de marca com propósito.</p>
+                            <span class="eco-card__badge eco-card__badge--soon">Em breve</span>
+                        </div>
+                    </div>
+
+                    <!-- Capacitação -->
+                    <div class="eco-card" data-scroll data-scroll-class="revealed" data-scroll-offset="10%">
+                        <div class="eco-card__icon">
+                            <i data-lucide="award"></i>
+                        </div>
+                        <div class="eco-card__content">
+                            <h3 class="eco-card__title">Capacitação</h3>
+                            <p class="eco-card__subtitle">Programas de capacitação para profissionais que desejam ampliar suas competências e impacto social.</p>
+                            <span class="eco-card__badge eco-card__badge--soon">Em breve</span>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -301,10 +310,11 @@
             <div class="container">
                 <div class="spotify-cta__inner" data-scroll data-scroll-class="revealed" data-scroll-offset="20%">
                      <div class="spotify-cta__label-container">
-                         <p class="spotify-cta__label">Acompanhe o Programa</p>
+                          <p class="spotify-cta__label">Acompanhe o Programa</p>
                      </div>
-                     <h2 class="spotify-cta__title">Conversas profundas. Histórias reais. Ideias que geram transformação.<br>Educação, inclusão, desenvolvimento humano e impacto social em um só lugar.</h2>
-                     <a href="#" class="btn btn--outline mt-4" style="margin-bottom: 0.5rem;">Ouvir Episódios no Spotify</a>
+                     <h2 class="spotify-cta__title">Acompanhe o programa no Spotify</h2>
+                     <p class="spotify-cta__desc" style="color: var(--white-dim); font-size: 1.15rem; line-height: 1.6; max-width: 800px; margin: -1.2rem auto 2.5rem auto; font-family: var(--font-body);">Conversas profundas. Histórias reais. Ideias que geram transformação.<br>Educação, inclusão, desenvolvimento humano e impacto social em um só lugar.</p>
+                     <a href="#" class="btn btn--outline mt-4" style="margin-bottom: 0.5rem;">Ouça aqui</a>
                      <span style="color: var(--gold); font-size: 0.9rem; font-family: var(--font-body); display: block;">em breve</span>
                 </div>
             </div>
@@ -315,7 +325,7 @@
             <div class="container pt-gallery">
                 <div class="section-header" data-scroll data-scroll-class="revealed">
                     <span class="section-num">06 /</span>
-                    <h2 class="section-title reveal-text"><span>Bastidores</span></h2>
+                    <h2 class="section-title reveal-text"><span>Galeria</span></h2>
                 </div>
             </div>
             <div class="gallery__marquee">
@@ -342,43 +352,11 @@
             </div>
         </section>
 
-        <!-- Commercial Opportunities -->
-        <section class="commercial" data-scroll-section>
-            <div class="container">
-                <div class="section-header" data-scroll data-scroll-class="revealed">
-                    <span class="section-num">07 /</span>
-                    <h2 class="section-title reveal-text"><span>Parcerias</span></h2>
-                </div>
-                <div class="commercial__grid">
-                    <div class="commercial-card" data-scroll data-scroll-class="revealed" data-scroll-offset="10%">
-                        <i data-lucide="monitor"></i>
-                        <h4>Visibilidade Cenográfica</h4>
-                        <p>Inserção orgânica e sofisticada da sua marca no cenário e em elements visuais do programa.</p>
-                    </div>
-                    <div class="commercial-card" data-scroll data-scroll-class="revealed" data-scroll-offset="10%">
-                        <i data-lucide="message-square-quote"></i>
-                        <h4>Citação Institucional</h4>
-                        <p>Menção qualificada da apresentadora durante o conteúdo de maior retenção.</p>
-                    </div>
-                    <div class="commercial-card" data-scroll data-scroll-class="revealed" data-scroll-offset="10%">
-                        <i data-lucide="share-2"></i>
-                        <h4>Conteúdo Multiplataforma</h4>
-                        <p>Exposição estendida nos cortes, reels, chamadas e cards de alta performance no Instagram/YouTube.</p>
-                    </div>
-                    <div class="commercial-card" data-scroll data-scroll-class="revealed" data-scroll-offset="10%">
-                        <i data-lucide="handshake"></i>
-                        <h4>Parcerias Personalizadas</h4>
-                        <p>Projetos, quadros ou episódios especiais desenhados conforme o objetivo estratégico da sua marca.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
         <!-- Performance Dashboard -->
         <section id="performance" class="perf-dashboard" data-scroll-section>
             <div class="container">
                 <div class="section-header" data-scroll data-scroll-class="revealed">
-                    <span class="section-num">08 /</span>
+                    <span class="section-num">07 /</span>
                     <h2 class="section-title reveal-text"><span>Performance</span></h2>
                 </div>
 
@@ -493,6 +471,38 @@
                         <div class="perf-card__growth">
                             <i data-lucide="trending-up"></i> +55% de Engajamento
                         </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Commercial Opportunities -->
+        <section class="commercial" data-scroll-section>
+            <div class="container">
+                <div class="section-header" data-scroll data-scroll-class="revealed">
+                    <span class="section-num">08 /</span>
+                    <h2 class="section-title reveal-text"><span>Parcerias</span></h2>
+                </div>
+                <div class="commercial__grid">
+                    <div class="commercial-card" data-scroll data-scroll-class="revealed" data-scroll-offset="10%">
+                        <i data-lucide="monitor"></i>
+                        <h4>Visibilidade Cenográfica</h4>
+                        <p>Inserção orgânica e sofisticada da sua marca no cenário e em elements visuais do programa.</p>
+                    </div>
+                    <div class="commercial-card" data-scroll data-scroll-class="revealed" data-scroll-offset="10%">
+                        <i data-lucide="message-square-quote"></i>
+                        <h4>Citação Institucional</h4>
+                        <p>Menção qualificada da apresentadora durante o conteúdo de maior retenção.</p>
+                    </div>
+                    <div class="commercial-card" data-scroll data-scroll-class="revealed" data-scroll-offset="10%">
+                        <i data-lucide="share-2"></i>
+                        <h4>Conteúdo Multiplataforma</h4>
+                        <p>Exposição estendida nos cortes, reels, chamadas e cards de alta performance no Instagram/YouTube.</p>
+                    </div>
+                    <div class="commercial-card" data-scroll data-scroll-class="revealed" data-scroll-offset="10%">
+                        <i data-lucide="handshake"></i>
+                        <h4>Parcerias Personalizadas</h4>
+                        <p>Projetos, quadros ou episódios especiais desenhados conforme o objetivo estratégico da sua marca.</p>
                     </div>
                 </div>
             </div>

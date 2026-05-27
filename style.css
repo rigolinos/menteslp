@@ -328,7 +328,7 @@ h1, h2, h3, h4, .logo-text, .nav-link {
     display: block;
     overflow: hidden;
     line-height: 1.05;
-    padding-bottom: 0;
+    padding: 0.15em 0.15em; /* Abre espaço vertical de segurança para evitar corte de fontes como a cauda do 'Q' */
 }
 
 .hero__line span {
@@ -427,6 +427,7 @@ h1, h2, h3, h4, .logo-text, .nav-link {
     color: var(--white-dim);
     margin-bottom: 4rem;
     max-width: 500px;
+    text-align: justify;
 }
 
 .host__actions {
@@ -1263,30 +1264,28 @@ h1, h2, h3, h4, .logo-text, .nav-link {
 }
 
 /* === NEW STYLES === */
+.hero__row--logo {
+    margin-top: -0.22em; /* Aproxima a segunda linha inteira da primeira, sem causar clipping no texto */
+}
+
 .logo-font {
     font-family: var(--font-script);
     text-transform: none;
-    font-size: 1.25em;
+    font-size: 1.85em; /* Reduzido levemente para caber confortavelmente e equilibrar a marca */
     font-weight: 400;
     display: inline-block;
-    line-height: 1.5;
-    padding: 0.1em 0.25em; /* Added horizontal padding to prevent calligraphic flourishes from being cut off by overflow:hidden parents */
+    line-height: 0.95; /* Aproximação vertical perfeita */
+    margin-top: 0; /* Zerado! A aproximação agora é feita no contêiner externo (.hero__row--logo) para evitar clipping */
+    padding: 0.22em 0.25em; /* Aumentado o padding vertical de segurança para total conforto da fonte calligráfica */
 }
 
-/* Custom Calligraphic Dot for the capital letter I */
+/* Custom Calligraphic Dot for the capital letter I (Removed per user request) */
 .logo-font__char-i {
     position: relative;
     display: inline-block;
 }
 .logo-font__char-i::after {
-    content: '·'; /* Elegant calligraphic dot in Great Vibes */
-    position: absolute;
-    top: -0.15em;
-    left: 65%;
-    transform: translateX(-50%);
-    font-size: 1.1em;
-    color: var(--gold);
-    pointer-events: none;
+    display: none; /* Bolinha removida para conversar melhor com a marca */
 }
 
 /* Hero Sparkle Star */
@@ -1508,27 +1507,28 @@ h1, h2, h3, h4, .logo-text, .nav-link {
 }
 
 .ecossistema__grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
 }
 
 .eco-card {
-    background: var(--bg-card);
-    border: 1px solid rgba(255, 255, 255, 0.06);
+    background: rgba(11, 19, 43, 0.4);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.05);
     border-radius: 16px;
-    padding: 3rem 2.5rem;
+    padding: 2.2rem 3rem;
     display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 1.2rem;
-    transition: all 0.5s var(--transition);
+    flex-direction: row;
+    align-items: center;
+    gap: 3rem;
+    transition: all 0.4s var(--transition);
     position: relative;
     overflow: hidden;
     cursor: pointer;
     text-decoration: none;
     color: var(--white);
-    min-height: 220px;
+    width: 100%;
 }
 
 .eco-card::before {
@@ -1541,7 +1541,7 @@ h1, h2, h3, h4, .logo-text, .nav-link {
     background: linear-gradient(90deg, var(--gold), var(--gold-light));
     transform: scaleX(0);
     transform-origin: left;
-    transition: transform 0.5s var(--transition);
+    transition: transform 0.4s var(--transition);
 }
 
 .eco-card:hover::before {
@@ -1549,40 +1549,59 @@ h1, h2, h3, h4, .logo-text, .nav-link {
 }
 
 .eco-card:hover {
-    border-color: rgba(212, 175, 55, 0.3);
-    transform: translateY(-8px);
-    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    background: rgba(224, 179, 86, 0.03);
+    border-color: rgba(224, 179, 86, 0.25);
+    transform: translateY(-4px);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4), 0 5px 15px rgba(224, 179, 86, 0.05);
 }
 
 .eco-card__icon {
-    width: 56px;
-    height: 56px;
+    width: 64px;
+    height: 64px;
     background: rgba(212, 175, 55, 0.08);
     border: 1px solid rgba(212, 175, 55, 0.2);
     border-radius: 12px;
     display: flex;
     align-items: center;
     justify-content: center;
+    flex-shrink: 0;
+    transition: all 0.4s var(--transition);
+}
+
+.eco-card:hover .eco-card__icon {
+    background: rgba(212, 175, 55, 0.15);
+    border-color: var(--gold);
+    transform: scale(1.05);
 }
 
 .eco-card__icon svg,
 .eco-card__icon i {
-    width: 28px;
-    height: 28px;
+    width: 30px;
+    height: 30px;
     color: var(--gold);
+}
+
+.eco-card__content {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+    width: 100%;
 }
 
 .eco-card__title {
     font-family: var(--font-title);
-    font-size: 1.5rem;
+    font-size: 1.4rem;
     color: var(--white);
     font-weight: 700;
+    letter-spacing: 0.05em;
 }
 
 .eco-card__subtitle {
-    font-size: 0.9rem;
+    font-size: 0.95rem;
     color: var(--white-dim);
     line-height: 1.5;
+    max-width: 850px;
 }
 
 .eco-card__badge {
@@ -1596,7 +1615,7 @@ h1, h2, h3, h4, .logo-text, .nav-link {
     letter-spacing: 0.1em;
     text-transform: uppercase;
     font-family: var(--font-body);
-    margin-top: auto;
+    margin-top: 0.5rem;
 }
 
 .eco-card__badge--active {
@@ -1611,46 +1630,24 @@ h1, h2, h3, h4, .logo-text, .nav-link {
     border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-.eco-card--featured {
-    grid-column: 1 / -1;
-    max-width: 100%;
-    background: linear-gradient(135deg, var(--bg-card) 0%, rgba(212, 175, 55, 0.05) 100%);
-    border-color: rgba(212, 175, 55, 0.15);
-    flex-direction: row;
-    align-items: center;
-    gap: 3rem;
-    padding: 3rem;
-}
-
-.eco-card--featured .eco-card__icon {
-    width: 72px;
-    height: 72px;
-    flex-shrink: 0;
-}
-
-.eco-card--featured .eco-card__icon svg,
-.eco-card--featured .eco-card__icon i {
-    width: 36px;
-    height: 36px;
-}
-
 @media (max-width: 991px) {
-    .ecossistema__grid {
-        grid-template-columns: 1fr 1fr;
-    }
-    .eco-card--featured {
+    .eco-card {
         flex-direction: column;
         align-items: flex-start;
+        gap: 1.5rem;
+        padding: 2.5rem 2rem;
     }
 }
 
 @media (max-width: 576px) {
-    .ecossistema__grid {
-        grid-template-columns: 1fr;
-    }
     .eco-card {
-        min-height: auto;
         padding: 2rem 1.5rem;
+    }
+    .eco-card__title {
+        font-size: 1.2rem;
+    }
+    .eco-card__subtitle {
+        font-size: 0.85rem;
     }
 }
 
