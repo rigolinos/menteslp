@@ -305,11 +305,19 @@ document.addEventListener('DOMContentLoaded', () => {
     if (!isMobile) {
         gsap.set('.hero__bg img, .hero__bg video', { scale: 1.2 });
     }
+    // Estado inicial do cérebro no hero: invisível, pequeno, inclinado em 3D
+    gsap.set('.hero__brain-wrap', {
+        opacity: 0,
+        scale: 0.15,
+        rotationX: 30,
+        transformPerspective: 900,
+        transformOrigin: 'center center'
+    });
 
-    // --- 2. PRELOADER ANIMATION ---
+    // --- 2. PRELOADER ANIMATION (original) ---
     const initPreloader = () => {
         const tl = gsap.timeline();
-        
+
         tl.to('.preloader__word', {
             y: 0,
             duration: 1,
@@ -332,33 +340,41 @@ document.addEventListener('DOMContentLoaded', () => {
         }, '-=0.5');
     };
 
-    // --- 3. HERO ANIMATION ---
+    // --- 3. HERO ANIMATION — Logo Slide-up Reveal ---
     const initHeroAnimation = () => {
         const tl = gsap.timeline();
 
-        tl.to('.hero__line span', {
-            y: 0,
-            duration: 1.5,
-            stagger: 0.2,
-            ease: 'expo.out'
+        // Logo slides up from under the overflow mask
+        tl.to('.hero__logo-svg', {
+            y: '0%',
+            duration: 1.6,
+            ease: 'power4.out',
+            onComplete: () => {
+                const logoSvg = document.querySelector('.hero__logo-svg');
+                if (logoSvg) {
+                    logoSvg.classList.add('hero__logo-svg--floating');
+                }
+            }
         });
 
-        // Só anima zoom no desktop — no mobile o vídeo já está fixo sem transforms
+        // Zoom out do vídeo/imagem de fundo (desktop)
         if (!isMobile) {
             tl.to('.hero__bg img, .hero__bg video', {
                 scale: 1,
                 duration: 2.5,
                 ease: 'expo.out'
-            }, '-=1.2');
+            }, '-=1.8');
         }
 
+        // Header desce
         tl.to('.header', {
             y: 0,
             opacity: 1,
             duration: 1,
             ease: 'power3.out'
-        }, isMobile ? '-=1.2' : '-=1.5');
+        }, isMobile ? '-=1.2' : '-=2');
 
+        // Label e scroll indicator aparecem
         tl.from('.hero__label, .hero__footer', {
             opacity: 0,
             y: 30,
