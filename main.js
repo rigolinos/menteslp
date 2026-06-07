@@ -387,7 +387,7 @@
             frame.classList.remove('visible');
             setTimeout(() => frame.classList.add('visible'), 400);
         }
-        document.querySelectorAll('.scene-pillar').forEach((el, i) => {
+        document.querySelectorAll('#scene-program .trait').forEach((el, i) => {
             el.classList.remove('visible');
             setTimeout(() => el.classList.add('visible'), 200 + i * 200);
         });
@@ -729,44 +729,66 @@
     // ── Scene 3: Program (crystal + dark overlay) ─
     function drawProgram(p) {
         const isDesktop = W > 900;
-        const cx = isDesktop ? W * 0.32 : W / 2;
-        const cy = H/2;
+        
+        // Define dynamic centers for double octagons
+        const cxLeft  = isDesktop ? W * 0.28 : W / 2;
+        const cyLeft  = isDesktop ? H / 2   : H * 0.28;
+        
+        const cxRight = isDesktop ? W * 0.72 : W / 2;
+        const cyRight = isDesktop ? H / 2   : H * 0.72;
+        
         const R  = Math.min(W,H)*.22;
         const grow = smooth(0,.6,p);
+        
+        // Dynamic scale pulse
+        const pulse = 1 + Math.sin(time * 2.2) * 0.05;
 
-        ctx.save();
-        ctx.translate(cx,cy);
-        const sides = 6;
-        ctx.beginPath();
-        for (let i=0; i<sides; i++) {
-            const a = (i/sides)*Math.PI*2-Math.PI/6;
-            const r = R*grow*(1+Math.sin(time*.8+i)*.015);
-            i===0?ctx.moveTo(Math.cos(a)*r,Math.sin(a)*r):ctx.lineTo(Math.cos(a)*r,Math.sin(a)*r);
-        }
-        ctx.closePath();
-        ctx.strokeStyle = `rgba(201,168,76,${grow*.5})`;
-        ctx.lineWidth = 1.5;
-        ctx.stroke();
-
-        const inner = R*.55*grow;
-        for (let i=0; i<sides; i++) {
-            const a=(i/sides)*Math.PI*2-Math.PI/6;
+        function drawSingleOctagon(cx, cy) {
+            ctx.save();
+            ctx.translate(cx, cy);
+            const sides = 8; // True Octagon
+            
+            // Draw outer octagon
             ctx.beginPath();
-            ctx.moveTo(0,0);
-            ctx.lineTo(Math.cos(a)*inner,Math.sin(a)*inner);
-            ctx.strokeStyle=`rgba(107,63,160,${grow*.35})`;
-            ctx.lineWidth=.7;
+            for (let i=0; i<sides; i++) {
+                const a = (i/sides)*Math.PI*2 - Math.PI/8;
+                const r = R * grow * pulse * (1 + Math.sin(time*.8+i)*.015);
+                i===0?ctx.moveTo(Math.cos(a)*r,Math.sin(a)*r):ctx.lineTo(Math.cos(a)*r,Math.sin(a)*r);
+            }
+            ctx.closePath();
+            ctx.strokeStyle = `rgba(201,168,76,${grow*.5})`;
+            ctx.lineWidth = 1.5;
             ctx.stroke();
+
+            // Draw inner rays
+            const inner = R*.55*grow*pulse;
+            for (let i=0; i<sides; i++) {
+                const a=(i/sides)*Math.PI*2 - Math.PI/8;
+                ctx.beginPath();
+                ctx.moveTo(0,0);
+                ctx.lineTo(Math.cos(a)*inner,Math.sin(a)*inner);
+                ctx.strokeStyle=`rgba(107,63,160,${grow*.35})`;
+                ctx.lineWidth=.7;
+                ctx.stroke();
+            }
+
+            // Central glow
+            const cG = ctx.createRadialGradient(0,0,0,0,0,R*.25*grow);
+            cG.addColorStop(0,`rgba(201,168,76,${grow*.6})`);
+            cG.addColorStop(1,'rgba(0,0,0,0)');
+            ctx.fillStyle=cG;
+            ctx.beginPath();
+            ctx.arc(0,0,R*.25*grow,0,Math.PI*2);
+            ctx.fill();
+            
+            ctx.restore();
         }
 
-        const cG = ctx.createRadialGradient(0,0,0,0,0,R*.25*grow);
-        cG.addColorStop(0,`rgba(201,168,76,${grow*.6})`);
-        cG.addColorStop(1,'rgba(0,0,0,0)');
-        ctx.fillStyle=cG;
-        ctx.beginPath();
-        ctx.arc(0,0,R*.25*grow,0,Math.PI*2);
-        ctx.fill();
-        ctx.restore();
+        // Draw left octagon (behind text)
+        drawSingleOctagon(cxLeft, cyLeft);
+        
+        // Draw right octagon (behind video)
+        drawSingleOctagon(cxRight, cyRight);
     }
 
     // ── Canvas Icon Drawers ───────────────────────
