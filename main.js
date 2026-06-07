@@ -39,7 +39,8 @@
     brainImage.src = 'img/logo-brain.svg';
 
     function resizeCanvas() {
-        DPR = Math.min(window.devicePixelRatio || 1, 2);
+        const isMobile = window.innerWidth < 768;
+        DPR = isMobile ? 1.0 : Math.min(window.devicePixelRatio || 1, 1.5);
         W   = window.innerWidth;
         H   = window.innerHeight;
         canvas.width  = W * DPR;
@@ -64,7 +65,8 @@
         });
         return p;
     }
-    const dust = makeDust(160);
+    const isMobileDevice = window.innerWidth < 768;
+    const dust = makeDust(isMobileDevice ? 60 : 150);
 
     // ── Network Nodes (Ecossistema) ───────────────
     const NODE_DATA = [
@@ -263,6 +265,23 @@
             if (currentScene >= 0 && scenes[currentScene]) scenes[currentScene].classList.remove('active');
             if (scenes[idx]) scenes[idx].classList.add('active');
             currentScene = idx;
+
+            // Pause/Play videos dynamically to save mobile CPU/GPU
+            const s1Video = document.querySelector('#scene-woman .scene-bg-video');
+            if (s1Video) {
+                if (idx === 1) {
+                    s1Video.play().catch(() => {});
+                } else {
+                    s1Video.pause();
+                }
+            }
+            if (programVideo) {
+                if (idx === 3) {
+                    programVideo.play().catch(() => {});
+                } else {
+                    programVideo.pause();
+                }
+            }
 
             if (preloaderFinished) {
                 if (idx === 0 && !typewriterDone) initTypewriter();

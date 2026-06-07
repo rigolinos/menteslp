@@ -274,6 +274,7 @@ img { display: block; width: 100%; }
     opacity: 0;
     pointer-events: none;
     transition: none;
+    will-change: opacity;
 }
 .story-scene.active { pointer-events: auto; }
 
@@ -281,6 +282,14 @@ img { display: block; width: 100%; }
     width: 100%;
     max-width: 1200px;
     padding: 0 5vw;
+    will-change: transform, opacity;
+    transform: translate3d(0, 0, 0);
+    max-height: 92vh;
+    overflow-y: auto;
+    scrollbar-width: none;
+}
+.scene-inner::-webkit-scrollbar {
+    display: none;
 }
 
 .scene-center {
@@ -1478,5 +1487,70 @@ img { display: block; width: 100%; }
 @keyframes preloader-logo-pulse {
     0% { opacity: 0.3; transform: scale(0.96); filter: drop-shadow(0 0 10px rgba(201,168,76,0.1)); }
     100% { opacity: 0.85; transform: scale(1.02); filter: drop-shadow(0 0 30px rgba(201,168,76,0.4)); }
+}
+
+
+/* ── Height-based Responsive Scale Downs ── */
+@media (max-height: 750px) {
+    .scene-inner {
+        padding: 0 4vw;
+    }
+    .scene-title {
+        font-size: clamp(1.8rem, 3.5vw, 2.75rem);
+    }
+    .scene-quote {
+        font-size: clamp(1rem, 1.8vw, 1.25rem);
+        max-width: 600px;
+    }
+    .scene-list li {
+        font-size: 1.1rem;
+        gap: 0.6rem;
+    }
+    .scene-pillars {
+        gap: 1.2rem;
+    }
+    .scene-pillar {
+        font-size: 0.9rem;
+    }
+    .trait {
+        font-size: 0.95rem;
+    }
+    .scene-video-frame {
+        max-width: 420px;
+    }
+    .metric-card {
+        padding: 1.2rem;
+        width: 230px;
+        gap: 0.8rem;
+    }
+    .metric-stat__val {
+        font-size: 1.35rem;
+    }
+}
+
+@media (max-height: 580px) {
+    .scene-inner {
+        padding: 0 3vw;
+    }
+    .scene-title {
+        font-size: clamp(1.5rem, 3vw, 2.2rem);
+    }
+    .scene-quote {
+        font-size: 0.95rem;
+        max-width: 500px;
+    }
+    .scene-list li {
+        font-size: 0.95rem;
+        gap: 0.4rem;
+    }
+    .scene-pillar {
+        font-size: 0.8rem;
+    }
+    .trait {
+        font-size: 0.85rem;
+    }
+    .scene-video-frame {
+        max-width: 320px;
+    }
 }
 
