@@ -1,0 +1,278 @@
+---
+import { ViewTransitions } from 'astro:transitions';
+import '../styles/global.css';
+
+import EcosystemHub from '../components/EcosystemHub.astro';
+import Programa from '../components/overlays/Programa.astro';
+import Cursos from '../components/overlays/Cursos.astro';
+import Livro from '../components/overlays/Livro.astro';
+import Eventos from '../components/overlays/Eventos.astro';
+import Consultoria from '../components/overlays/Consultoria.astro';
+import MediaKit from '../components/overlays/MediaKit.astro';
+---
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mentes que Inspiram — Vanessa Sanceverino Esteves</title>
+    <meta name="description" content="Mentes que Inspiram — Um ecossistema de conversas, educação, inclusão e transformação social com Vanessa Sanceverino Esteves.">
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+    <!-- GSAP -->
+    <script is:inline src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script is:inline src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+
+    <!-- Lucide Icons -->
+    <script is:inline src="https://unpkg.com/lucide@latest"></script>
+
+    <!-- Vanilla CSS (Legacy) - Global, not scoped, to preserve Scrollytelling exactly as it was -->
+    <link rel="stylesheet" href="/legacy.css">
+
+    <ViewTransitions />
+</head>
+<body class="loading">
+
+<!-- PRELOADER PREMIUM -->
+<div id="preloader">
+    <div class="preloader__bg"></div>
+    <div class="preloader__content">
+        <div class="preloader__logo-wrap">
+            <img src="/img/Logo principal-clean.svg" alt="Mentes que Inspiram" class="preloader__logo">
+        </div>
+        <div class="preloader__progress">
+            <div class="preloader__bar"></div>
+        </div>
+        <p class="preloader__caption">Preparando a experiência</p>
+    </div>
+</div>
+
+<!-- Canvas de fundo animado -->
+<canvas id="mentes-canvas" transition:persist="canvas"></canvas>
+
+<!-- Altura virtual para controlar o scroll das cenas -->
+<div id="scroll-driver"></div>
+
+<!-- Scroll Tracker Lateral Premium -->
+<nav id="scroll-tracker" aria-label="Progresso da narrativa">
+    <div class="tracker-rail">
+        <div class="tracker-dot active" data-scene="0"><span class="tracker-dot__label">Início</span></div>
+        <div class="tracker-dot" data-scene="1"><span class="tracker-dot__label">A Mulher</span></div>
+        <div class="tracker-dot" data-scene="2"><span class="tracker-dot__label">A Conversa</span></div>
+        <div class="tracker-dot" data-scene="3"><span class="tracker-dot__label">O Programa</span></div>
+        <div class="tracker-dot" data-scene="4"><span class="tracker-dot__label">O Ecossistema</span></div>
+        <div class="tracker-dot" data-scene="5"><span class="tracker-dot__label">A Audiência</span></div>
+        <div class="tracker-dot" data-scene="6"><span class="tracker-dot__label">As Marcas</span></div>
+        <div class="tracker-dot" data-scene="7"><span class="tracker-dot__label">O Convite</span></div>
+    </div>
+</nav>
+
+<!-- Wrapper das cenas em overlay fixo -->
+<div id="story-wrapper">
+
+    <!-- CENA 0: Hero -->
+    <section class="story-scene" data-scene="0" id="scene-hero">
+        <div class="scene-inner scene-center">
+            <div class="scene-logo-wrap">
+                <img src="/img/Logo principal-clean.svg" class="story-logo" alt="Mentes que Inspiram">
+            </div>
+            <div class="scene-tagline">
+                <p class="tagline-line" id="tagline-1"></p>
+                <p class="tagline-line" id="tagline-2"></p>
+            </div>
+            <div class="scroll-hint">
+                <div class="scroll-hint__line"></div>
+                <span>scroll</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- CENA 1: A Mulher -->
+    <section class="story-scene" data-scene="1" id="scene-woman">
+        <!-- Video 2 em P&B como fundo da cena -->
+        <video class="scene-bg-video" autoplay muted loop playsinline>
+            <source src="/img/2.mp4" type="video/mp4">
+        </video>
+        <div class="scene-inner scene-split">
+            <div class="scene-text-col">
+                <span class="scene-num">01 /</span>
+                <h2 class="scene-title">Uma mulher<br><em>com uma causa.</em></h2>
+                <div class="scene-traits">
+                    <span class="trait">Gestora educacional</span>
+                    <span class="trait">Comunicadora</span>
+                    <span class="trait">Mãe atípica</span>
+                    <span class="trait">Curadora de um movimento</span>
+                </div>
+            </div>
+            <div class="scene-photo-col">
+                <div class="scene-photo-frame">
+                    <img src="/img/mentes10.jpeg" alt="Vanessa Sanceverino Esteves" class="scene-photo">
+                    <div class="scene-photo-vignette"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CENA 2: A Conversa -->
+    <section class="story-scene" data-scene="2" id="scene-talk">
+        <div class="scene-inner scene-center">
+            <span class="scene-num">02 /</span>
+            <h2 class="scene-title scene-title--large">Uma conversa<br><em>que vira impacto.</em></h2>
+            <blockquote class="scene-quote">
+                "O programa nasce da escuta, mas se expande<br>
+                para educação, inclusão, desenvolvimento humano<br>
+                e transformação social."
+            </blockquote>
+        </div>
+    </section>
+
+    <!-- CENA 3: O Programa -->
+    <section class="story-scene" data-scene="3" id="scene-program">
+        <div class="scene-inner scene-split">
+            <div class="scene-text-col">
+                <span class="scene-num">03 /</span>
+                <h2 class="scene-title">O programa que<br><em>começou tudo.</em></h2>
+                <div class="scene-traits">
+                    <span class="trait">Educação</span>
+                    <span class="trait">Inclusão</span>
+                    <span class="trait">Desenvolvimento Humano</span>
+                </div>
+            </div>
+            <div class="scene-video-col">
+                <div class="scene-video-frame">
+                    <video id="program-video" autoplay muted loop playsinline>
+                        <source src="/img/1.mp4" type="video/mp4">
+                    </video>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CENA 4: O Ecossistema (Substituído pelo novo EcosystemHub) -->
+    <EcosystemHub />
+
+    <!-- Overlays Container (Approach B Hybrid) -->
+    <div id="overlays-container" class="fixed inset-0 z-50 pointer-events-none opacity-0 bg-black/90 flex flex-col pt-24 px-8 overflow-y-auto">
+        <!-- Botão Fechar -->
+        <button id="close-overlay" class="fixed top-8 right-8 text-white hover:text-[#D4AF37] transition-colors pointer-events-auto">
+            <i data-lucide="x" class="w-8 h-8"></i>
+        </button>
+
+        <!-- Conteúdos Estáticos de cada Overlay -->
+        <div id="overlay-content" class="max-w-5xl w-full mx-auto pb-24 text-white">
+            <div id="overlay-content-programa" class="overlay-section hidden">
+                <Programa />
+            </div>
+            <div id="overlay-content-cursos" class="overlay-section hidden">
+                <Cursos />
+            </div>
+            <div id="overlay-content-livro" class="overlay-section hidden">
+                <Livro />
+            </div>
+            <div id="overlay-content-eventos" class="overlay-section hidden">
+                <Eventos />
+            </div>
+            <div id="overlay-content-consultoria" class="overlay-section hidden">
+                <Consultoria />
+            </div>
+            <div id="overlay-content-mediakit" class="overlay-section hidden">
+                <MediaKit />
+            </div>
+        </div>
+    </div>
+
+    <!-- CENA 5: A Audiência -->
+    <section class="story-scene" data-scene="5" id="scene-metrics">
+        <div class="scene-inner scene-center">
+            <span class="scene-num">05 /</span>
+            <h2 class="scene-title">Audiência qualificada &<br><em>alto engajamento.</em></h2>
+            
+            <div class="scene-metrics">
+                <div class="metric-card">
+                    <div class="metric-card__header">
+                        <div class="metric-card__icon metric-card__icon--yt"><i data-lucide="youtube"></i></div>
+                        <div class="metric-card__platform">YouTube</div>
+                    </div>
+                    <div class="metric-card__stats">
+                        <div class="metric-stat">
+                            <span class="metric-stat__val" data-target="225000" data-format="k">0</span>
+                            <span class="metric-stat__lbl">Visualizações</span>
+                        </div>
+                        <div class="metric-stat">
+                            <span class="metric-stat__val" data-target="8000" data-format="k">0</span>
+                            <span class="metric-stat__lbl">Horas Assistidas</span>
+                        </div>
+                    </div>
+                    <div class="metric-card__badge"><i data-lucide="arrow-up-right"></i> +61% Visualizações</div>
+                </div>
+
+                <div class="metric-card">
+                    <div class="metric-card__header">
+                        <div class="metric-card__icon metric-card__icon--ig"><i data-lucide="instagram"></i></div>
+                        <div class="metric-card__platform">Instagram</div>
+                    </div>
+                    <div class="metric-card__stats">
+                        <div class="metric-stat">
+                            <span class="metric-stat__val" data-target="876000" data-format="k">0</span>
+                            <span class="metric-stat__lbl">Alcance Total</span>
+                        </div>
+                        <div class="metric-stat">
+                            <span class="metric-stat__val" data-target="34000" data-format="k">0</span>
+                            <span class="metric-stat__lbl">Interações</span>
+                        </div>
+                    </div>
+                    <div class="metric-card__badge"><i data-lucide="users"></i> Público Qualificado</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CENA 6: As Marcas -->
+    <section class="story-scene" data-scene="6" id="scene-sponsors">
+        <div class="scene-inner scene-center">
+            <span class="scene-num">06 /</span>
+            <h2 class="scene-title">Marcas que acreditam<br><em>no poder das ideias.</em></h2>
+            <p class="scene-body">
+                O Mentes que Inspiram tornou-se uma plataforma<br>
+                com alto potencial de associação institucional.
+            </p>
+        </div>
+    </section>
+
+    <!-- CENA 7: O Convite -->
+    <section class="story-scene" data-scene="7" id="scene-cta">
+        <div class="scene-inner scene-center">
+            <h2 class="scene-title scene-title--cta">Faça parte<br><em>dessa história.</em></h2>
+            <div class="scene-ctas">
+                <a href="https://youtube.com/@ProgramaMentesqueInspiram" target="_blank" rel="noopener" class="cta-pill cta-pill--gold" id="cta-episodes">Assista aos Episódios</a>
+                <a href="mailto:comercial@mentesqueinspiram.com" class="cta-pill cta-pill--outline" id="cta-partner">Seja uma Marca Parceira</a>
+                <a href="mailto:comercial@mentesqueinspiram.com" class="cta-pill cta-pill--outline" id="cta-invite">Convide Vanessa</a>
+            </div>
+        </div>
+    </section>
+
+</div><!-- /story-wrapper -->
+
+<!-- Noise overlay -->
+<div class="noise"></div>
+
+<!-- Carregamento do JS Vanilla adaptado para ViewTransitions -->
+<script is:inline src="/main.js"></script>
+<script is:inline src="/scripts/overlays.js"></script>
+<script is:inline>
+    // Repassa o ciclo de vida do Astro para reativar o GSAP caso haja transição de tela
+    document.addEventListener('astro:page-load', () => {
+        if(typeof window.initScrollytelling === 'function') {
+            window.initScrollytelling();
+        }
+        lucide.createIcons();
+    });
+</script>
+</body>
+</html>

@@ -1,0 +1,28 @@
+[
+  {
+    "category": "Gestão Educacional",
+    "tag": "Mais Vendido",
+    "title": "Liderança com Propósito",
+    "subtitle": "Estratégias avançadas para gestores",
+    "description": "Aprenda a construir um ambiente escolar colaborativo, focado no desenvolvimento humano e na excelência acadêmica.",
+    "duration": "40h",
+    "link": "#"
+  },
+  {
+    "category": "Práticas Pedagógicas",
+    "tag": "Novo",
+    "title": "Neurociência na Sala de Aula",
+    "subtitle": "Como o cérebro aprende",
+    "description": "Entenda os mecanismos neurobiológicos da aprendizagem e aplique estratégias práticas para engajar seus alunos.",
+    "duration": "20h",
+    "link": "#"
+  },
+  {
+    "category": "Desenvolvimento Pessoal",
+    "title": "Inteligência Emocional",
+    "subtitle": "Para educadores e pais",
+    "description": "Desenvolva habilidades socioemocionais para lidar com os desafios diários da educação e criar relações mais saudáveis.",
+    "duration": "15h",
+    "link": "#"
+  }
+]

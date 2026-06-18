@@ -1,0 +1,82 @@
+---
+import courses from '../../data/courses.json';
+---
+
+<div class="space-y-12">
+  <div class="border-b border-[#D4AF37]/20 pb-6">
+    <p class="font-serif text-[#D4AF37] italic text-xl mb-2">Desenvolvimento & Capacitação</p>
+    <h3 class="font-serif text-4xl md:text-6xl text-white">Nossos Cursos</h3>
+    <p class="text-slate-400 mt-4 max-w-2xl leading-relaxed text-sm md:text-base">
+      Formações completas desenhadas para educadores, gestores, famílias e profissionais que buscam conhecimentos práticos com fundamentação humanizada.
+    </p>
+  </div>
+
+  <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+    {courses.map((course) => (
+      <div class="group relative bg-[#0B0D12] rounded-xl border border-white/5 p-8 flex flex-col justify-between hover:border-[#D4AF37]/30 transition-all duration-500 hover:shadow-[0_10px_30px_rgba(212,175,55,0.05)]">
+        <div class="space-y-6">
+          <!-- Header stats / badges -->
+          <div class="flex justify-between items-center">
+            <span class="text-xs font-mono text-slate-400 uppercase tracking-widest bg-white/5 px-2.5 py-1 rounded">
+              {course.category}
+            </span>
+            {course.tag && (
+              <span class="text-[10px] font-bold text-black bg-[#D4AF37] px-2 py-0.5 rounded uppercase tracking-wider">
+                {course.tag}
+              </span>
+            )}
+          </div>
+
+          <!-- Titles -->
+          <div class="space-y-2">
+            <h4 class="font-serif text-2xl text-white group-hover:text-[#D4AF37] transition-colors duration-300 leading-tight">
+              {course.title}
+            </h4>
+            <p class="text-slate-400 text-xs font-semibold leading-relaxed">
+              {course.subtitle}
+            </p>
+          </div>
+
+          <!-- Description -->
+          <p class="text-slate-400 text-xs leading-relaxed">
+            {course.description}
+          </p>
+        </div>
+
+        <!-- Footer -->
+        <div class="mt-8 pt-6 border-t border-white/5 flex items-center justify-between">
+          <div class="flex flex-col">
+            <span class="text-[9px] uppercase tracking-wider text-slate-500 font-mono">Duração</span>
+            <span class="text-xs font-bold text-white font-mono">{course.duration}</span>
+          </div>
+
+          <a 
+            href={course.link}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="px-5 py-2 bg-transparent text-[#D4AF37] border border-[#D4AF37]/30 text-xs font-semibold rounded-full hover:bg-[#D4AF37] hover:text-black hover:border-[#D4AF37] transition-all duration-300"
+          >
+            Quero Conhecer
+          </a>
+        </div>
+      </div>
+    ))}
+  </div>
+
+  <!-- Special Banner for Custom Programs -->
+  <div class="bg-gradient-to-r from-[#0E1118] to-[#161B26] border border-[#D4AF37]/15 rounded-xl p-8 md:p-12 flex flex-col md:flex-row items-center justify-between gap-8 mt-12">
+    <div class="space-y-3 max-w-2xl">
+      <span class="text-xs font-bold text-[#D4AF37] uppercase tracking-widest">Treinamento in-company</span>
+      <h4 class="font-serif text-2xl md:text-3xl text-white leading-tight">Projetos de Formação Personalizados</h4>
+      <p class="text-slate-400 text-xs md:text-sm leading-relaxed">
+        Desenvolvemos programas sob medida para escolas, redes de ensino e organizações corporativas que desejam qualificar suas equipes em inclusão e desenvolvimento humano.
+      </p>
+    </div>
+    <a 
+      href="mailto:comercial@mentesqueinspiram.com?subject=Interesse%20em%20Formações%20Customizadas" 
+      class="px-8 py-3 bg-[#D4AF37] text-black font-semibold rounded-full hover:bg-white hover:text-black transition-all duration-300 shadow-md whitespace-nowrap"
+    >
+      Falar com a Equipe
+    </a>
+  </div>
+</div>

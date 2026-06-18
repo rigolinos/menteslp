@@ -1,0 +1,131 @@
+---
+---
+
+<section class="story-scene" data-scene="4" id="scene-ecosystem">
+    <!-- SVG layer for light curves -->
+    <svg id="eco-svg" class="eco-svg hidden md:block absolute inset-0 w-full h-full pointer-events-none" viewBox="0 0 1920 1080" preserveAspectRatio="none"></svg>
+
+    <!-- Floating Title (Dynamic) -->
+    <div class="eco-title-float absolute top-[15%] left-[10%] z-20 pointer-events-none">
+        <span class="scene-num">04 /</span>
+        <h2 class="scene-title">O Ecossistema</h2>
+        <p class="text-[0.6rem] text-slate-500 uppercase tracking-[0.25em] mt-2 font-mono">Vanessa Sanceverino Esteves</p>
+    </div>
+
+    <!-- DESKTOP Constellation -->
+    <div id="eco-constellation" class="eco-constellation hidden md:block absolute inset-0 z-20">
+        <button class="eco-portal pointer-events-auto" data-overlay="programa">
+            <span class="eco-portal__label">O Programa</span>
+            <span class="eco-portal__sub">PROGRAMA / PRODUÇÃO</span>
+        </button>
+        <button class="eco-portal pointer-events-auto" data-overlay="cursos">
+            <span class="eco-portal__label">Capacitações</span>
+            <span class="eco-portal__sub">EDUCAÇÃO E CURSOS</span>
+        </button>
+        <button class="eco-portal pointer-events-auto" data-overlay="livro">
+            <span class="eco-portal__label">O Livro</span>
+            <span class="eco-portal__sub">O LIVRO</span>
+        </button>
+        <button class="eco-portal pointer-events-auto" data-overlay="eventos">
+            <span class="eco-portal__label">Eventos</span>
+            <span class="eco-portal__sub">PALESTRAS E EVENTOS</span>
+        </button>
+        <button class="eco-portal pointer-events-auto" data-overlay="consultoria">
+            <span class="eco-portal__label">Consultorias</span>
+            <span class="eco-portal__sub">ASSESSORIA E CONSULTORIA</span>
+        </button>
+        <button class="eco-portal pointer-events-auto" data-overlay="mediakit">
+            <span class="eco-portal__label">Media Kit</span>
+            <span class="eco-portal__sub">MEDIA KIT & PARCERIAS</span>
+        </button>
+    </div>
+
+    <!-- MOBILE Typography Carousel -->
+    <div id="eco-mobile-list" class="eco-mobile-list md:hidden absolute inset-0 z-20 flex items-center">
+        <div id="eco-mobile-track" class="eco-mobile-list__track pointer-events-auto w-full flex flex-col gap-8 px-8">
+            <button class="eco-mobile-portal text-left" data-overlay="programa">
+                <span class="eco-mobile-portal__label block text-3xl font-serif italic text-white opacity-40 transition-opacity">O Programa</span>
+                <span class="eco-mobile-portal__sub block text-xs tracking-widest text-brand-gold mt-1 opacity-0 transition-opacity">PROGRAMA / PRODUÇÃO</span>
+            </button>
+            <button class="eco-mobile-portal text-left" data-overlay="cursos">
+                <span class="eco-mobile-portal__label block text-3xl font-serif italic text-white opacity-40 transition-opacity">Capacitações</span>
+                <span class="eco-mobile-portal__sub block text-xs tracking-widest text-brand-gold mt-1 opacity-0 transition-opacity">EDUCAÇÃO E CURSOS</span>
+            </button>
+            <button class="eco-mobile-portal text-left" data-overlay="livro">
+                <span class="eco-mobile-portal__label block text-3xl font-serif italic text-white opacity-40 transition-opacity">O Livro</span>
+                <span class="eco-mobile-portal__sub block text-xs tracking-widest text-brand-gold mt-1 opacity-0 transition-opacity">O LIVRO</span>
+            </button>
+            <button class="eco-mobile-portal text-left" data-overlay="eventos">
+                <span class="eco-mobile-portal__label block text-3xl font-serif italic text-white opacity-40 transition-opacity">Eventos</span>
+                <span class="eco-mobile-portal__sub block text-xs tracking-widest text-brand-gold mt-1 opacity-0 transition-opacity">PALESTRAS E EVENTOS</span>
+            </button>
+            <button class="eco-mobile-portal text-left" data-overlay="consultoria">
+                <span class="eco-mobile-portal__label block text-3xl font-serif italic text-white opacity-40 transition-opacity">Consultorias</span>
+                <span class="eco-mobile-portal__sub block text-xs tracking-widest text-brand-gold mt-1 opacity-0 transition-opacity">ASSESSORIA E CONSULTORIA</span>
+            </button>
+            <button class="eco-mobile-portal text-left" data-overlay="mediakit">
+                <span class="eco-mobile-portal__label block text-3xl font-serif italic text-white opacity-40 transition-opacity">Media Kit</span>
+                <span class="eco-mobile-portal__sub block text-xs tracking-widest text-brand-gold mt-1 opacity-0 transition-opacity">MEDIA KIT & PARCERIAS</span>
+            </button>
+        </div>
+    </div>
+</section>
+
+<style>
+    /* Desktop Portal Styling */
+    .eco-portal {
+        position: absolute;
+        transform: translate(-50%, -50%);
+        text-align: center;
+        opacity: 0;
+        transition: opacity 0.4s ease, transform 0.4s ease;
+        background: transparent;
+        border: none;
+        cursor: pointer;
+        outline: none;
+    }
+    .eco-portal__label {
+        display: block;
+        font-family: 'Cormorant Garamond', serif;
+        font-style: italic;
+        font-size: 2.5rem;
+        color: rgba(255, 255, 255, 0.8);
+        text-shadow: 0 4px 20px rgba(0,0,0,0.5);
+        transition: color 0.3s ease, transform 0.3s ease;
+    }
+    .eco-portal__sub {
+        display: block;
+        font-family: 'Montserrat', sans-serif;
+        font-size: 0.65rem;
+        letter-spacing: 0.25em;
+        color: #D4AF37;
+        margin-top: 0.5rem;
+        opacity: 0;
+        transform: translateY(10px);
+        transition: opacity 0.3s ease, transform 0.3s ease;
+    }
+
+    /* Hover States for Portals */
+    .eco-portal:hover .eco-portal__label {
+        color: #fff;
+        transform: scale(1.05);
+    }
+    .eco-portal:hover .eco-portal__sub {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    
+    /* When a portal is focused/hovered, others fade out (managed by JS via classes) */
+    .eco-constellation.is-focused .eco-portal:not(:hover) {
+        opacity: 0.2 !important;
+    }
+
+    /* Mobile Portal Focused State */
+    .eco-mobile-portal.is-active .eco-mobile-portal__label {
+        opacity: 1;
+        color: #fff;
+    }
+    .eco-mobile-portal.is-active .eco-mobile-portal__sub {
+        opacity: 1;
+    }
+</style>
