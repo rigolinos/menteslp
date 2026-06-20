@@ -9,7 +9,6 @@ import Livro from '../components/overlays/Livro.astro';
 import Eventos from '../components/overlays/Eventos.astro';
 import Consultoria from '../components/overlays/Consultoria.astro';
 import MediaKit from '../components/overlays/MediaKit.astro';
-import HeroLogo from '../components/HeroLogo.astro';
 ---
 
 <!DOCTYPE html>
@@ -45,7 +44,7 @@ import HeroLogo from '../components/HeroLogo.astro';
     <div class="preloader__bg"></div>
     <div class="preloader__content">
         <div class="preloader__logo-wrap">
-            <img src="/img/Logo principal svg.svg" alt="Mentes que Inspiram" class="preloader__logo">
+            <img src="/img/Logo principal-clean.svg" alt="Mentes que Inspiram" class="preloader__logo">
         </div>
         <div class="preloader__progress">
             <div class="preloader__bar"></div>
@@ -80,8 +79,8 @@ import HeroLogo from '../components/HeroLogo.astro';
     <!-- CENA 0: Hero -->
     <section class="story-scene" data-scene="0" id="scene-hero">
         <div class="scene-inner scene-center">
-            <div class="scene-logo-wrap w-full max-w-[600px] mx-auto">
-                <HeroLogo />
+            <div class="scene-logo-wrap">
+                <img src="/img/Logo principal-clean.svg" class="story-logo" alt="Mentes que Inspiram">
             </div>
             <div class="scene-tagline">
                 <p class="tagline-line" id="tagline-1"></p>
@@ -103,14 +102,12 @@ import HeroLogo from '../components/HeroLogo.astro';
         <div class="scene-inner scene-split">
             <div class="scene-text-col">
                 <span class="scene-num">01 /</span>
-                <h2 class="scene-title">Uma mente brilhante,<br><em>um coração atípico.</em></h2>
-                <p class="scene-body mt-4 text-slate-300 leading-relaxed max-w-md text-sm md:text-base hidden md:block">
-                    A experiência de mais de uma década na gestão educacional colidiu com a maternidade atípica, transformando para sempre sua visão de mundo e urgência por inclusão.
-                </p>
-                <div class="scene-traits mt-4 md:mt-6">
-                    <span class="trait">Liderança Educacional</span>
-                    <span class="trait">Maternidade Atípica</span>
-                    <span class="trait">Curadora do Movimento</span>
+                <h2 class="scene-title">Uma mulher<br><em>com uma causa.</em></h2>
+                <div class="scene-traits">
+                    <span class="trait">Gestora educacional</span>
+                    <span class="trait">Comunicadora</span>
+                    <span class="trait">Mãe atípica</span>
+                    <span class="trait">Curadora de um movimento</span>
                 </div>
             </div>
             <div class="scene-photo-col">
@@ -126,9 +123,11 @@ import HeroLogo from '../components/HeroLogo.astro';
     <section class="story-scene" data-scene="2" id="scene-talk">
         <div class="scene-inner scene-center">
             <span class="scene-num">02 /</span>
-            <h2 class="scene-title scene-title--large">A dor virou propósito.<br><em>O propósito virou diálogo.</em></h2>
-            <blockquote class="scene-quote text-[#D4AF37] italic font-serif">
-                "A escuta ativa sobre inclusão precisava transpor paredes e alcançar o mundo."
+            <h2 class="scene-title scene-title--large">Uma conversa<br><em>que vira impacto.</em></h2>
+            <blockquote class="scene-quote">
+                "O programa nasce da escuta, mas se expande<br>
+                para educação, inclusão, desenvolvimento humano<br>
+                e transformação social."
             </blockquote>
         </div>
     </section>
@@ -138,14 +137,11 @@ import HeroLogo from '../components/HeroLogo.astro';
         <div class="scene-inner scene-split">
             <div class="scene-text-col">
                 <span class="scene-num">03 /</span>
-                <h2 class="scene-title">A semente do<br><em>movimento.</em></h2>
-                <p class="scene-body mt-4 text-slate-300 leading-relaxed max-w-sm text-sm md:text-base hidden md:block">
-                    O YouTube não é apenas um canal; é o megafone inicial de um movimento robusto voltado ao desenvolvimento humano.
-                </p>
-                <div class="scene-traits mt-4 md:mt-6">
-                    <span class="trait">Educação Expandida</span>
-                    <span class="trait">Inclusão Real</span>
-                    <span class="trait">Diálogos Profundos</span>
+                <h2 class="scene-title">O programa que<br><em>começou tudo.</em></h2>
+                <div class="scene-traits">
+                    <span class="trait">Educação</span>
+                    <span class="trait">Inclusão</span>
+                    <span class="trait">Desenvolvimento Humano</span>
                 </div>
             </div>
             <div class="scene-video-col">
@@ -195,7 +191,7 @@ import HeroLogo from '../components/HeroLogo.astro';
     <section class="story-scene" data-scene="5" id="scene-metrics">
         <div class="scene-inner scene-center">
             <span class="scene-num">05 /</span>
-            <h2 class="scene-title">O impacto real:<br><em>Mentes inspiradas.</em></h2>
+            <h2 class="scene-title">Audiência qualificada &<br><em>alto engajamento.</em></h2>
             
             <div class="scene-metrics">
                 <div class="metric-card">
@@ -241,10 +237,10 @@ import HeroLogo from '../components/HeroLogo.astro';
     <section class="story-scene" data-scene="6" id="scene-sponsors">
         <div class="scene-inner scene-center">
             <span class="scene-num">06 /</span>
-            <h2 class="scene-title">Marcas que acreditam<br><em>no poder da inclusão.</em></h2>
-            <p class="scene-body font-serif italic text-slate-300">
-                Uma aliança estratégica com instituições que<br>
-                compartilham o compromisso com o desenvolvimento humano.
+            <h2 class="scene-title">Marcas que acreditam<br><em>no poder das ideias.</em></h2>
+            <p class="scene-body">
+                O Mentes que Inspiram tornou-se uma plataforma<br>
+                com alto potencial de associação institucional.
             </p>
         </div>
     </section>

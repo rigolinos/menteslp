@@ -285,7 +285,6 @@ window.initScrollytelling = function () {
 
             if (preloaderFinished) {
                 if (idx === 0 && !typewriterDone) initTypewriter();
-                if (idx === 0 && typeof window.replayHeroLogo === 'function') window.replayHeroLogo();
                 if (idx === 1) animateTraits();
                 if (idx === 3) animatePillars();
                 if (idx === 4) animateList();
@@ -852,43 +851,8 @@ window.initScrollytelling = function () {
             ctx.beginPath(); ctx.arc(px, py, 1.5, 0, Math.PI * 2); ctx.fill();
         }
 
-        // Conexão Neural (Efeito de Hover dos Portais)
-        if (window.__ecoLine && window.__ecoLine.active) {
-            const { startProgress, endProgress, px, py } = window.__ecoLine;
-            if (endProgress > startProgress) {
-                const dx = px - cx, dy = py - cy;
-                const perpX = -dy * 0.15, perpY = dx * 0.15;
-                
-                const p0x = cx, p0y = cy;
-                const p1x = cx + dx * 0.25 + perpX, p1y = cy + dy * 0.25 + perpY;
-                const p2x = cx + dx * 0.75 - perpX * 0.5, p2y = cy + dy * 0.75 - perpY * 0.5;
-                const p3x = px, p3y = py;
-
-                ctx.beginPath();
-                let first = true;
-                const steps = 30; // Resolução da curva
-                for (let i = 0; i <= steps; i++) {
-                    const t = startProgress + (i / steps) * (endProgress - startProgress);
-                    if (t > 1) break;
-                    const u = 1 - t;
-                    const x = u*u*u*p0x + 3*u*u*t*p1x + 3*u*t*t*p2x + t*t*t*p3x;
-                    const y = u*u*u*p0y + 3*u*u*t*p1y + 3*u*t*t*p2y + t*t*t*p3y;
-                    if (first) { ctx.moveTo(x, y); first = false; }
-                    else { ctx.lineTo(x, y); }
-                }
-                
-                const grad = ctx.createLinearGradient(cx, cy, px, py);
-                grad.addColorStop(0, 'rgba(201,168,76,0.6)');
-                grad.addColorStop(1, 'rgba(201,168,76,0)');
-                
-                ctx.strokeStyle = grad;
-                ctx.lineWidth = 1.5;
-                ctx.stroke();
-            }
-        }
-
-        // 4. O Cérebro (Ampliado conforme pedido)
-        const baseBrainW = Math.min(W, H) * 0.60 * grow;
+        // 4. O Cérebro
+        const baseBrainW = Math.min(W, H) * 0.22 * grow;
         const brainW = baseBrainW * breath * state.explodeScale;
         const brainH = brainW / 1.602;
         if (brainImage && brainImage.complete) {
@@ -901,7 +865,7 @@ window.initScrollytelling = function () {
         }
 
         // 5. Thin orbital stroke
-        const strokeRadius = Math.min(W, H) * 0.40 * grow * state.explodeScale;
+        const strokeRadius = Math.min(W, H) * 0.28 * grow * state.explodeScale;
         ctx.strokeStyle = `rgba(201,168,76,${0.15 * grow})`;
         ctx.lineWidth = 1;
         ctx.beginPath(); ctx.arc(cx, cy, strokeRadius, 0, Math.PI * 2); ctx.stroke();
