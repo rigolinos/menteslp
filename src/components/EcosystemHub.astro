@@ -10,8 +10,14 @@
         <p class="text-[0.6rem] text-slate-500 uppercase tracking-[0.25em] mt-2 font-mono">Vanessa Sanceverino Esteves</p>
     </div>
 
+    <!-- 3D Brain Spline Viewer -->
+    <div class="eco-spline-wrapper absolute inset-0 z-10 flex items-center justify-center pointer-events-none opacity-0 transition-opacity duration-1000" id="spline-brain-container">
+        <!-- pointer-events-none impede de interagir com o mouse para não estragar a magia, conforme pedido do usuário -->
+        <spline-viewer url="https://prod.spline.design/MVPBONVdJggzKzra/scene.splinecode" class="w-[80vw] h-[80vw] md:w-[600px] md:h-[600px] pointer-events-none" style="animation: brainBreathe 8s ease-in-out infinite; transform-origin: center center;"></spline-viewer>
+    </div>
+
     <!-- DESKTOP Constellation -->
-    <div id="eco-constellation" class="eco-constellation hidden md:block absolute inset-0 z-20">
+    <div id="eco-constellation" class="eco-constellation hidden md:block absolute inset-0 z-20 pointer-events-none">
         <button class="eco-portal pointer-events-auto" data-overlay="programa">
             <span class="eco-portal__label">O Programa</span>
             <span class="eco-portal__sub">PROGRAMA / PRODUÇÃO</span>

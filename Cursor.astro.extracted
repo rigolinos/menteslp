@@ -1,0 +1,117 @@
+---
+---
+
+<div id="custom-cursor" class="hidden md:flex"></div>
+
+<style is:global>
+  #custom-cursor {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 8px;
+    height: 8px;
+    background-color: #D4AF37;
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 0 10px rgba(212, 175, 55, 0.3);
+    will-change: transform, width, height, background-color;
+  }
+
+  .cursor-text {
+    color: #000000;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 8px;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    white-space: nowrap;
+    opacity: 0;
+    transform: scale(0.6);
+    transition: opacity 0.2s ease, transform 0.2s ease;
+  }
+
+  .cursor-expanded .cursor-text {
+    opacity: 1;
+    transform: scale(1);
+  }
+</style>
+
+<script is:inline>
+  document.addEventListener('DOMContentLoaded', () => {
+    // Check if it's desktop
+    if (window.innerWidth < 768) return;
+
+    const cursor = document.getElementById('custom-cursor');
+    if (!cursor) return;
+
+    const pos = { x: window.innerWidth / 2, y: window.innerHeight / 2 };
+    const mouse = { x: pos.x, y: pos.y };
+    const speed = 0.15; // Inertia delay factor
+
+    window.addEventListener('mousemove', (e) => {
+      mouse.x = e.clientX;
+      mouse.y = e.clientY;
+    });
+
+    // GSAP high performance ticker loop
+    if (window.gsap) {
+      window.gsap.ticker.add(() => {
+        pos.x += (mouse.x - pos.x) * speed;
+        pos.y += (mouse.y - pos.y) * speed;
+
+        window.gsap.set(cursor, {
+          x: pos.x - cursor.offsetWidth / 2,
+          y: pos.y - cursor.offsetHeight / 2
+        });
+      });
+    }
+
+    // Set up hover states
+    const setupHover = (selector, text) => {
+      const elements = document.querySelectorAll(selector);
+      elements.forEach(el => {
+        el.addEventListener('mouseenter', () => {
+          cursor.classList.add('cursor-expanded');
+          cursor.innerHTML = `<span class="cursor-text">${text}</span>`;
+          window.gsap.to(cursor, {
+            width: 80,
+            height: 80,
+            backgroundColor: 'rgba(212, 175, 55, 0.95)',
+            boxShadow: '0 0 25px rgba(212, 175, 55, 0.5)',
+            duration: 0.3,
+            ease: 'power2.out'
+          });
+        });
+        
+        el.addEventListener('mouseleave', () => {
+          cursor.classList.remove('cursor-expanded');
+          cursor.innerHTML = '';
+          window.gsap.to(cursor, {
+            width: 8,
+            height: 8,
+            backgroundColor: '#D4AF37',
+            boxShadow: '0 0 10px rgba(212, 175, 55, 0.3)',
+            duration: 0.3,
+            ease: 'power2.out'
+          });
+        });
+      });
+    };
+
+    // Initialize hovers
+    // We run it with a slight delay or dynamically to ensure all elements exist
+    setTimeout(() => {
+      setupHover('.eco-portal', 'VER PORTAL');
+      setupHover('.eco-mobile-portal', 'VER PORTAL');
+      setupHover('.timeline__item', 'ASSISTIR');
+      setupHover('.gallery__item img', 'AMPLIAR');
+      setupHover('.btn, .cta-pill, .cta-pill--gold, .cta-pill--outline', 'CLICAR');
+      setupHover('#close-overlay', 'FECHAR');
+      setupHover('.header__menu-toggle', 'MENU');
+    }, 1000);
+  });
+</script>

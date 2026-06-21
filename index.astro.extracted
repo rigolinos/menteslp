@@ -1,0 +1,564 @@
+---
+import '../styles/global.css';
+import Programa from '../components/overlays/Programa.astro';
+import Cursos from '../components/overlays/Cursos.astro';
+import Livro from '../components/overlays/Livro.astro';
+import Eventos from '../components/overlays/Eventos.astro';
+import Consultoria from '../components/overlays/Consultoria.astro';
+import MediaKit from '../components/overlays/MediaKit.astro';
+import Cursor from '../components/Cursor.astro';
+---
+<!DOCTYPE html>
+<html lang="pt-BR" class="lenis">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mentes que Inspiram — Vanessa Sanceverino Esteves</title>
+    
+    <!-- SEO & Meta -->
+    <meta name="description" content="Mentes que Inspiram - Um programa de entrevistas focado em educação, inclusão e desenvolvimento humano com Vanessa Sanceverino Esteves.">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    <link rel="shortcut icon" href="/favicon.svg">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700;900&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,700;1,300;1,400&family=Great+Vibes&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Swiper CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+
+    <script is:inline>
+        // Failsafe Preloader Removal
+        function hidePreloader() {
+            const p = document.querySelector('.preloader');
+            if (p && !p.classList.contains('preloader--hidden')) {
+                console.log("Failsafe: Hiding preloader");
+                p.classList.add('preloader--hidden');
+                setTimeout(() => p.style.display = 'none', 1200);
+            }
+        }
+        window.addEventListener('load', () => setTimeout(hidePreloader, 1000));
+        setTimeout(hidePreloader, 4000); // Absolute fallback
+    </script>
+</head>
+<body class="antialiased bg-black text-white selection:bg-[#D4AF37] selection:text-black animate-fadeIn">
+
+    <!-- Preloader -->
+    <div class="preloader">
+        <div class="preloader__inner">
+            <div class="preloader__text">
+                <span class="preloader__word">Mentes</span>
+                <span class="preloader__word">Que</span>
+                <span class="preloader__word">Inspiram</span>
+            </div>
+            <div class="preloader__bar-container">
+                <div class="preloader__bar"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Navigation Overlay -->
+    <nav class="nav-overlay">
+        <div class="nav-overlay__bg"></div>
+        <div class="nav-overlay__content">
+            <div class="nav-overlay__close"><i data-lucide="x"></i></div>
+            <div class="nav-overlay__links">
+                <a href="#hero" class="nav-link" data-index="01">Home</a>
+                <a href="#about" class="nav-link" data-index="02">Manifesto</a>
+                <a href="#scene-ecosystem" class="nav-link" data-index="03">O Ecossistema</a>
+                <a href="#program" class="nav-link" data-index="04">O Programa</a>
+                <a href="#episodes" class="nav-link" data-index="05">Episódios</a>
+                <a href="#gallery" class="nav-link" data-index="06">Galeria</a>
+                <a href="#performance" class="nav-link" data-index="07">Performance</a>
+                <a href="#contact" class="nav-link" data-index="08">Contato</a>
+            </div>
+            <div class="nav-overlay__footer">
+                <div class="nav-overlay__social">
+                    <a href="https://instagram.com/mentesqueinspiramoficial" target="_blank">Instagram</a>
+                    <a href="https://youtube.com/@ProgramaMentesqueinspiram" target="_blank">YouTube</a>
+                </div>
+                <div class="nav-overlay__copy">© 2026 Mentes que Inspiram</div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Header -->
+    <header class="header">
+        <div class="header__logo">
+            <span class="logo-text" style="font-family: var(--font-body); font-weight: 300; font-size: 0.9rem; letter-spacing: 0.15em; text-transform: none;">Mentes que Inspiram — <span class="gold" style="font-weight: 500;">conexões que transformam</span></span>
+        </div>
+        <div class="header__menu-toggle">
+            <div class="menu-text">Menu</div>
+            <div class="menu-icon"><span></span><span></span></div>
+        </div>
+    </header>
+
+    <!-- Custom Cursor Component -->
+    <Cursor />
+
+    <!-- Canvas de fundo animado para o Ecossistema -->
+    <canvas id="mentes-canvas" class="fixed inset-0 pointer-events-none z-10"></canvas>
+
+    <div id="scroll-driver"></div>
+
+    <!-- Main Scroll Content -->
+    <main class="main-content" data-scroll-container>
+        
+        <!-- Hero Section -->
+        <section id="hero" class="hero" data-scroll-section>
+            <div class="hero__bg" data-scroll data-scroll-speed="-1.5">
+                <video class="hero__video" id="hero-video" autoplay loop muted playsinline poster="/img/mentes10.jpeg">
+                    <source src="/img/2-mobile.mp4.mp4" media="(max-width: 768px)" type="video/mp4">
+                    <source src="/img/2.mp4" type="video/mp4">
+                </video>
+                <div class="hero__overlay"></div>
+            </div>
+            <div class="hero__inner container">
+                <div>
+                    <div class="hero__label">Vanessa Sanceverino Esteves <span class="white-text">apresenta</span></div>
+                </div>
+                <div class="hero__logo-reveal" aria-label="Mentes que Inspiram">
+                    <div class="hero__logo-wrap">
+                        <img class="hero__logo-svg" src="/img/Logo principal-clean.svg" alt="Mentes que Inspiram — Vanessa Sanceverino Esteves">
+                    </div>
+                </div>
+            </div>
+            <div class="hero__footer">
+                <div class="hero__scroll-indicator">
+                    <span class="scroll-text">Scroll para explorar</span>
+                    <div class="scroll-line"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Manifesto / About Section -->
+        <section id="about" class="about" data-scroll-section>
+            <div class="container about__inner">
+                <div class="about__label">Manifesto</div>
+                <div>
+                    <h2 class="about__text">
+                        Porque toda conversa que toca a essência também pode transformar realidades. O Mentes que Inspiram nasce da força das ideias, da escuta e das histórias que <span class="italic gold">ampliam o olhar</span> sobre o mundo. É um espaço onde conhecimento encontra sensibilidade e onde cada entrevista é um convite à reflexão, à consciência e à ação.
+                    </h2>
+                </div>
+                <div class="about__host" data-scroll data-scroll-class="revealed" data-scroll-offset="10%">
+                    <div class="host__img reveal-img" data-scroll data-scroll-speed="0.5">
+                        <img src="/img/mentes10.jpeg" alt="Vanessa Sanceverino" loading="lazy">
+                    </div>
+                    <div class="host__content">
+                        <h3 class="host__name">Vanessa Sanceverino Esteves</h3>
+                        <p class="host__role">Gestora educacional | Comunicadora | Idealizadora</p>
+                        <p class="host__desc">Com trajetória sólida construída na educação, na liderança pedagógica e na comunicação com propósito, Vanessa conduz entrevistas que unem <span class="gold-underline">profundidade, sensibilidade e relevância social</span>. Sua presença em cena traduz a essência do projeto: escutar com inteligência, comunicar com elegância e transformar conversas em conteúdo que inspira, informa e gera impacto real.</p>
+                        <div class="host__actions">
+                            <button id="btn-scroll-episodes" class="btn btn--gold">Assista aos Episódios</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- O ECOSSISTEMA Section (Constellation Scene) -->
+        <section id="scene-ecosystem" class="ecossistema" data-scroll-section>
+            <!-- SVG layer for light curves -->
+            <svg id="eco-svg" class="eco-svg hidden md:block" viewBox="0 0 1920 1080" preserveAspectRatio="none"></svg>
+
+            <!-- Floating Title (Dynamic) -->
+            <div class="eco-title-float">
+                <span class="section-num">03 /</span>
+                <h2 class="scene-title text-white font-serif italic text-4xl md:text-5xl">O Ecossistema</h2>
+                <p class="text-[0.6rem] text-slate-500 uppercase tracking-[0.25em] mt-2 font-mono">Vanessa Sanceverino Esteves</p>
+            </div>
+
+            <!-- DESKTOP Constellation -->
+            <div id="eco-constellation" class="eco-constellation hidden md:block">
+                <button class="eco-portal pointer-events-auto" data-overlay="programa">
+                    <span class="eco-portal__label">O Programa</span>
+                    <span class="eco-portal__sub">PROGRAMA / PRODUÇÃO</span>
+                </button>
+                <button class="eco-portal pointer-events-auto" data-overlay="cursos">
+                    <span class="eco-portal__label">Capacitações</span>
+                    <span class="eco-portal__sub">EDUCAÇÃO E CURSOS</span>
+                </button>
+                <button class="eco-portal pointer-events-auto" data-overlay="livro">
+                    <span class="eco-portal__label">O Livro</span>
+                    <span class="eco-portal__sub">O LIVRO</span>
+                </button>
+                <button class="eco-portal pointer-events-auto" data-overlay="eventos">
+                    <span class="eco-portal__label">Eventos</span>
+                    <span class="eco-portal__sub">PALESTRAS E EVENTOS</span>
+                </button>
+                <button class="eco-portal pointer-events-auto" data-overlay="consultoria">
+                    <span class="eco-portal__label">Consultorias</span>
+                    <span class="eco-portal__sub">ASSESSORIA E CONSULTORIA</span>
+                </button>
+                <button class="eco-portal pointer-events-auto" data-overlay="mediakit">
+                    <span class="eco-portal__label">Media Kit</span>
+                    <span class="eco-portal__sub">MEDIA KIT & PARCERIAS</span>
+                </button>
+            </div>
+
+            <!-- MOBILE Typography Carousel -->
+            <div id="eco-mobile-list" class="eco-mobile-list md:hidden">
+                <div id="eco-mobile-track" class="eco-mobile-list__track pointer-events-auto">
+                    <button class="eco-mobile-portal" data-overlay="programa">
+                        <span class="eco-mobile-portal__label">O Programa</span>
+                        <span class="eco-mobile-portal__sub">PROGRAMA / PRODUÇÃO</span>
+                    </button>
+                    <button class="eco-mobile-portal" data-overlay="cursos">
+                        <span class="eco-mobile-portal__label">Capacitações</span>
+                        <span class="eco-mobile-portal__sub">EDUCAÇÃO E CURSOS</span>
+                    </button>
+                    <button class="eco-mobile-portal" data-overlay="livro">
+                        <span class="eco-mobile-portal__label">O Livro</span>
+                        <span class="eco-mobile-portal__sub">O LIVRO</span>
+                    </button>
+                    <button class="eco-mobile-portal" data-overlay="eventos">
+                        <span class="eco-mobile-portal__label">Eventos</span>
+                        <span class="eco-mobile-portal__sub">PALESTRAS E EVENTOS</span>
+                    </button>
+                    <button class="eco-mobile-portal" data-overlay="consultoria">
+                        <span class="eco-mobile-portal__label">Consultorias</span>
+                        <span class="eco-mobile-portal__sub">ASSESSORIA E CONSULTORIA</span>
+                    </button>
+                    <button class="eco-mobile-portal" data-overlay="mediakit">
+                        <span class="eco-mobile-portal__label">Media Kit</span>
+                        <span class="eco-mobile-portal__sub">MEDIA KIT & PARCERIAS</span>
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- O Programa Section -->
+        <section id="program" class="pillars" data-scroll-section style="padding-top: 6vh; padding-bottom: 6vh;">
+            <div class="container">
+                <div class="section-header" data-scroll data-scroll-class="revealed">
+                    <span class="section-num">04 /</span>
+                    <h2 class="section-title reveal-text"><span>Eixos de Atuação</span></h2>
+                </div>
+                <div class="pillars__grid">
+                    <!-- Card 1 -->
+                    <div data-scroll data-scroll-speed="0.2">
+                        <div class="icon-card">
+                            <div class="icon-card__icon"><i data-lucide="book-open"></i></div>
+                            <h4 class="pillar-card__title">Educação e Inovação</h4>
+                            <p class="pillar-card__desc">Reflexões sobre aprendizagem, gestão educacional, neuroeducação, práticas pedagógicas e o futuro da educação.</p>
+                        </div>
+                    </div>
+                    <!-- Card 2 -->
+                    <div data-scroll data-scroll-speed="0.3">
+                        <div class="icon-card">
+                            <div class="icon-card__icon"><i data-lucide="heart"></i></div>
+                            <h4 class="pillar-card__title">Inclusão e Diversidade</h4>
+                            <p class="pillar-card__desc">Pautas que ampliam o debate sobre acessibilidade, autismo, maternidade atípica, equidade e pertencimento.</p>
+                        </div>
+                    </div>
+                    <!-- Card 3 -->
+                    <div data-scroll data-scroll-speed="0.2">
+                        <div class="icon-card">
+                            <div class="icon-card__icon"><i data-lucide="users"></i></div>
+                            <h4 class="pillar-card__title">Desenvolvimento Humano</h4>
+                            <p class="pillar-card__desc">Comportamento, saúde emocional, relações humanas, carreira, propósito e bem-estar.</p>
+                        </div>
+                    </div>
+                    <!-- Card 4 -->
+                    <div data-scroll data-scroll-speed="0.4">
+                        <div class="icon-card">
+                            <div class="icon-card__icon"><i data-lucide="compass"></i></div>
+                            <h4 class="pillar-card__title">Liderança e Inspiração</h4>
+                            <p class="pillar-card__desc">Trajetórias, experiências e visões que mobilizam, ensinam e inspiram transformação verdadeira.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Episodes Section -->
+        <section id="episodes" class="timeline" data-scroll-section>
+            <div class="container">
+                <div class="section-header" data-scroll data-scroll-class="revealed">
+                    <span class="section-num">05 /</span>
+                    <h2 class="section-title reveal-text"><span>Episódios</span></h2>
+                    
+                    <div class="season-tabs" data-scroll>
+                        <button class="season-tab active" data-season="1">Temporada 1</button>
+                        <button class="season-tab" data-season="2">Temporada 2</button>
+                        <button class="season-tab" data-season="3" disabled>Temporada 3 <small>Em breve</small></button>
+                    </div>
+                </div>
+            </div>
+            <div class="timeline__slider-wrapper">
+                <div class="swiper timeline-swiper">
+                    <div class="swiper-wrapper timeline__track--episodes">
+                        <!-- Episodes dynamically populated by main.js -->
+                    </div>
+                </div>
+                <!-- Progress Bar -->
+                <div class="timeline__progress-container">
+                    <div class="timeline__progress-bar"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Spotify CTA Block -->
+        <section class="spotify-cta" data-scroll-section>
+            <div class="container">
+                <div class="spotify-cta__inner" data-scroll data-scroll-class="revealed" data-scroll-offset="20%">
+                     <div class="spotify-cta__label-container">
+                          <p class="spotify-cta__label">Acompanhe o Programa</p>
+                     </div>
+                     <h2 class="spotify-cta__title">Acompanhe o programa no Spotify</h2>
+                     <p class="spotify-cta__desc" style="color: var(--white-dim); font-size: 1.15rem; line-height: 1.6; max-width: 800px; margin: -1.2rem auto 2.5rem auto; font-family: var(--font-body);">Conversas profundas. Histórias reais. Ideias que geram transformação.<br>Educação, inclusão, desenvolvimento humano e impacto social em um só lugar.</p>
+                     <a href="https://open.spotify.com/show/mock" target="_blank" class="btn btn--outline mt-4" style="margin-bottom: 0.5rem;">Ouça aqui</a>
+                     <span style="color: var(--gold); font-size: 0.9rem; font-family: var(--font-body); display: block;">em breve</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Gallery / Marquee Section -->
+        <section id="gallery" class="gallery" data-scroll-section>
+            <div class="container pt-gallery">
+                <div class="section-header" data-scroll data-scroll-class="revealed">
+                    <span class="section-num">06 /</span>
+                    <h2 class="section-title reveal-text"><span>Galeria</span></h2>
+                </div>
+            </div>
+            <div class="gallery__marquee">
+                <!-- Original set -->
+                <div class="gallery__item"><img src="/img/mentes1.jpeg" alt="" loading="lazy"></div>
+                <div class="gallery__item"><img src="/img/mentes2.jpeg" alt="" loading="lazy"></div>
+                <div class="gallery__item"><img src="/img/mentes3.jpeg" alt="" loading="lazy"></div>
+                <div class="gallery__item"><img src="/img/mentes4.jpeg" alt="" loading="lazy"></div>
+                <div class="gallery__item"><img src="/img/mentes6.jpeg" alt="" loading="lazy"></div>
+                <div class="gallery__item"><img src="/img/mentes7.jpeg" alt="" loading="lazy"></div>
+                <div class="gallery__item"><img src="/img/mentes8.jpeg" alt="" loading="lazy"></div>
+                <div class="gallery__item"><img src="/img/mentes12.jpeg" alt="" loading="lazy"></div>
+                <div class="gallery__item"><img src="/img/mentes13.jpeg" alt="" loading="lazy"></div>
+                <!-- Duplicate set for infinite scroll -->
+                <div class="gallery__item"><img src="/img/mentes1.jpeg" alt="" loading="lazy"></div>
+                <div class="gallery__item"><img src="/img/mentes2.jpeg" alt="" loading="lazy"></div>
+                <div class="gallery__item"><img src="/img/mentes3.jpeg" alt="" loading="lazy"></div>
+                <div class="gallery__item"><img src="/img/mentes4.jpeg" alt="" loading="lazy"></div>
+                <div class="gallery__item"><img src="/img/mentes6.jpeg" alt="" loading="lazy"></div>
+                <div class="gallery__item"><img src="/img/mentes7.jpeg" alt="" loading="lazy"></div>
+                <div class="gallery__item"><img src="/img/mentes8.jpeg" alt="" loading="lazy"></div>
+                <div class="gallery__item"><img src="/img/mentes12.jpeg" alt="" loading="lazy"></div>
+                <div class="gallery__item"><img src="/img/mentes13.jpeg" alt="" loading="lazy"></div>
+            </div>
+        </section>
+
+        <!-- Performance Dashboard -->
+        <section id="performance" class="perf-dashboard" data-scroll-section>
+            <div class="container">
+                <div class="section-header" data-scroll data-scroll-class="revealed">
+                    <span class="section-num">07 /</span>
+                    <h2 class="section-title reveal-text"><span>Performance</span></h2>
+                </div>
+            </div>
+
+            <!-- Performance Stats (Marquee) -->
+            <div class="performance__marquee-wrapper" data-scroll data-scroll-class="revealed" data-scroll-offset="10%" style="margin-bottom: 5rem;">
+                <div class="performance__marquee animate-marquee">
+                    <div class="stat">
+                        <span class="stat__num">876K</span>
+                        <span class="stat__label">Alcance no Instagram</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat__num">+2.1M</span>
+                        <span class="stat__label">Views no Instagram</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat__num">33.6K</span>
+                        <span class="stat__label">Contas Engajadas</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat__num">+225K</span>
+                        <span class="stat__label">Views no YouTube</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat__num">+8K</span>
+                        <span class="stat__label">Horas Assistidas YT</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Commercial Section -->
+        <section class="commercial" data-scroll-section>
+            <div class="container">
+                <div class="commercial__grid">
+                    <div class="commercial-card" data-scroll data-scroll-class="revealed">
+                        <span class="commercial-card__num">08 /</span>
+                        <h2 class="commercial-card__title font-serif">Marcas com<br><span class="gold italic">Propósito</span></h2>
+                        <p class="commercial-card__desc">
+                            Associar sua marca ao Mentes que Inspiram é conectar-se a valores fundamentais da sociedade contemporânea: diversidade, inclusão e desenvolvimento com responsabilidade social. Oferecemos oportunidades orgânicas de patrocínio e inserções cenográficas sofisticadas.
+                        </p>
+                        <div class="commercial-card__actions mt-12">
+                            <button class="btn btn--gold eco-portal" data-overlay="mediakit">Consultar Media Kit</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sponsors Section -->
+        <section id="sponsors" class="sponsors" data-scroll-section>
+            <div class="container">
+                <!-- Perfil do Público -->
+                <div class="public-profile" data-scroll data-scroll-class="revealed" data-scroll-offset="10%">
+                    <h3 class="public-profile__title">Perfil do Público</h3>
+                    <p class="public-profile__desc">
+                        Dialogamos com um público que busca conteúdo com profundidade, qualidade e propósito.
+                    </p>
+                    <ul class="public-profile__list">
+                        <li class="public-profile__item">
+                            <i data-lucide="check-circle-2"></i>
+                            <span>Educadores, gestores e famílias.</span>
+                        </li>
+                        <li class="public-profile__item">
+                            <i data-lucide="check-circle-2"></i>
+                            <span>Profissionais da saúde e desenvolvimento.</span>
+                        </li>
+                        <li class="public-profile__item">
+                            <i data-lucide="check-circle-2"></i>
+                            <span>Empreendedores e líderes corporativos.</span>
+                        </li>
+                        <li class="public-profile__item">
+                            <i data-lucide="check-circle-2"></i>
+                            <span>Interessados em inclusão, educação e bem-estar.</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Parceiros e Apoiadores -->
+                <div class="sponsors-logos" data-scroll data-scroll-class="revealed" data-scroll-offset="10%">
+                    <h3 class="sponsors-logos__title">Parceiros e Apoiadores</h3>
+                    <div class="sponsors__grid">
+                        <div class="sponsor sponsor--brucki">
+                            <img src="/img/brucki.jpg" alt="Brucki Home Beauty" loading="lazy">
+                        </div>
+                        <div class="sponsor sponsor--akoma">
+                            <img src="/img/akoma.jpg" alt="Akoma Cristais Naturais" loading="lazy">
+                        </div>
+                        <div class="sponsor sponsor--lifecon">
+                            <img src="/img/lifecon.jpg" alt="Life Con" loading="lazy">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="contact" data-scroll-section>
+            <div class="container contact__inner">
+                <div class="contact__content">
+                    <h2 class="contact__title reveal-text" data-scroll data-scroll-class="revealed" data-scroll-offset="20%">
+                        <span>Vamos <span class="italic gold">Conversar?</span></span>
+                    </h2>
+                    <p class="contact__desc" data-scroll>Sua marca conectada a um conteúdo que inspira, informa e deixa legado.</p>
+                    <div class="contact__links">
+                        <a href="https://www.instagram.com/mentesqueinspiramoficial" target="_blank" class="contact-link">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5">
+                                <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                                <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+                            </svg>
+                            <span>Instagram</span>
+                        </a>
+                        <a href="https://www.youtube.com/@ProgramaMentesqueInspiram" target="_blank" class="contact-link">
+                            <img src="/img/youtube.png" alt="YouTube" class="contact-icon-img">
+                            <span>YouTube</span>
+                        </a>
+                        <a href="mailto:comercial@mentesqueinspiram.com" class="contact-link">
+                            <i data-lucide="mail"></i> <span>E-mail</span>
+                        </a>
+                    </div>
+                </div>
+                <form class="contact__form" id="contact-form" method="POST" action="/send_email.php" onsubmit="event.preventDefault(); document.getElementById('submit-btn').style.display='none'; document.getElementById('form-success').style.display='block';">
+                    <div class="form-group">
+                        <input type="text" name="nome" placeholder="Nome" class="form-input" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" name="email" placeholder="Email" class="form-input" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="textarea" name="mensagem" placeholder="Como podemos inspirar juntos?" class="form-input" rows="4" required></input>
+                    </div>
+                    <button type="submit" id="submit-btn" class="btn btn--gold">Enviar Proposta</button>
+                    <div class="form-success" id="form-success" style="display:none;">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="text-[#D4AF37]"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                        <p class="font-serif text-[#D4AF37] text-xl mt-4">Proposta enviada com sucesso!</p>
+                        <span class="text-slate-400 text-sm">Entraremos em contato em breve.</span>
+                    </div>
+                </form>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="footer" data-scroll-section>
+            <div class="container footer__inner">
+                <div class="footer__logo">Mentes que <span class="gold">Inspiram</span></div>
+                <div class="footer__info">
+                    <span>Vanessa Sanceverino Esteves</span>
+                    <span>© 2026 Mentes Que Inspiram</span>
+                </div>
+            </div>
+        </footer>
+
+    </main>
+
+    <!-- Grain / Noise Overlay -->
+    <div class="noise"></div>
+
+    <!-- Overlays Container (Approach B Hybrid) -->
+    <div id="overlays-container" class="fixed inset-0 z-50 pointer-events-none opacity-0 bg-black/90 flex flex-col pt-24 px-8 overflow-y-auto">
+        <!-- Botão Fechar -->
+        <button id="close-overlay" class="fixed top-8 right-8 text-white hover:text-[#D4AF37] transition-colors pointer-events-auto">
+            <i data-lucide="x" class="w-8 h-8"></i>
+        </button>
+
+        <!-- Conteúdos Estáticos de cada Overlay -->
+        <div id="overlay-content" class="max-w-5xl w-full mx-auto pb-24 text-white">
+            <div id="overlay-content-programa" class="overlay-section hidden">
+                <Programa />
+            </div>
+            <div id="overlay-content-cursos" class="overlay-section hidden">
+                <Cursos />
+            </div>
+            <div id="overlay-content-livro" class="overlay-section hidden">
+                <Livro />
+            </div>
+            <div id="overlay-content-eventos" class="overlay-section hidden">
+                <Eventos />
+            </div>
+            <div id="overlay-content-consultoria" class="overlay-section hidden">
+                <Consultoria />
+            </div>
+            <div id="overlay-content-mediakit" class="overlay-section hidden">
+                <MediaKit />
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts (GSAP, ScrollTrigger, Lenis, Swiper, Lucide) -->
+    <script is:inline src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script is:inline src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script is:inline src="https://unpkg.com/@studio-freight/lenis@1.0.34/dist/lenis.min.js"></script>
+    <script is:inline src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script is:inline src="https://unpkg.com/lucide@latest"></script>
+
+    <!-- Project Scripts -->
+    <script is:inline src="/scripts/main.js"></script>
+    <script is:inline src="/scripts/overlays.js"></script>
+
+    <script is:inline>
+        // Init Lucide icons initially
+        document.addEventListener('DOMContentLoaded', () => {
+            if(window.lucide) {
+                window.lucide.createIcons();
+            }
+        });
+    </script>
+</body>
+</html>

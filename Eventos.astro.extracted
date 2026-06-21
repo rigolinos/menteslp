@@ -1,0 +1,134 @@
+---
+---
+
+<div class="space-y-12">
+  <div class="border-b border-[#D4AF37]/20 pb-6">
+    <p class="font-serif text-[#D4AF37] italic text-xl mb-2">Experiências Presenciais & Corporativas</p>
+    <h3 class="font-serif text-4xl md:text-6xl text-white">Eventos & Palestras</h3>
+    <p class="text-slate-400 mt-4 max-w-2xl leading-relaxed text-sm md:text-base">
+      Leve a voz e a autoridade de Vanessa Sanceverino Esteves para sua instituição de ensino, corporação ou evento social. Experiências marcantes com alto poder de engajamento emocional.
+    </p>
+  </div>
+
+  <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
+    <!-- Event Formats -->
+    <div class="lg:col-span-5 space-y-8">
+      <h4 class="font-serif text-2xl text-white">Formatos Disponíveis</h4>
+      
+      <div class="space-y-6">
+        <div class="bg-[#0B0D12] p-6 rounded-xl border border-white/5 space-y-2">
+          <span class="text-xs font-bold text-[#D4AF37] uppercase tracking-widest font-mono">01. Palestras Magnas</span>
+          <h5 class="text-lg text-white font-bold leading-tight">Mentes que Inspiram: Educação e Afeto</h5>
+          <p class="text-slate-400 text-xs leading-relaxed">
+            Ideal para congressos educacionais e convenções. Uma reflexão contagiante sobre o papel social da escola, inclusão atípica e liderança amorosa.
+          </p>
+        </div>
+
+        <div class="bg-[#0B0D12] p-6 rounded-xl border border-white/5 space-y-2">
+          <span class="text-xs font-bold text-[#D4AF37] uppercase tracking-widest font-mono">02. Workshops Práticos</span>
+          <h5 class="text-lg text-white font-bold leading-tight">Inclusão Escolar na Prática Pedagógica</h5>
+          <p class="text-slate-400 text-xs leading-relaxed">
+            Treinamento corporativo imersivo focado em coordenadores pedagógicos e professores, fornecendo ferramentas e estratégias de plano de desenvolvimento individual (PDI).
+          </p>
+        </div>
+
+        <div class="bg-[#0B0D12] p-6 rounded-xl border border-white/5 space-y-2">
+          <span class="text-xs font-bold text-[#D4AF37] uppercase tracking-widest font-mono">03. Rodas de Conversa</span>
+          <h5 class="text-lg text-white font-bold leading-tight">Diálogos de Acolhimento Familiar</h5>
+          <p class="text-slate-400 text-xs leading-relaxed">
+            Voltado para escolas e comunidades, abrindo espaço seguro para diálogo, escuta atenta e fortalecimento dos vínculos entre família e instituição.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Booking Form -->
+    <div class="lg:col-span-7 bg-[#0B0D12] p-8 rounded-xl border border-[#D4AF37]/15 space-y-6">
+      <div>
+        <h4 class="font-serif text-2xl text-white">Solicitar Orçamento / Data</h4>
+        <p class="text-slate-400 text-xs mt-2">
+          Preencha o formulário abaixo para verificar a disponibilidade de agenda e solicitar uma proposta comercial personalizada.
+        </p>
+      </div>
+
+      <form class="space-y-4" onsubmit="event.preventDefault(); alert('Solicitação enviada com sucesso! Entraremos em contato em breve.');">
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <div class="space-y-2">
+            <label for="event-name" class="text-xs font-semibold text-slate-300">Seu Nome *</label>
+            <input 
+              type="text" 
+              id="event-name" 
+              required 
+              placeholder="Ex: João Silva" 
+              class="w-full bg-black/40 border border-white/10 rounded-lg px-4 py-3 text-sm text-white placeholder-slate-600 focus:outline-none focus:border-[#D4AF37] transition-colors"
+            />
+          </div>
+          <div class="space-y-2">
+            <label for="event-email" class="text-xs font-semibold text-slate-300">E-mail Corporativo *</label>
+            <input 
+              type="email" 
+              id="event-email" 
+              required 
+              placeholder="Ex: joao@escola.com.br" 
+              class="w-full bg-black/40 border border-white/10 rounded-lg px-4 py-3 text-sm text-white placeholder-slate-600 focus:outline-none focus:border-[#D4AF37] transition-colors"
+            />
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <div class="space-y-2">
+            <label for="event-org" class="text-xs font-semibold text-slate-300">Empresa / Instituição *</label>
+            <input 
+              type="text" 
+              id="event-org" 
+              required 
+              placeholder="Ex: Colégio Mentes Inspiradoras" 
+              class="w-full bg-black/40 border border-white/10 rounded-lg px-4 py-3 text-sm text-white placeholder-slate-600 focus:outline-none focus:border-[#D4AF37] transition-colors"
+            />
+          </div>
+          <div class="space-y-2">
+            <label for="event-date" class="text-xs font-semibold text-slate-300">Data Pretendida (Opcional)</label>
+            <input 
+              type="date" 
+              id="event-date" 
+              class="w-full bg-black/40 border border-white/10 rounded-lg px-4 py-3 text-sm text-white placeholder-slate-600 focus:outline-none focus:border-[#D4AF37] transition-colors"
+            />
+          </div>
+        </div>
+
+        <div class="space-y-2">
+          <label for="event-type" class="text-xs font-semibold text-slate-300">Formato de Interesse *</label>
+          <select 
+            id="event-type" 
+            required 
+            class="w-full bg-black/40 border border-white/10 rounded-lg px-4 py-3 text-sm text-white focus:outline-none focus:border-[#D4AF37] transition-colors appearance-none"
+          >
+            <option value="" disabled selected class="text-slate-600">Selecione o formato</option>
+            <option value="palestra" class="bg-[#0B0D12]">Palestra Magna</option>
+            <option value="workshop" class="bg-[#0B0D12]">Workshop Imersivo</option>
+            <option value="roda" class="bg-[#0B0D12]">Roda de Conversa / Mentoria</option>
+            <option value="outro" class="bg-[#0B0D12]">Outro Formato</option>
+          </select>
+        </div>
+
+        <div class="space-y-2">
+          <label for="event-msg" class="text-xs font-semibold text-slate-300">Detalhes do Evento (Público, Local, Objetivos) *</label>
+          <textarea 
+            id="event-msg" 
+            required 
+            rows="4" 
+            placeholder="Conte-nos um pouco mais sobre o seu evento..." 
+            class="w-full bg-black/40 border border-white/10 rounded-lg px-4 py-3 text-sm text-white placeholder-slate-600 focus:outline-none focus:border-[#D4AF37] transition-colors resize-none"
+          ></textarea>
+        </div>
+
+        <button 
+          type="submit" 
+          class="w-full py-3 bg-[#D4AF37] text-black font-bold rounded-lg hover:bg-white transition-all duration-300 shadow-md shadow-[#D4AF37]/5"
+        >
+          Enviar Solicitação de Agenda
+        </button>
+      </form>
+    </div>
+  </div>
+</div>

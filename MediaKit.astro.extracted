@@ -1,0 +1,144 @@
+---
+---
+
+<div class="space-y-12 animate-fadeIn">
+  <!-- Header -->
+  <div class="border-b border-[#D4AF37]/20 pb-6 flex flex-col md:flex-row md:items-end justify-between gap-6">
+    <div class="space-y-2">
+      <p class="font-serif text-[#D4AF37] italic text-xl">Oportunidades de Associação de Marca</p>
+      <h3 class="font-serif text-4xl md:text-6xl text-white">Media Kit 2026</h3>
+      <p class="text-slate-400 max-w-xl leading-relaxed text-xs md:text-sm">
+        Conecte sua marca a um propósito transformador em um ambiente seguro, premium e altamente qualificado de inclusão e educação.
+      </p>
+    </div>
+    
+    <a 
+      href="/docs/mediakit_mentes_que_inspiram_2026.pdf" 
+      download
+      class="inline-flex items-center gap-2 px-6 py-3 bg-[#D4AF37] text-black font-semibold rounded-full hover:bg-white transition-all duration-300 shadow-md text-xs whitespace-nowrap"
+    >
+      <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="w-3.5 h-3.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+      <span>Baixar PDF Completo</span>
+    </a>
+  </div>
+
+  <!-- Stats Grid (Simulating high-end metrics) -->
+  <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+    <div class="bg-[#0B0D12] p-6 rounded-xl border border-white/5 space-y-2">
+      <span class="text-[9px] uppercase tracking-wider text-slate-500 font-mono">Visualizações Totais</span>
+      <h4 class="font-serif text-3xl text-[#D4AF37]">+225k</h4>
+      <p class="text-slate-500 text-[10px]">Crescimento orgânico e alta retenção no YouTube.</p>
+    </div>
+    
+    <div class="bg-[#0B0D12] p-6 rounded-xl border border-white/5 space-y-2">
+      <span class="text-[9px] uppercase tracking-wider text-slate-500 font-mono">Alcance Instagram</span>
+      <h4 class="font-serif text-3xl text-[#D4AF37]">+876k</h4>
+      <p class="text-slate-500 text-[10px]">Impressões mensais e alto engajamento em reels.</p>
+    </div>
+    
+    <div class="bg-[#0B0D12] p-6 rounded-xl border border-white/5 space-y-2">
+      <span class="text-[9px] uppercase tracking-wider text-slate-500 font-mono">Perfil do Público</span>
+      <h4 class="font-serif text-3xl text-[#D4AF37]">82%</h4>
+      <p class="text-slate-500 text-[10px]">Mulheres de 25-54 anos (decisão de compra familiar/escolar).</p>
+    </div>
+
+    <div class="bg-[#0B0D12] p-6 rounded-xl border border-white/5 space-y-2">
+      <span class="text-[9px] uppercase tracking-wider text-slate-500 font-mono">Nível de Decisão</span>
+      <h4 class="font-serif text-3xl text-[#D4AF37]">45%</h4>
+      <p class="text-slate-500 text-[10px]">C-Level, gestores de ensino e líderes de RH.</p>
+    </div>
+  </div>
+
+  <!-- Main Grid Info -->
+  <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
+    <!-- Target Audience Profile -->
+    <div class="lg:col-span-4 space-y-6">
+      <h4 class="font-serif text-2xl text-white border-b border-white/5 pb-3">Perfil da Audiência</h4>
+      <p class="text-slate-300 text-xs leading-relaxed">
+        Dialogamos diretamente com uma audiência engajada que valoriza a transformação social, metodologias ativas de ensino e saúde da mente.
+      </p>
+      
+      <div class="space-y-4">
+        <div class="flex items-start gap-3">
+          <svg class="w-5 h-5 text-[#D4AF37] shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+          <span class="text-slate-300 text-xs">Educadores, coordenadores e gestores escolares.</span>
+        </div>
+        <div class="flex items-start gap-3">
+          <svg class="w-5 h-5 text-[#D4AF37] shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+          <span class="text-slate-300 text-xs">Psicólogos, terapeutas e profissionais de neurodesenvolvimento.</span>
+        </div>
+        <div class="flex items-start gap-3">
+          <svg class="w-5 h-5 text-[#D4AF37] shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+          <span class="text-slate-300 text-xs">Mães, pais e cuidadores de crianças e adolescentes neurodivergentes.</span>
+        </div>
+        <div class="flex items-start gap-3">
+          <svg class="w-5 h-5 text-[#D4AF37] shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+          <span class="text-slate-300 text-xs">Marcas e empresas que investem em ESG e inclusão ativa.</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Commercial Deliverables -->
+    <div class="lg:col-span-8 space-y-6">
+      <h4 class="font-serif text-2xl text-white border-b border-white/5 pb-3">Formatos de Parceria</h4>
+      
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+        <div class="bg-[#0B0D12]/50 p-6 rounded-xl border border-white/5 hover:bg-[#0B0D12] transition-all duration-300 space-y-3">
+          <div class="w-10 h-10 rounded-full bg-[#D4AF37]/10 flex items-center justify-center text-[#D4AF37]">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z"></path></svg>
+          </div>
+          <h5 class="text-white text-sm font-bold">Visibilidade Cenográfica</h5>
+          <p class="text-slate-400 text-xs leading-relaxed">
+            Presença elegante e orgânica do logotipo ou produtos da sua marca diretamente no cenário do estúdio do programa Mentes que Inspiram.
+          </p>
+        </div>
+
+        <div class="bg-[#0B0D12]/50 p-6 rounded-xl border border-white/5 hover:bg-[#0B0D12] transition-all duration-300 space-y-3">
+          <div class="w-10 h-10 rounded-full bg-[#D4AF37]/10 flex items-center justify-center text-[#D4AF37]">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4m-4-8a3 3 0 01-3-3V5a3 3 0 116 0v6a3 3 0 01-3 3z"></path></svg>
+          </div>
+          <h5 class="text-white text-sm font-bold">Citação Institucional</h5>
+          <p class="text-slate-400 text-xs leading-relaxed">
+            Citação qualificada feita de forma espontânea pela apresentadora Vanessa Sanceverino durante os momentos de maior engajamento do episódio.
+          </p>
+        </div>
+
+        <div class="bg-[#0B0D12]/50 p-6 rounded-xl border border-white/5 hover:bg-[#0B0D12] transition-all duration-300 space-y-3">
+          <div class="w-10 h-10 rounded-full bg-[#D4AF37]/10 flex items-center justify-center text-[#D4AF37]">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.684 10.742l-4.526 2.07C3.393 13.176 3 13.993 3 14.885V18a2 2 0 002 2h14a2 2 0 002-2v-3.115c0-.892-.393-1.71-1.158-2.072l-4.526-2.07a1.996 1.996 0 00-1.632 0l-4.526 2.07z"></path></svg>
+          </div>
+          <h5 class="text-white text-sm font-bold">Conteúdo Multiplataforma</h5>
+          <p class="text-slate-400 text-xs leading-relaxed">
+            Inserção em cortes do YouTube, Reels no Instagram, posts de divulgação e posts de carrossel conjuntos que geram grande visibilidade.
+          </p>
+        </div>
+
+        <div class="bg-[#0B0D12]/50 p-6 rounded-xl border border-white/5 hover:bg-[#0B0D12] transition-all duration-300 space-y-3">
+          <div class="w-10 h-10 rounded-full bg-[#D4AF37]/10 flex items-center justify-center text-[#D4AF37]">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v13m0-13V6a2 2 0 112 2h-2zm0 0V5a2 2 0 10-2 2h2z"></path></svg>
+          </div>
+          <h5 class="text-white text-sm font-bold">Projetos Customizados</h5>
+          <p class="text-slate-400 text-xs leading-relaxed">
+            Episódios temáticos especiais patrocinados ou quadros de entrevistas dedicados a trazer visibilidade às soluções inclusivas desenvolvidas pela marca.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Contact CTA -->
+  <div class="bg-gradient-to-r from-[#0E1118] to-[#161B26] border border-[#D4AF37]/15 rounded-xl p-8 text-center space-y-4 max-w-2xl mx-auto">
+    <h4 class="font-serif text-2xl text-white">Anuncie Conosco</h4>
+    <p class="text-slate-400 text-xs max-w-md mx-auto leading-relaxed">
+      Nossa equipe comercial está à disposição para desenhar o plano de mídia perfeito para os objetivos de posicionamento da sua marca.
+    </p>
+    <div class="pt-2">
+      <a 
+        href="mailto:comercial@mentesqueinspiram.com?subject=Interesse%20em%20Patroc%C3%ADnio%20-%20Media%20Kit"
+        class="inline-flex items-center gap-2 px-8 py-3 bg-[#D4AF37] text-black font-semibold rounded-full hover:bg-white transition-all duration-300"
+      >
+        <span>Contatar Departamento Comercial</span>
+      </a>
+    </div>
+  </div>
+</div>

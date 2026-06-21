@@ -1,0 +1,636 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Media Kit Oficial — Mentes que Inspiram</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Inter:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+    
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: {
+              serif:['"Playfair Display"', 'serif'], 
+              sans:['"Inter"', 'sans-serif'], 
+            },
+            colors: {
+              brand: {
+                dark: '#050A14',    // Azul marinho profundo
+                primary: '#D4AF37', // Dourado principal
+                light: '#F8F9FA',   // Branco/Gelo
+                accent: '#E5C05C',  // Dourado claro
+                card: '#0B132B',    // Azul marinho para cards
+              }
+            },
+            backgroundImage: {
+              'gradient-gold': 'linear-gradient(to right, #D4AF37, #FFF5C3, #D4AF37)', 
+            }
+          }
+        }
+      }
+    </script>
+    <style>
+      body {
+        background-color: #050A14;
+        color: #F8F9FA;
+        overflow-x: hidden;
+      }
+      
+      .text-gradient-gold {
+        background: linear-gradient(to right, #D4AF37, #FFF5C3, #D4AF37);
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+      }
+
+      .slide-in {
+        opacity: 0;
+        transform: translateY(40px);
+        transition: all 1.2s ease-out;
+      }
+      .slide-in.visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      .glass-card {
+        background: rgba(11, 19, 43, 0.6);
+        backdrop-filter: blur(12px);
+        border: 1px solid rgba(212, 175, 55, 0.15);
+      }
+
+      .img-face-safe {
+        object-position: top;
+      }
+
+      /* Marquee Animation para a Galeria de Imagens */
+      @keyframes marquee {
+        0% { transform: translateX(0); }
+        100% { transform: translateX(-50%); }
+      }
+      .animate-marquee {
+        animation: marquee 50s linear infinite;
+        width: max-content;
+      }
+    </style>
+</head>
+  <body class="antialiased selection:bg-brand-primary selection:text-brand-dark">
+
+    <!-- SLIDE 1: CAPA / HERO -->
+    <section class="min-h-screen relative flex flex-col items-center justify-center overflow-hidden border-b border-white/5 bg-brand-dark pb-24">
+      <!-- Imagem de Fundo 5 -->
+      <div class="absolute inset-0 bg-[url('img/mentes5.jpeg')] bg-cover bg-top opacity-20 scale-105"></div>
+      <div class="absolute inset-0 bg-gradient-to-b from-brand-dark/90 via-brand-dark/80 to-brand-dark"></div>
+
+      <div class="relative z-10 text-center px-6 max-w-7xl mx-auto flex flex-col items-center mt-12">
+        <p class="text-brand-accent tracking-[0.3em] text-sm md:text-base mb-6 slide-in font-serif italic">Media Kit Oficial</p>
+        
+        <!-- Program Title -->
+        <div class="mb-4 slide-in" style="transition-delay: 200ms;">
+             <div class="border border-brand-primary/30 p-5 rounded-full inline-block mb-6 bg-brand-dark/50 shadow-[0_0_30px_rgba(212,175,55,0.15)]">
+                <i data-lucide="brain" class="w-10 h-10 text-brand-primary"></i>
+             </div>
+             <h2 class="text-5xl md:text-8xl font-serif text-white uppercase tracking-wider leading-none drop-shadow-lg">
+                Mentes Que <br/>
+                <span class="text-gradient-gold italic normal-case tracking-normal text-6xl md:text-9xl mt-2 block">Inspiram</span>
+             </h2>
+        </div>
+        
+        <p class="text-lg md:text-2xl text-slate-300 font-light tracking-[0.1em] slide-in mt-8 drop-shadow-md" style="transition-delay: 300ms;">
+            Com <strong class="text-brand-primary">Vanessa Sanceverino Esteves</strong>
+        </p>
+
+        <p class="text-sm md:text-base text-slate-400 slide-in mt-4 font-serif italic max-w-2xl" style="transition-delay: 350ms;">
+            "Conteúdo com propósito, elegância e impacto."
+        </p>
+
+        <!-- Tags -->
+        <div class="mt-12 flex flex-wrap justify-center gap-4 md:gap-8 text-xs md:text-sm uppercase tracking-[0.15em] text-brand-primary slide-in font-bold bg-brand-card/80 border border-brand-primary/30 rounded-full px-8 py-4 shadow-lg" style="transition-delay: 400ms;">
+            <span>Educação</span>
+            <span class="text-white/30">•</span>
+            <span>Liderança</span>
+            <span class="text-white/30">•</span>
+            <span>Inclusão</span>
+            <span class="text-white/30">•</span>
+            <span>Desenvolvimento Humano</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- SLIDE 2: APRESENTADORA E MANIFESTO -->
+    <section class="py-24 relative border-b border-white/5 bg-[#03060C]">
+      <div class="container mx-auto px-6 md:px-12 relative z-10">
+        <div class="flex flex-col lg:flex-row gap-16 items-center">
+            
+            <!-- Photo (Imagem 10 - Atualizada conforme pedido) -->
+            <div class="w-full lg:w-5/12 relative slide-in">
+                <div class="absolute -top-4 -left-4 w-full h-full border border-brand-primary/30 rounded-2xl"></div>
+                <img src="img/mentes10.jpeg" alt="Vanessa Sanceverino Esteves" class="w-full h-[600px] object-cover img-face-safe shadow-2xl relative z-10 rounded-xl grayscale-[20%] hover:grayscale-0 transition-all duration-700">
+            </div>
+
+            <!-- Content -->
+            <div class="w-full lg:w-7/12 slide-in" style="transition-delay: 200ms;">
+                <div class="flex items-center gap-4 mb-6">
+                    <div class="h-[2px] w-12 bg-brand-primary"></div>
+                    <span class="text-brand-primary uppercase tracking-widest text-sm font-bold">A Apresentadora</span>
+                </div>
+
+                <h2 class="font-serif text-4xl md:text-6xl text-white mb-6 leading-tight">
+                    Vanessa <span class="text-gradient-gold italic">Sanceverino Esteves</span>
+                </h2>
+                
+                <div class="space-y-4 text-slate-300 font-sans font-light text-lg leading-relaxed text-justify lg:text-left">
+                    <p>
+                        Gestora educacional, comunicadora e idealizadora do programa. Com trajetória sólida construída na educação, na liderança pedagógica e na comunicação com propósito, Vanessa conduz entrevistas que unem <strong class="text-brand-primary font-bold">profundidade, sensibilidade e relevância social</strong>.
+                    </p>
+                    <p>
+                        Sua presença em cena traduz a essência do projeto: escutar com inteligência, comunicar com elegância e transformar conversas em conteúdo que inspira, informa e gera impacto real.
+                    </p>
+                </div>
+
+                <!-- Manifesto Card -->
+                <div class="mt-10 bg-brand-card border border-brand-primary/20 p-8 rounded-2xl relative overflow-hidden shadow-2xl">
+                    <i data-lucide="quote" class="absolute -top-4 -right-4 w-32 h-32 text-brand-primary/5 rotate-12"></i>
+                    <h3 class="text-brand-primary font-serif text-2xl mb-4">O Manifesto</h3>
+                    <p class="text-white font-light text-lg italic leading-relaxed relative z-10">
+                        "Porque toda conversa que toca a essência também pode transformar realidades. O Mentes que Inspiram nasce da força das ideias, da escuta e das histórias que ampliam o olhar sobre o mundo. É um espaço onde conhecimento encontra sensibilidade, e onde cada entrevista é um convite à reflexão, à consciência e à ação."
+                    </p>
+                </div>
+            </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SLIDE 3: O PROGRAMA, PILARES E DIFERENCIAIS -->
+    <section class="py-24 bg-brand-dark relative border-b border-white/5">
+        <div class="container mx-auto px-6 md:px-12 relative z-10">
+            
+            <div class="text-center mb-16 slide-in">
+                 <h2 class="font-serif text-5xl md:text-6xl text-white mb-6">O Programa</h2>
+                 <p class="text-xl text-slate-400 max-w-4xl mx-auto font-light leading-relaxed">
+                    Um espaço de entrevistas voltado a conversas que geram valor, consciência e impacto. Com linguagem sofisticada e acessível, aborda temas contemporâneos conectando especialistas, educadores e histórias inspiradoras.
+                 </p>
+            </div>
+
+            <!-- Pilares Editoriais (Grid) -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 slide-in mb-24" style="transition-delay: 200ms;">
+                
+                <div class="glass-card p-8 rounded-xl hover:border-brand-primary/50 transition-colors">
+                    <div class="bg-brand-primary/10 w-12 h-12 rounded-lg flex items-center justify-center mb-6">
+                        <i data-lucide="book-open" class="text-brand-primary w-6 h-6"></i>
+                    </div>
+                    <h4 class="text-2xl text-white font-serif mb-3">Educação e Inovação</h4>
+                    <p class="text-slate-400 text-sm leading-relaxed">Reflexões sobre aprendizagem, gestão educacional, neuroeducação, práticas pedagógicas e o futuro da educação.</p>
+                </div>
+
+                <div class="glass-card p-8 rounded-xl hover:border-brand-primary/50 transition-colors">
+                    <div class="bg-brand-primary/10 w-12 h-12 rounded-lg flex items-center justify-center mb-6">
+                        <i data-lucide="heart-handshake" class="text-brand-primary w-6 h-6"></i>
+                    </div>
+                    <h4 class="text-2xl text-white font-serif mb-3">Inclusão e Diversidade</h4>
+                    <p class="text-slate-400 text-sm leading-relaxed">Pautas que ampliam o debate sobre acessibilidade, autismo, maternidade atípica, equidade e pertencimento.</p>
+                </div>
+
+                <div class="glass-card p-8 rounded-xl hover:border-brand-primary/50 transition-colors">
+                    <div class="bg-brand-primary/10 w-12 h-12 rounded-lg flex items-center justify-center mb-6">
+                        <i data-lucide="users" class="text-brand-primary w-6 h-6"></i>
+                    </div>
+                    <h4 class="text-2xl text-white font-serif mb-3">Desenvolvimento Humano</h4>
+                    <p class="text-slate-400 text-sm leading-relaxed">Comportamento, saúde emocional, relações humanas, carreira, propósito e bem-estar.</p>
+                </div>
+
+                <div class="glass-card p-8 rounded-xl hover:border-brand-primary/50 transition-colors">
+                    <div class="bg-brand-primary/10 w-12 h-12 rounded-lg flex items-center justify-center mb-6">
+                        <i data-lucide="compass" class="text-brand-primary w-6 h-6"></i>
+                    </div>
+                    <h4 class="text-2xl text-white font-serif mb-3">Liderança e Inspiração</h4>
+                    <p class="text-slate-400 text-sm leading-relaxed">Trajetórias, experiências e visões que mobilizam, ensinam e inspiram transformação verdadeira.</p>
+                </div>
+            </div>
+
+            <!-- DIFERENCIAIS DO PROGRAMA -->
+            <div class="slide-in" style="transition-delay: 300ms;">
+                <div class="flex items-center gap-6 mb-12 justify-center">
+                    <div class="h-[1px] w-12 md:w-32 bg-brand-primary/40"></div>
+                    <h3 class="font-serif text-3xl md:text-4xl text-white text-center">Diferenciais do Mentes que Inspiram</h3>
+                    <div class="h-[1px] w-12 md:w-32 bg-brand-primary/40"></div>
+                </div>
+
+                <div class="flex flex-wrap justify-center gap-6">
+                    
+                    <!-- Diferencial 1 -->
+                    <div class="w-full md:w-[calc(50%-12px)] lg:w-[calc(33.333%-16px)] bg-[#0A101D] border border-white/5 p-8 rounded-2xl hover:border-brand-primary/40 transition-all duration-300">
+                        <div class="bg-brand-primary/10 w-10 h-10 rounded-full flex items-center justify-center mb-5">
+                            <i data-lucide="target" class="text-brand-primary w-5 h-5"></i>
+                        </div>
+                        <h4 class="text-white font-bold mb-3 text-lg">Curadoria de Temas com Relevância</h4>
+                        <p class="text-slate-400 text-sm leading-relaxed">O programa trata de assuntos atuais, necessários e de alto valor para a sociedade.</p>
+                    </div>
+
+                    <!-- Diferencial 2 -->
+                    <div class="w-full md:w-[calc(50%-12px)] lg:w-[calc(33.333%-16px)] bg-[#0A101D] border border-white/5 p-8 rounded-2xl hover:border-brand-primary/40 transition-all duration-300">
+                        <div class="bg-brand-primary/10 w-10 h-10 rounded-full flex items-center justify-center mb-5">
+                            <i data-lucide="mic-2" class="text-brand-primary w-5 h-5"></i>
+                        </div>
+                        <h4 class="text-white font-bold mb-3 text-lg">Profundidade e Leveza</h4>
+                        <p class="text-slate-400 text-sm leading-relaxed">A condução da apresentadora equilibra perfeitamente acolhimento, inteligência e autoridade.</p>
+                    </div>
+
+                    <!-- Diferencial 3 -->
+                    <div class="w-full md:w-[calc(50%-12px)] lg:w-[calc(33.333%-16px)] bg-[#0A101D] border border-white/5 p-8 rounded-2xl hover:border-brand-primary/40 transition-all duration-300">
+                        <div class="bg-brand-primary/10 w-10 h-10 rounded-full flex items-center justify-center mb-5">
+                            <i data-lucide="gem" class="text-brand-primary w-5 h-5"></i>
+                        </div>
+                        <h4 class="text-white font-bold mb-3 text-lg">Estética Premium e Marcante</h4>
+                        <p class="text-slate-400 text-sm leading-relaxed">Forte apelo visual e posicionamento elegante, fortalecendo a percepção de valor no mercado.</p>
+                    </div>
+
+                    <!-- Diferencial 4 -->
+                    <div class="w-full md:w-[calc(50%-12px)] lg:w-[calc(50%-12px)] bg-[#0A101D] border border-white/5 p-8 rounded-2xl hover:border-brand-primary/40 transition-all duration-300">
+                        <div class="bg-brand-primary/10 w-10 h-10 rounded-full flex items-center justify-center mb-5">
+                            <i data-lucide="heart" class="text-brand-primary w-5 h-5"></i>
+                        </div>
+                        <h4 class="text-white font-bold mb-3 text-lg">Conexão Emocional com a Audiência</h4>
+                        <p class="text-slate-400 text-sm leading-relaxed">O conteúdo aproxima, sensibiliza e gera uma identificação genuína e duradoura com o público.</p>
+                    </div>
+
+                    <!-- Diferencial 5 -->
+                    <div class="w-full md:w-[calc(50%-12px)] lg:w-[calc(50%-12px)] bg-[#0A101D] border border-white/5 p-8 rounded-2xl hover:border-brand-primary/40 transition-all duration-300">
+                        <div class="bg-brand-primary/10 w-10 h-10 rounded-full flex items-center justify-center mb-5">
+                            <i data-lucide="smartphone" class="text-brand-primary w-5 h-5"></i>
+                        </div>
+                        <h4 class="text-white font-bold mb-3 text-lg">Vocação Multiplataforma</h4>
+                        <p class="text-slate-400 text-sm leading-relaxed">Cada episódio se desdobra em cortes, reels, chamadas, bastidores e conteúdos de alto potencial de alcance.</p>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- SLIDE 4: PERFORMANCE DIGITAL DO PROGRAMA -->
+    <section class="py-24 bg-brand-card relative border-b border-white/5 overflow-hidden">
+        <div class="absolute inset-0 bg-gradient-to-b from-brand-primary/5 to-transparent pointer-events-none"></div>
+        
+        <div class="container mx-auto px-6 md:px-12 relative z-10">
+            <div class="text-center mb-16 slide-in">
+                 <h2 class="font-serif text-4xl md:text-5xl text-white mb-4">Performance do Programa</h2>
+                 <p class="text-lg text-brand-accent uppercase tracking-widest font-bold mt-4">Mais de 2.15 Milhões de Visualizações</p>
+                 <p class="text-slate-400 text-sm mt-2">Dados consolidados em apenas 6 meses de criação do projeto.</p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 slide-in" style="transition-delay: 150ms;">
+                
+                <!-- Card Instagram -->
+                <div class="bg-gradient-to-br from-[#1A1A1A] to-[#0A0A0A] border border-[#333] rounded-3xl p-10 relative shadow-2xl">
+                    <div class="absolute top-6 right-6 text-pink-500 opacity-80"><i data-lucide="instagram" class="w-8 h-8"></i></div>
+                    <p class="text-slate-400 uppercase tracking-widest text-xs font-bold mb-4">Alcance Orgânico Massivo</p>
+                    
+                    <h3 class="text-6xl md:text-7xl font-sans font-bold text-white tracking-tighter mb-2">2.086.382</h3>
+                    <p class="text-brand-primary text-lg mb-8 font-serif italic">Visualizações no Instagram</p>
+                    
+                    <div class="space-y-4 border-t border-white/10 pt-6">
+                        <div class="flex items-center justify-between text-slate-300">
+                            <span class="flex items-center gap-2"><i data-lucide="users-2" class="w-4 h-4 text-brand-primary"></i> Seguidores Engajados</span>
+                            <strong class="text-white text-xl">~9.5k</strong>
+                        </div>
+                        <div class="bg-white/5 p-4 rounded-xl mt-4 border border-white/5">
+                            <p class="text-sm text-slate-400 leading-relaxed"><strong class="text-white">Destaque:</strong> O alcance do perfil para não-seguidores é extremamente expressivo, chancelando um alto poder de viralização e entrega orgânica do conteúdo.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card YouTube -->
+                <div class="bg-gradient-to-br from-white/5 to-transparent border border-white/10 rounded-3xl p-10 relative shadow-2xl backdrop-blur-sm">
+                    <div class="absolute top-6 right-6 text-red-500 opacity-80"><i data-lucide="youtube" class="w-8 h-8"></i></div>
+                    <p class="text-slate-400 uppercase tracking-widest text-xs font-bold mb-4">Crescimento Acelerado (Analytics)</p>
+                    
+                    <div class="grid grid-cols-2 gap-6 mb-8">
+                        <div>
+                            <h3 class="text-5xl md:text-6xl font-sans font-bold text-white tracking-tighter mb-1">70,0<span class="text-3xl">mil</span></h3>
+                            <p class="text-brand-primary text-sm font-serif italic">Visualizações</p>
+                        </div>
+                        <div>
+                            <h3 class="text-5xl md:text-6xl font-sans font-bold text-white tracking-tighter mb-1">6.718</h3>
+                            <p class="text-brand-primary text-sm font-serif italic">Inscritos Fiéis</p>
+                        </div>
+                    </div>
+                    
+                    <div class="space-y-3 border-t border-white/10 pt-6">
+                        <p class="text-sm text-slate-300 uppercase tracking-wider mb-2 font-bold text-center">Alta Retenção de Público</p>
+                        <div class="bg-brand-dark rounded-xl p-4 flex items-center gap-4 border border-brand-primary/20">
+                            <div class="w-16 h-12 bg-slate-800 rounded flex items-center justify-center shrink-0 overflow-hidden">
+                                <i data-lucide="play" class="w-5 h-5 text-white/50"></i>
+                            </div>
+                            <div>
+                                <p class="text-white text-xs font-bold leading-tight">Ex: Maternidade Atípica & Autismo</p>
+                                <p class="text-slate-400 text-[10px] mt-1">Pautas profundas que geram alta conexão e compartilhamento.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SLIDE 5: ALCANCE MULTIPLATAFORMA -->
+    <section class="py-24 bg-[#141211] relative border-b border-white/5">
+        <div class="container mx-auto px-6 md:px-12 relative z-10">
+            
+            <div class="text-center mb-16 slide-in">
+                 <h2 class="font-serif text-5xl md:text-6xl text-white mb-4">Alcance e Performance</h2>
+                 <p class="text-lg text-slate-400 font-light">Audiência multiplataforma sólida, com forte engajamento e retenção de público.</p>
+            </div>
+
+            <!-- Performance Stats (Marquee) -->
+            <div class="relative w-full overflow-hidden mb-16 slide-in border-t border-b border-brand-primary/20 py-8 bg-brand-dark/30">
+                <div class="absolute left-0 top-0 bottom-0 w-16 md:w-48 z-10 bg-gradient-to-r from-brand-dark to-transparent pointer-events-none"></div>
+                <div class="absolute right-0 top-0 bottom-0 w-16 md:w-48 z-10 bg-gradient-to-l from-brand-dark to-transparent pointer-events-none"></div>
+                
+                <div class="flex gap-16 animate-marquee whitespace-nowrap">
+                    <!-- Set 1 -->
+                    <div class="flex items-center gap-16">
+                        <div class="flex flex-col items-center justify-center px-12">
+                            <span class="text-brand-primary text-5xl md:text-7xl font-bold font-sans tracking-tight">876K</span>
+                            <span class="text-slate-400 text-xs uppercase tracking-[0.2em] mt-2">Impacto Digital</span>
+                        </div>
+                        <div class="flex flex-col items-center justify-center px-12">
+                            <span class="text-brand-primary text-5xl md:text-7xl font-bold font-sans tracking-tight">+2.1M</span>
+                            <span class="text-slate-400 text-xs uppercase tracking-[0.2em] mt-2">Views no Instagram</span>
+                        </div>
+                        <div class="flex flex-col items-center justify-center px-12">
+                            <span class="text-brand-primary text-5xl md:text-7xl font-bold font-sans tracking-tight">224K</span>
+                            <span class="text-slate-400 text-xs uppercase tracking-[0.2em] mt-2">Views no YouTube</span>
+                        </div>
+                    </div>
+                    <!-- Set 2 (Duplicate for loop) -->
+                    <div class="flex items-center gap-16">
+                        <div class="flex flex-col items-center justify-center px-12">
+                            <span class="text-brand-primary text-5xl md:text-7xl font-bold font-sans tracking-tight">876K</span>
+                            <span class="text-slate-400 text-xs uppercase tracking-[0.2em] mt-2">Impacto Digital</span>
+                        </div>
+                        <div class="flex flex-col items-center justify-center px-12">
+                            <span class="text-brand-primary text-5xl md:text-7xl font-bold font-sans tracking-tight">+2.1M</span>
+                            <span class="text-slate-400 text-xs uppercase tracking-[0.2em] mt-2">Views no Instagram</span>
+                        </div>
+                        <div class="flex flex-col items-center justify-center px-12">
+                            <span class="text-brand-primary text-5xl md:text-7xl font-bold font-sans tracking-tight">224K</span>
+                            <span class="text-slate-400 text-xs uppercase tracking-[0.2em] mt-2">Views no YouTube</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Social Cards Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto slide-in" style="transition-delay: 200ms;">
+                
+                <!-- YouTube -->
+                <div class="bg-[#2A2624]/40 border border-white/5 rounded-2xl p-8 hover:border-[#2ECC71]/30 transition-colors">
+                    <div class="flex items-center gap-4 mb-8">
+                        <div class="p-2 bg-red-600/10 rounded-lg text-red-500 border border-red-500/20"><i data-lucide="youtube" class="w-5 h-5"></i></div>
+                        <div>
+                            <h4 class="text-xl text-white font-serif leading-none mb-1">YouTube</h4>
+                            <p class="text-slate-500 text-[10px] uppercase tracking-widest">Dados Recentes</p>
+                        </div>
+                    </div>
+                    <div class="grid grid-cols-2 gap-4 mb-6">
+                        <div>
+                            <p class="text-3xl text-white font-bold mb-1">224.8K</p>
+                            <p class="text-slate-400 text-xs">Visualizações</p>
+                        </div>
+                        <div>
+                            <p class="text-3xl text-white font-bold mb-1">7.9K</p>
+                            <p class="text-slate-400 text-xs">Horas</p>
+                        </div>
+                    </div>
+                    <div class="border-t border-white/5 pt-6 mb-5">
+                        <p class="text-2xl text-white font-bold mb-1">+1.3K</p>
+                        <p class="text-slate-400 text-xs">Novos Inscritos</p>
+                    </div>
+                    <span class="inline-block bg-[#2ECC71]/10 text-[#2ECC71] text-[10px] px-3 py-1 rounded font-bold border border-[#2ECC71]/20"><i data-lucide="trending-up" class="w-3 h-3 inline mr-1"></i> +61% Visualizações</span>
+                </div>
+
+                <!-- Instagram -->
+                <div class="bg-[#2A2624]/40 border border-white/5 rounded-2xl p-8 hover:border-[#2ECC71]/30 transition-colors">
+                    <div class="flex items-center gap-4 mb-8">
+                        <div class="p-2 bg-pink-600/10 rounded-lg text-pink-500 border border-pink-500/20"><i data-lucide="instagram" class="w-5 h-5"></i></div>
+                        <div>
+                            <h4 class="text-xl text-white font-serif leading-none mb-1">Instagram</h4>
+                            <p class="text-slate-500 text-[10px] uppercase tracking-widest">Performance Digital</p>
+                        </div>
+                    </div>
+                    <div class="grid grid-cols-2 gap-4 mb-6">
+                        <div>
+                            <p class="text-3xl text-white font-bold mb-1">876.4K</p>
+                            <p class="text-slate-400 text-xs">Alcance</p>
+                        </div>
+                        <div>
+                            <p class="text-3xl text-white font-bold mb-1">33.6K</p>
+                            <p class="text-slate-400 text-xs">Interações</p>
+                        </div>
+                    </div>
+                    <div class="border-t border-white/5 pt-6 mb-5">
+                        <p class="text-2xl text-white font-bold mb-1">+1.0K</p>
+                        <p class="text-slate-400 text-xs">Novos Seguidores</p>
+                    </div>
+                    <span class="inline-block bg-[#2ECC71]/10 text-[#2ECC71] text-[10px] px-3 py-1 rounded font-bold border border-[#2ECC71]/20"><i data-lucide="activity" class="w-3 h-3 inline mr-1"></i> Forte impacto na base</span>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- SLIDE 6: UNIVERSO MENTES QUE INSPIRAM (CAROUSEL DE IMAGENS) -->
+    <section class="py-24 bg-brand-dark relative border-b border-white/5 overflow-hidden">
+        <div class="container mx-auto px-6 md:px-12 mb-12 relative z-10">
+            <div class="text-center slide-in">
+                <h2 class="font-serif text-5xl md:text-6xl text-white uppercase leading-tight">
+                    Universo <br class="md:hidden"/><span class="text-brand-primary">Mentes que Inspiram</span>
+                </h2>
+                <p class="text-slate-400 mt-4 text-lg">Histórias reais, autoridade e impacto visual.</p>
+            </div>
+        </div>
+
+        <!-- Carousel Container -->
+        <div class="relative w-full overflow-hidden group slide-in">
+            <!-- Efeito de Fade nas Laterais -->
+            <div class="absolute left-0 top-0 bottom-0 w-16 md:w-48 z-10 bg-gradient-to-r from-brand-dark to-transparent pointer-events-none"></div>
+            <div class="absolute right-0 top-0 bottom-0 w-16 md:w-48 z-10 bg-gradient-to-l from-brand-dark to-transparent pointer-events-none"></div>
+
+            <!-- Faixa Animada (Imagens organizadas preservando as 13 fotos) -->
+            <div class="flex gap-6 animate-marquee">
+                <!-- Set Original -->
+                <div class="relative w-72 md:w-80 h-96 flex-shrink-0 rounded-xl overflow-hidden border border-brand-primary/20"><img src="img/mentes1.jpeg" class="w-full h-full object-cover img-face-safe grayscale-[20%] hover:grayscale-0 transition-all duration-500"></div>
+                <div class="relative w-72 md:w-80 h-96 flex-shrink-0 rounded-xl overflow-hidden border border-brand-primary/20"><img src="img/mentes2.jpeg" class="w-full h-full object-cover img-face-safe grayscale-[20%] hover:grayscale-0 transition-all duration-500"></div>
+                <div class="relative w-72 md:w-80 h-96 flex-shrink-0 rounded-xl overflow-hidden border border-brand-primary/20"><img src="img/mentes3.jpeg" class="w-full h-full object-cover img-face-safe grayscale-[20%] hover:grayscale-0 transition-all duration-500"></div>
+                <div class="relative w-72 md:w-80 h-96 flex-shrink-0 rounded-xl overflow-hidden border border-brand-primary/20"><img src="img/mentes4.jpeg" class="w-full h-full object-cover img-face-safe grayscale-[20%] hover:grayscale-0 transition-all duration-500"></div>
+                <div class="relative w-72 md:w-80 h-96 flex-shrink-0 rounded-xl overflow-hidden border border-brand-primary/20"><img src="img/mentes6.jpeg" class="w-full h-full object-cover img-face-safe grayscale-[20%] hover:grayscale-0 transition-all duration-500"></div>
+                <div class="relative w-72 md:w-80 h-96 flex-shrink-0 rounded-xl overflow-hidden border border-brand-primary/20"><img src="img/mentes7.jpeg" class="w-full h-full object-cover img-face-safe grayscale-[20%] hover:grayscale-0 transition-all duration-500"></div>
+                <div class="relative w-72 md:w-80 h-96 flex-shrink-0 rounded-xl overflow-hidden border border-brand-primary/20"><img src="img/mentes8.jpeg" class="w-full h-full object-cover img-face-safe grayscale-[20%] hover:grayscale-0 transition-all duration-500"></div>
+                <div class="relative w-72 md:w-80 h-96 flex-shrink-0 rounded-xl overflow-hidden border border-brand-primary/20"><img src="img/mentes9.jpeg" class="w-full h-full object-cover img-face-safe grayscale-[20%] hover:grayscale-0 transition-all duration-500"></div>
+                <div class="relative w-72 md:w-80 h-96 flex-shrink-0 rounded-xl overflow-hidden border border-brand-primary/20"><img src="img/mentes11.jpeg" class="w-full h-full object-cover img-face-safe grayscale-[20%] hover:grayscale-0 transition-all duration-500"></div>
+                <div class="relative w-72 md:w-80 h-96 flex-shrink-0 rounded-xl overflow-hidden border border-brand-primary/20"><img src="img/mentes12.jpeg" class="w-full h-full object-cover img-face-safe grayscale-[20%] hover:grayscale-0 transition-all duration-500"></div>
+                <div class="relative w-72 md:w-80 h-96 flex-shrink-0 rounded-xl overflow-hidden border border-brand-primary/20"><img src="img/mentes13.jpeg" class="w-full h-full object-cover img-face-safe grayscale-[20%] hover:grayscale-0 transition-all duration-500"></div>
+                
+                <!-- Set Duplicado para Loop Perfeito -->
+                <div class="relative w-72 md:w-80 h-96 flex-shrink-0 rounded-xl overflow-hidden border border-brand-primary/20"><img src="img/mentes1.jpeg" class="w-full h-full object-cover img-face-safe grayscale-[20%] hover:grayscale-0 transition-all duration-500"></div>
+                <div class="relative w-72 md:w-80 h-96 flex-shrink-0 rounded-xl overflow-hidden border border-brand-primary/20"><img src="img/mentes2.jpeg" class="w-full h-full object-cover img-face-safe grayscale-[20%] hover:grayscale-0 transition-all duration-500"></div>
+                <div class="relative w-72 md:w-80 h-96 flex-shrink-0 rounded-xl overflow-hidden border border-brand-primary/20"><img src="img/mentes3.jpeg" class="w-full h-full object-cover img-face-safe grayscale-[20%] hover:grayscale-0 transition-all duration-500"></div>
+                <div class="relative w-72 md:w-80 h-96 flex-shrink-0 rounded-xl overflow-hidden border border-brand-primary/20"><img src="img/mentes4.jpeg" class="w-full h-full object-cover img-face-safe grayscale-[20%] hover:grayscale-0 transition-all duration-500"></div>
+                <div class="relative w-72 md:w-80 h-96 flex-shrink-0 rounded-xl overflow-hidden border border-brand-primary/20"><img src="img/mentes6.jpeg" class="w-full h-full object-cover img-face-safe grayscale-[20%] hover:grayscale-0 transition-all duration-500"></div>
+                <div class="relative w-72 md:w-80 h-96 flex-shrink-0 rounded-xl overflow-hidden border border-brand-primary/20"><img src="img/mentes7.jpeg" class="w-full h-full object-cover img-face-safe grayscale-[20%] hover:grayscale-0 transition-all duration-500"></div>
+                <div class="relative w-72 md:w-80 h-96 flex-shrink-0 rounded-xl overflow-hidden border border-brand-primary/20"><img src="img/mentes8.jpeg" class="w-full h-full object-cover img-face-safe grayscale-[20%] hover:grayscale-0 transition-all duration-500"></div>
+                <div class="relative w-72 md:w-80 h-96 flex-shrink-0 rounded-xl overflow-hidden border border-brand-primary/20"><img src="img/mentes9.jpeg" class="w-full h-full object-cover img-face-safe grayscale-[20%] hover:grayscale-0 transition-all duration-500"></div>
+                <div class="relative w-72 md:w-80 h-96 flex-shrink-0 rounded-xl overflow-hidden border border-brand-primary/20"><img src="img/mentes11.jpeg" class="w-full h-full object-cover img-face-safe grayscale-[20%] hover:grayscale-0 transition-all duration-500"></div>
+                <div class="relative w-72 md:w-80 h-96 flex-shrink-0 rounded-xl overflow-hidden border border-brand-primary/20"><img src="img/mentes12.jpeg" class="w-full h-full object-cover img-face-safe grayscale-[20%] hover:grayscale-0 transition-all duration-500"></div>
+                <div class="relative w-72 md:w-80 h-96 flex-shrink-0 rounded-xl overflow-hidden border border-brand-primary/20"><img src="img/mentes13.jpeg" class="w-full h-full object-cover img-face-safe grayscale-[20%] hover:grayscale-0 transition-all duration-500"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SLIDE 7: COMERCIAL E PÚBLICO -->
+    <section class="py-24 bg-[#03060C] relative border-b border-white/5">
+        <div class="container mx-auto px-6 md:px-12 relative z-10">
+            
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-16">
+                
+                <!-- Publico Alvo -->
+                <div class="col-span-1 lg:col-span-4 slide-in">
+                    <h3 class="font-serif text-3xl text-white mb-8 border-b border-brand-primary/30 pb-4">Perfil do Público</h3>
+                    <p class="text-slate-300 mb-6 text-sm leading-relaxed">
+                        Dialogamos com um público que busca conteúdo com profundidade, qualidade e propósito.
+                    </p>
+                    <ul class="space-y-4">
+                        <li class="flex items-start gap-3">
+                            <i data-lucide="check-circle-2" class="w-5 h-5 text-brand-primary shrink-0 mt-0.5"></i>
+                            <span class="text-slate-300 text-sm">Educadores, gestores e famílias.</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <i data-lucide="check-circle-2" class="w-5 h-5 text-brand-primary shrink-0 mt-0.5"></i>
+                            <span class="text-slate-300 text-sm">Profissionais da saúde e desenvolvimento.</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <i data-lucide="check-circle-2" class="w-5 h-5 text-brand-primary shrink-0 mt-0.5"></i>
+                            <span class="text-slate-300 text-sm">Empreendedores e líderes corporativos.</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <i data-lucide="check-circle-2" class="w-5 h-5 text-brand-primary shrink-0 mt-0.5"></i>
+                            <span class="text-slate-300 text-sm">Interessados em inclusão, education e bem-estar.</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Oportunidades Comerciais -->
+                <div class="col-span-1 lg:col-span-8 slide-in" style="transition-delay: 200ms;">
+                    <h3 class="font-serif text-4xl text-white mb-4">Oportunidade para Marcas</h3>
+                    <p class="text-slate-400 mb-10">Um ambiente seguro, elegante e altamente conectado a valores contemporâneos.</p>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        
+                        <div class="glass-card p-6 rounded-xl border-t-4 border-t-brand-primary bg-brand-dark/50 hover:bg-brand-dark transition-colors">
+                            <i data-lucide="monitor" class="w-8 h-8 text-brand-primary mb-4"></i>
+                            <h4 class="text-white font-bold mb-2">Visibilidade Cenográfica</h4>
+                            <p class="text-slate-400 text-sm">Inserção orgânica e sofisticada da sua marca no cenário e em elementos visuais do programa.</p>
+                        </div>
+
+                        <div class="glass-card p-6 rounded-xl border-t-4 border-t-brand-primary bg-brand-dark/50 hover:bg-brand-dark transition-colors">
+                            <i data-lucide="message-square-quote" class="w-8 h-8 text-brand-primary mb-4"></i>
+                            <h4 class="text-white font-bold mb-2">Citação Institucional</h4>
+                            <p class="text-slate-400 text-sm">Menção qualificada da apresentadora durante o conteúdo de maior retenção.</p>
+                        </div>
+
+                        <div class="glass-card p-6 rounded-xl border-t-4 border-t-brand-primary bg-brand-dark/50 hover:bg-brand-dark transition-colors">
+                            <i data-lucide="share-2" class="w-8 h-8 text-brand-primary mb-4"></i>
+                            <h4 class="text-white font-bold mb-2">Conteúdo Multiplataforma</h4>
+                            <p class="text-slate-400 text-sm">Exposição estendida nos cortes, reels, chamadas e cards de alta performance no Instagram/YouTube.</p>
+                        </div>
+
+                        <div class="glass-card p-6 rounded-xl border-t-4 border-t-brand-primary bg-brand-dark/50 hover:bg-brand-dark transition-colors">
+                            <i data-lucide="handshake" class="w-8 h-8 text-brand-primary mb-4"></i>
+                            <h4 class="text-white font-bold mb-2">Parcerias Personalizadas</h4>
+                            <p class="text-slate-400 text-sm">Projetos, quadros ou episódios especiais desenhados conforme o objetivo estratégico da sua marca.</p>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER / CONTACT -->
+    <section class="relative bg-black border-t border-brand-primary/20 py-24 overflow-hidden">
+        <div class="absolute inset-0 bg-gradient-to-t from-brand-primary/10 to-transparent"></div>
+
+        <div class="container mx-auto px-6 relative z-10 text-center">
+             
+            <h2 class="font-serif text-4xl md:text-6xl text-white mb-6 slide-in leading-tight">
+                Sua marca conectada a um conteúdo que <br class="hidden md:block"/> 
+                <span class="text-gradient-gold italic">inspira, informa e deixa legado.</span>
+            </h2>
+            <p class="text-slate-400 mb-16 slide-in max-w-2xl mx-auto text-lg mt-6">
+                Associe sua imagem à educação, credibilidade, responsabilidade social e impacto positivo.
+            </p>
+            
+            <div class="flex flex-wrap justify-center gap-12 mb-16 slide-in">
+                <div class="flex flex-col items-center gap-4 group">
+                    <a href="https://www.instagram.com/mentesqueinspiramoficial?igsh=MTZ3M2xmcXZvZXhjZw==" target="_blank" class="w-20 h-20 rounded-full bg-white/5 border border-brand-primary/30 flex items-center justify-center hover:bg-brand-primary hover:text-brand-dark hover:border-brand-primary transition-all duration-300 shadow-[0_0_20px_rgba(212,175,55,0.1)] hover:shadow-[0_0_30_rgba(212,175,55,0.4)]">
+                        <i data-lucide="instagram" class="w-8 h-8 text-white group-hover:text-brand-dark transition-colors"></i>
+                    </a>
+                    <span class="text-brand-primary text-sm tracking-widest font-bold">@_mentes_que_inspiram_</span>
+                </div>
+
+                <div class="flex flex-col items-center gap-4 group">
+                    <a href="https://www.youtube.com/@ProgramaMentesqueInspiram" target="_blank" class="w-20 h-20 rounded-full bg-white/5 border border-white/10 flex items-center justify-center hover:bg-red-600 hover:text-white hover:border-red-600 transition-all duration-300">
+                        <i data-lucide="youtube" class="w-8 h-8 text-white transition-colors"></i>
+                    </a>
+                    <span class="text-slate-400 group-hover:text-red-500 transition-colors text-sm tracking-widest font-bold">@ProgramaMentesqueInspiram</span>
+                </div>
+            </div>
+
+            <div class="max-w-4xl mx-auto border-t border-b border-white/10 py-8 mb-12">
+                <p class="text-slate-500 text-xs md:text-sm leading-relaxed text-justify md:text-center">
+                    O Mentes que Inspiram é um programa de entrevistas apresentado por Vanessa Sanceverino Esteves. Com uma proposta editorial elegante e relevante, soma mais de 2.156.382 visualizações consolidadas entre Instagram e YouTube, reforçando seu potencial de alcance e valor para marcas que desejam se posicionar com propósito.
+                </p>
+            </div>
+
+            <div class="text-slate-600 text-xs uppercase tracking-[0.2em] flex flex-col md:flex-row items-center justify-center gap-4 font-bold">
+                <span>Vanessa Sanceverino Esteves</span>
+                <span class="hidden md:inline text-brand-primary/50">•</span>
+                <span>Mentes Que Inspiram © 2026</span>
+            </div>
+        </div>
+    </section>
+
+    <script>
+      lucide.createIcons();
+
+      const observerOptions = {
+        root: null,
+        rootMargin: '0px',
+        threshold: 0.15
+      };
+
+      const observer = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, observerOptions);
+
+      document.querySelectorAll('.slide-in').forEach(el => {
+        observer.observe(el);
+      });
+    </script>
+  </body>
+</html>

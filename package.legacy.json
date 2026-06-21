@@ -1,0 +1,16 @@
+{
+  "name": "site-kit",
+  "version": "1.0.0",
+  "description": "Vanessa Sanceverino Esteves - Mentes que Inspiram",
+  "main": "index.html",
+  "scripts": {
+    "start": "npx serve .",
+    "dev": "npx serve ."
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "locomotive-scroll": "^4.1.4"
+  }
+}

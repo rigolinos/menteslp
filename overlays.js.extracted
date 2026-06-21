@@ -10,12 +10,12 @@
 
     // ── Orbital positions for desktop ──
     var PORTAL_ORBITS = [
-        { ax: -0.22, ay: -0.22 },
-        { ax:  0.24, ay: -0.20 },
-        { ax: -0.28, ay:  0.03 },
-        { ax:  0.28, ay:  0.04 },
-        { ax: -0.20, ay:  0.26 },
-        { ax:  0.22, ay:  0.28 },
+        { ax: -0.30, ay: -0.30 },
+        { ax:  0.32, ay: -0.28 },
+        { ax: -0.36, ay:  0.04 },
+        { ax:  0.38, ay:  0.06 },
+        { ax: -0.26, ay:  0.34 },
+        { ax:  0.28, ay:  0.36 },
     ];
 
     // ── DOM refs ──
@@ -40,9 +40,36 @@
     var breathTween = null;
 
     // ══════════════════════════════════════════════
+    // SVG SETUP (Desktop only)
+    // ══════════════════════════════════════════════
+    var svgNS = 'http://www.w3.org/2000/svg';
+    var lightPath = null;
+
+    if (ecoSvg) {
+        var defs = document.createElementNS(svgNS, 'defs');
+        var gradient = document.createElementNS(svgNS, 'linearGradient');
+        gradient.id = 'eco-gradient';
+        var stop1 = document.createElementNS(svgNS, 'stop');
+        stop1.setAttribute('offset', '0%');
+        stop1.setAttribute('stop-color', 'rgba(201,168,76,0.6)');
+        var stop2 = document.createElementNS(svgNS, 'stop');
+        stop2.setAttribute('offset', '100%');
+        stop2.setAttribute('stop-color', 'rgba(201,168,76,0.05)');
+        gradient.appendChild(stop1);
+        gradient.appendChild(stop2);
+        defs.appendChild(gradient);
+        ecoSvg.appendChild(defs);
+
+        lightPath = document.createElementNS(svgNS, 'path');
+        lightPath.classList.add('eco-light-path');
+        lightPath.setAttribute('stroke', 'url(#eco-gradient)');
+        ecoSvg.appendChild(lightPath);
+    }
+
+
+    // ══════════════════════════════════════════════
     // GSAP BRAIN ENGINE — 3 Layers of Motion
     // ══════════════════════════════════════════════
-    window.__ecoLine = { startProgress: 0, endProgress: 0, px: 0, py: 0, active: false };
 
     function startBreathing() {
         if (breathTween) breathTween.kill();
@@ -148,28 +175,22 @@
         var H = window.innerHeight;
 
         entranceTimeline = window.gsap.timeline();
-        entranceTimeline.to(constellation, { opacity: 1, duration: 0.1 });
-        entranceTimeline.to(ecoTitleFloat, { opacity: 1, duration: 0.6, ease: 'power2.out' }, 0);
+        entranceTimeline.to(constellation, { opacity: 1, duration: 0.4, ease: 'power2.out' });
+        entranceTimeline.to(ecoTitleFloat, { opacity: 1, duration: 0.6, ease: 'power2.out' }, '<0.1');
 
         portals.forEach(function(portal, i) {
             var orbit = PORTAL_ORBITS[i];
-            // Nascer exatamente do centro (Cérebro)
-            var startX = -orbit.ax * W;
-            var startY = -orbit.ay * H;
-
+            var cx = W * brainCx;
+            var cy = H * brainCy;
             window.gsap.set(portal, {
-                x: startX,
-                y: startY,
-                scale: 0.1, 
-                opacity: 0
+                x: (cx + orbit.ax * W) > cx ? -60 : 60,
+                y: (cy + orbit.ay * H) > cy ? -40 : 40,
+                scale: 0, opacity: 0
             });
-            
-            // Explodir para fora de forma elástica e rápida
             entranceTimeline.to(portal, {
                 x: 0, y: 0, scale: 1, opacity: 1,
-                duration: 0.7, 
-                ease: 'back.out(1.2)'
-            }, 0.15 + (i * 0.05));
+                duration: 1.2, ease: 'power4.out', delay: i * 0.08
+            }, '<0.05');
         });
 
         entranceTimeline.add(function() { startBreathing(); }, 0.6);
@@ -306,7 +327,7 @@
         window.gsap.to(ecoTitleFloat, { opacity: 0, duration: 0.3 });
 
         portals.forEach(function(p) { p.classList.remove('eco-active', 'eco-dimmed'); });
-        window.__ecoLine.active = false;
+        if (lightPath) window.gsap.to(lightPath, { opacity: 0, duration: 0.2 });
     }
 
     window.addEventListener('resize', function() {
@@ -325,32 +346,31 @@
     // ══════════════════════════════════════════════
 
     function drawLightCurve(portalEl) {
+        if (!lightPath) return;
+        var W = window.innerWidth;
+        var H = window.innerHeight;
+        var cx = W * brainCx, cy = H * brainCy;
         var rect = portalEl.getBoundingClientRect();
-        window.__ecoLine.px = rect.left + rect.width / 2;
-        window.__ecoLine.py = rect.top + rect.height / 2;
-        window.__ecoLine.active = true;
-        
-        window.gsap.killTweensOf(window.__ecoLine);
-        window.gsap.to(window.__ecoLine, { 
-            endProgress: 1, 
-            startProgress: 0,
-            duration: 0.5, 
-            ease: 'power2.out' 
-        });
+        var px = rect.left + rect.width / 2;
+        var py = rect.top + rect.height / 2;
+        var dx = px - cx, dy = py - cy;
+        var perpX = -dy * 0.15, perpY = dx * 0.15;
+
+        var d = 'M ' + cx + ' ' + cy
+            + ' C ' + (cx + dx * 0.25 + perpX) + ' ' + (cy + dy * 0.25 + perpY)
+            + ', ' + (cx + dx * 0.75 - perpX * 0.5) + ' ' + (cy + dy * 0.75 - perpY * 0.5)
+            + ', ' + px + ' ' + py;
+        lightPath.setAttribute('d', d);
+
+        var pathLength = lightPath.getTotalLength();
+        lightPath.style.strokeDasharray = pathLength;
+        lightPath.style.strokeDashoffset = pathLength;
+        window.gsap.to(lightPath, { opacity: 1, strokeDashoffset: 0, duration: 0.5, ease: 'power2.out' });
     }
 
     function clearLightCurve() {
-        window.gsap.killTweensOf(window.__ecoLine);
-        window.gsap.to(window.__ecoLine, { 
-            startProgress: 1, 
-            duration: 0.4, 
-            ease: 'power2.inOut',
-            onComplete: function() { 
-                window.__ecoLine.active = false; 
-                window.__ecoLine.startProgress = 0;
-                window.__ecoLine.endProgress = 0;
-            }
-        });
+        if (!lightPath) return;
+        window.gsap.to(lightPath, { opacity: 0, duration: 0.3, ease: 'power2.in' });
     }
 
     // Desktop hover
@@ -404,115 +424,74 @@
     // OVERLAY MANAGEMENT (Responsive)
     // ══════════════════════════════════════════════
 
-    var activeOverlayId = null;
-    var _cachedScrollY = 0;
+    var mockContent = {
+        'programa': '<p style="font-size:1.25rem;color:#94a3b8;margin-bottom:2rem;">Assista aos episódios completos no YouTube e Spotify.</p>',
+        'cursos': '<p style="font-size:1.25rem;color:#94a3b8;margin-bottom:2rem;">Formações e capacitações imersivas para educadores e gestores.</p>',
+        'livro': '<p style="font-size:1.25rem;color:#94a3b8;margin-bottom:2rem;">A obra que deu origem ao movimento Mentes que Inspiram.</p>',
+        'eventos': '<p style="font-size:1.25rem;color:#94a3b8;margin-bottom:2rem;">Experiências presenciais e eventos corporativos transformadores.</p>',
+        'consultoria': '<p style="font-size:1.25rem;color:#94a3b8;margin-bottom:2rem;">Planos institucionais para escolas e empresas.</p>',
+        'mediakit': '<p style="font-size:1.25rem;color:#94a3b8;margin-bottom:2rem;">Oportunidades de parceria e patrocínio com a marca.</p>'
+    };
 
     function openOverlay(id) {
-        if (typeof window.pauseScrollytelling === 'function') window.pauseScrollytelling();
-        _cachedScrollY = window.scrollY;
-
-        activeOverlayId = id;
-
-        // Esconde todas as sections
-        document.querySelectorAll('.overlay-section').forEach(function(el) {
-            el.classList.add('hidden');
-        });
-
-        // Mostra a section desejada (Astro nativo)
-        var targetSection = document.getElementById('overlay-content-' + id);
-        if (targetSection) {
-            targetSection.classList.remove('hidden');
-            
-            // GSAP Stagger Entrance para o conteúdo (animando de baixo para cima)
-            var elementsToAnimate = targetSection.querySelectorAll('h1, h2, h3, h4, p, img, a, button, .bento-item, .grid > div, video, iframe');
-            if (elementsToAnimate.length > 0) {
-                window.gsap.fromTo(elementsToAnimate, 
-                    { y: 40, opacity: 0 }, 
-                    { y: 0, opacity: 1, duration: 0.6, stagger: 0.05, ease: 'power3.out', delay: 0.2 }
-                );
-            }
-        }
-
         if (window.ScrollTrigger) {
             window.ScrollTrigger.getAll().forEach(function(st) { st.disable(false, false); });
         }
         document.body.style.overflow = 'hidden';
 
-        overlaysContainer.style.pointerEvents = 'auto';
+        overlayTitle.textContent = id.charAt(0).toUpperCase() + id.slice(1);
+        overlayBody.innerHTML = mockContent[id] || '<p>Conteúdo em construção...</p>';
 
         if (isMobile) {
-            // Mobile: slide from bottom (Bottom Sheet)
+            // Mobile: slide from bottom
             overlaysContainer.classList.add('overlay-open-mobile');
+            overlaysContainer.style.pointerEvents = 'auto';
             window.gsap.fromTo(overlaysContainer,
-                { y: '100%', autoAlpha: 1 },
-                { y: '0%', duration: 0.6, ease: 'power3.out' }
+                { y: '100%' },
+                { y: '0%', duration: 0.5, ease: 'power3.out' }
             );
         } else {
             // Desktop: fade in
-            window.gsap.fromTo(overlaysContainer,
-                { autoAlpha: 0, y: 0 },
-                { autoAlpha: 1, duration: 0.6, ease: 'power3.out' }
-            );
+            window.gsap.to(overlaysContainer, {
+                autoAlpha: 1, pointerEvents: 'auto',
+                duration: 0.6, ease: 'power3.out'
+            });
         }
 
         window.history.pushState({ overlay: id }, '', '/' + id);
     }
 
     function closeOverlay() {
-        if (!activeOverlayId) return;
-
-        // GARBAGE COLLECTION: Mata animações daquele portal específico para não vazar memória
-        window.gsap.killTweensOf("#overlay-content-" + activeOverlayId + " *");
-
-        var targetSection = document.getElementById('overlay-content-' + activeOverlayId);
-
-        var onCompleteClose = function() {
-            overlaysContainer.style.pointerEvents = 'none';
-            if (targetSection) targetSection.classList.add('hidden');
-            activeOverlayId = null;
-            document.body.style.overflow = '';
-            window.scrollTo(0, _cachedScrollY); // Restaura exatamente onde parou
-            if (typeof window.resumeScrollytelling === 'function') window.resumeScrollytelling();
-            if (window.ScrollTrigger) {
-                window.ScrollTrigger.getAll().forEach(function(st) { st.enable(); });
-            }
-            if (isEcoActive) startBreathing();
-        };
-
         if (isMobile) {
             window.gsap.to(overlaysContainer, {
                 y: '100%', duration: 0.4, ease: 'power2.in',
                 onComplete: function() {
                     overlaysContainer.classList.remove('overlay-open-mobile');
-                    onCompleteClose();
+                    overlaysContainer.style.pointerEvents = 'none';
+                    document.body.style.overflow = '';
+                    if (window.ScrollTrigger) {
+                        window.ScrollTrigger.getAll().forEach(function(st) { st.enable(); });
+                    }
+                    if (isEcoActive) startBreathing();
                 }
             });
         } else {
             window.gsap.to(overlaysContainer, {
-                autoAlpha: 0, duration: 0.4, ease: 'power2.in',
-                onComplete: onCompleteClose
+                autoAlpha: 0, pointerEvents: 'none',
+                duration: 0.4, ease: 'power2.in',
+                onComplete: function() {
+                    document.body.style.overflow = '';
+                    if (window.ScrollTrigger) {
+                        window.ScrollTrigger.getAll().forEach(function(st) { st.enable(); });
+                    }
+                    if (isEcoActive) startBreathing();
+                }
             });
         }
         window.history.pushState({}, '', '/');
     }
 
-    if (closeBtn) closeBtn.addEventListener('click', closeOverlay);
-
-    // UX: Universal Close (Escape Key)
-    document.addEventListener('keydown', function(e) {
-        if (e.key === 'Escape' && activeOverlayId) {
-            closeOverlay();
-        }
-    });
-
-    // UX: Universal Close (Click Outside)
-    if (overlaysContainer) {
-        overlaysContainer.addEventListener('click', function(e) {
-            if (e.target === overlaysContainer || e.target.id === 'overlay-content') {
-                closeOverlay();
-            }
-        });
-    }
+    closeBtn.addEventListener('click', closeOverlay);
 
     window.addEventListener('popstate', function(e) {
         if (e.state && e.state.overlay) { openOverlay(e.state.overlay); }
@@ -520,8 +499,7 @@
     });
 
     var currentPath = window.location.pathname.replace('/', '');
-    // Verifica se há portal correspondente na URL para abrir direto
-    if (currentPath && document.getElementById('overlay-content-' + currentPath)) {
+    if (currentPath && mockContent[currentPath]) {
         setTimeout(function() { openOverlay(currentPath); }, 500);
     }
 

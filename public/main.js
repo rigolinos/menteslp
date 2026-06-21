@@ -91,9 +91,11 @@ window.initScrollytelling = function () {
         };
     });
 
-    // ── Mouse tracking for Ecosystem Scene ────────
+    // 🌌 Mouse tracking for Ecosystem Scene 🌌🌌🌌🌌🌌🌌🌌🌌
     let mouseX = -9999;
     let mouseY = -9999;
+    let currentTiltX = 0;
+    let currentTiltY = 0;
     window.addEventListener('mousemove', (e) => {
         const rect = canvas.getBoundingClientRect();
         mouseX = e.clientX - rect.left;
@@ -123,7 +125,7 @@ window.initScrollytelling = function () {
     let targetProgress     = 0;
     let time               = 0;
     let lastNow            = performance.now();
-    let siteVisible        = false;
+    window.__isSitePaused  = false;
     let metricsAnimated    = false;
     let typewriterDone     = false;
     let currentScene       = -1;
@@ -135,6 +137,7 @@ window.initScrollytelling = function () {
     const driver = document.getElementById('scroll-driver');
 
     function onScroll() {
+        if (window.__isSitePaused) return; // block background scroll updates while overlay is active
         if (loopTransition) return; // block scroll updates during loop
         const max = driver.offsetHeight - window.innerHeight;
         targetProgress = clamp(window.scrollY / Math.max(max, 1), 0, 1);
@@ -280,6 +283,18 @@ window.initScrollytelling = function () {
                     programVideo.play().catch(() => {});
                 } else {
                     programVideo.pause();
+                }
+            }
+
+            // Spline 3D Brain Visibility
+            const splineBrain = document.getElementById('spline-brain-container');
+            if (splineBrain) {
+                if (idx === 4) {
+                    splineBrain.classList.remove('opacity-0');
+                    splineBrain.classList.add('opacity-100');
+                } else {
+                    splineBrain.classList.remove('opacity-100');
+                    splineBrain.classList.add('opacity-0');
                 }
             }
 
@@ -431,8 +446,17 @@ window.initScrollytelling = function () {
     // LOOP TRANSITION — "Colapso e Renascimento"
     // ══════════════════════════════════════════════
 
+    window.pauseScrollytelling = function() {
+        window.__isSitePaused = true;
+    };
+    
+    window.resumeScrollytelling = function() {
+        window.__isSitePaused = false;
+        lastNow = performance.now();
+    };
+
     function triggerLoopTransition() {
-        if (loopTransition || siteVisible) return;
+        if (loopTransition || window.__isSitePaused) return;
         loopTransition = { phase: 'fill', startTime: performance.now() };
     }
 
@@ -522,7 +546,7 @@ window.initScrollytelling = function () {
     // Clickable scroll tracker dots
     trackerDots.forEach((dot) => {
         dot.addEventListener('click', () => {
-            if (loopTransition) return;
+            if (loopTransition || window.__isSitePaused) return;
             const targetScene = parseInt(dot.getAttribute('data-scene'));
             const maxScroll = driver.offsetHeight - window.innerHeight;
             
@@ -891,6 +915,7 @@ window.initScrollytelling = function () {
         const baseBrainW = Math.min(W, H) * 0.60 * grow;
         const brainW = baseBrainW * breath * state.explodeScale;
         const brainH = brainW / 1.602;
+        /*
         if (brainImage && brainImage.complete) {
             ctx.save();
             ctx.translate(cx, cy);
@@ -899,6 +924,7 @@ window.initScrollytelling = function () {
             ctx.drawImage(brainImage, -brainW / 2, -brainH / 2, brainW, brainH);
             ctx.restore();
         }
+        */
 
         // 5. Thin orbital stroke
         const strokeRadius = Math.min(W, H) * 0.40 * grow * state.explodeScale;
@@ -1017,14 +1043,14 @@ window.initScrollytelling = function () {
         }
 
         // ── Trigger loop at end (replaces auto-reveal) ──
-        if (scrollProgress >= 0.985 && !loopTransition && !siteVisible) {
+        if (scrollProgress >= 0.985 && !loopTransition && !window.__isSitePaused) {
             triggerLoopTransition();
         }
     }
 
     // ── Animation Loop ────────────────────────────
     function tick(now) {
-        if (!siteVisible) {
+        if (!window.__isSitePaused) {
             const dt = Math.min((now - lastNow) / 1000, .05);
             lastNow = now;
             time   += dt;
@@ -1035,6 +1061,25 @@ window.initScrollytelling = function () {
             if (programVideo) {
                 videoCurrentOpacity = lerp(videoCurrentOpacity, videoFadeTarget, .05);
                 programVideo.style.opacity = videoCurrentOpacity;
+            }
+
+            // Spline 3D Tilt Effect
+            const splineBrain = document.getElementById('spline-brain-container');
+            if (splineBrain && currentScene === 4 && mouseX !== -9999) {
+                const dx = (mouseX - window.innerWidth / 2) / (window.innerWidth / 2);
+                const dy = (mouseY - window.innerHeight / 2) / (window.innerHeight / 2);
+                const targetTiltY = dx * 20; // max 20 degrees
+                const targetTiltX = -dy * 15; // max 15 degrees up/down
+                
+                currentTiltX = lerp(currentTiltX, targetTiltX, 0.05);
+                currentTiltY = lerp(currentTiltY, targetTiltY, 0.05);
+                
+                splineBrain.style.transform = `perspective(1000px) rotateX(${currentTiltX}deg) rotateY(${currentTiltY}deg)`;
+            } else if (splineBrain && currentScene !== 4) {
+                // Return to center slowly when leaving scene
+                currentTiltX = lerp(currentTiltX, 0, 0.05);
+                currentTiltY = lerp(currentTiltY, 0, 0.05);
+                splineBrain.style.transform = `perspective(1000px) rotateX(${currentTiltX}deg) rotateY(${currentTiltY}deg)`;
             }
         }
         requestAnimationFrame(tick);
