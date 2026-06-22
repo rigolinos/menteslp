@@ -525,6 +525,15 @@
         setTimeout(function() { openOverlay(currentPath); }, 500);
     }
 
+    // Universal Overlay Triggers
+    document.querySelectorAll('[data-overlay-trigger]').forEach(function(btn) {
+        btn.addEventListener('click', function(e) {
+            e.preventDefault();
+            var overlayId = btn.getAttribute('data-overlay-trigger');
+            if (overlayId) openOverlay(overlayId);
+        });
+    });
+
     // ── Scene watcher ──
     function watchScene() {
         var ecoSection = document.getElementById('scene-ecosystem');

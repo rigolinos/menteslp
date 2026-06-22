@@ -70,9 +70,8 @@ import HeroLogo from '../components/HeroLogo.astro';
         <div class="tracker-dot" data-scene="1"><span class="tracker-dot__label">A Mulher</span></div>
         <div class="tracker-dot" data-scene="2"><span class="tracker-dot__label">O Programa</span></div>
         <div class="tracker-dot" data-scene="3"><span class="tracker-dot__label">O Ecossistema</span></div>
-        <div class="tracker-dot" data-scene="4"><span class="tracker-dot__label">A Audiência</span></div>
-        <div class="tracker-dot" data-scene="5"><span class="tracker-dot__label">As Marcas</span></div>
-        <div class="tracker-dot" data-scene="6"><span class="tracker-dot__label">O Convite</span></div>
+        <div class="tracker-dot" data-scene="4"><span class="tracker-dot__label">As Marcas</span></div>
+        <div class="tracker-dot" data-scene="5"><span class="tracker-dot__label">O Convite</span></div>
     </div>
 </nav>
 
@@ -105,14 +104,15 @@ import HeroLogo from '../components/HeroLogo.astro';
         <div class="scene-inner scene-split">
             <div class="scene-text-col">
                 <span class="scene-num">01 /</span>
-                <h2 class="scene-title">Uma mente brilhante,<br><em>um coração atípico.</em></h2>
+                <h2 class="scene-title text-3xl md:text-5xl">Vanessa Sanceverino<br><em>Esteves.</em></h2>
+                <h3 class="text-[#D4AF37] font-serif italic text-lg md:text-xl mt-4">"Uma mente brilhante, um coração atento."</h3>
                 <p class="scene-body mt-4 text-slate-300 leading-relaxed max-w-md text-sm md:text-base hidden md:block">
-                    A experiência de mais de uma década na gestão educacional colidiu com a maternidade atípica, transformando para sempre sua visão de mundo e urgência por inclusão.
+                    Com mais de dez anos de experiência em liderança pedagógica, Vanessa construiu sua carreira fundamentada na gestão de excelência e na comunicação de impacto. Sua atuação une o rigor técnico da educação à sensibilidade necessária para abordar temas de grande relevância social e urgência por inclusão.
                 </p>
                 <div class="scene-traits mt-4 md:mt-6">
                     <span class="trait">Liderança Educacional</span>
-                    <span class="trait">Maternidade Atípica</span>
-                    <span class="trait">Curadora do Movimento</span>
+                    <span class="trait">Comunicação com Propósito</span>
+                    <span class="trait">Visão Inclusiva & Maternidade Atípica</span>
                 </div>
             </div>
             <div class="scene-photo-col">
@@ -129,14 +129,15 @@ import HeroLogo from '../components/HeroLogo.astro';
         <div class="scene-inner scene-split">
             <div class="scene-text-col">
                 <span class="scene-num">02 /</span>
-                <h2 class="scene-title">A semente do<br><em>movimento.</em></h2>
-                <p class="scene-body mt-4 text-slate-300 leading-relaxed max-w-sm text-sm md:text-base hidden md:block">
-                    O YouTube não é apenas um canal; é o megafone inicial de um movimento robusto voltado ao desenvolvimento humano.
+                <h2 class="scene-title">O <em>Programa.</em></h2>
+                <p class="scene-body mt-4 text-slate-300 leading-relaxed max-w-md text-sm md:text-base hidden md:block">
+                    Um espaço de entrevistas voltado a conversas que geram valor, consciência e impacto. Com linguagem sofisticada e acessível, aborda temas contemporâneos conectando especialistas, educadores e histórias inspiradoras.
                 </p>
                 <div class="scene-traits mt-4 md:mt-6">
-                    <span class="trait">Educação Expandida</span>
-                    <span class="trait">Inclusão Real</span>
-                    <span class="trait">Diálogos Profundos</span>
+                    <span class="trait">Educação e Inovação</span>
+                    <span class="trait">Inclusão e Diversidade</span>
+                    <span class="trait">Desenvolvimento Humano</span>
+                    <span class="trait">Liderança e Inspiração</span>
                 </div>
             </div>
             <div class="scene-video-col">
@@ -182,72 +183,38 @@ import HeroLogo from '../components/HeroLogo.astro';
         </div>
     </div>
 
-    <!-- CENA 4: A Audiência -->
-    <section class="story-scene" data-scene="4" id="scene-metrics">
+    <!-- CENA 4: As Marcas -->
+    <section class="story-scene" data-scene="4" id="scene-sponsors">
         <div class="scene-inner scene-center">
             <span class="scene-num">04 /</span>
-            <h2 class="scene-title">O impacto real:<br><em>Mentes inspiradas.</em></h2>
+            <h2 class="scene-title">Marcas que acreditam<br><em>no poder da inclusão.</em></h2>
+            <p class="scene-body font-serif italic text-slate-300">
+                Uma aliança estratégica com instituições que<br>
+                desenham o futuro junto conosco.
+            </p>
             
-            <div class="scene-metrics">
-                <div class="metric-card">
-                    <div class="metric-card__header">
-                        <div class="metric-card__icon metric-card__icon--yt"><i data-lucide="youtube"></i></div>
-                        <div class="metric-card__platform">YouTube</div>
-                    </div>
-                    <div class="metric-card__stats">
-                        <div class="metric-stat">
-                            <span class="metric-stat__val" data-target="225000" data-format="k">0</span>
-                            <span class="metric-stat__lbl">Visualizações</span>
-                        </div>
-                        <div class="metric-stat">
-                            <span class="metric-stat__val" data-target="8000" data-format="k">0</span>
-                            <span class="metric-stat__lbl">Horas Assistidas</span>
-                        </div>
-                    </div>
-                    <div class="metric-card__badge"><i data-lucide="arrow-up-right"></i> +61% Visualizações</div>
-                </div>
-
-                <div class="metric-card">
-                    <div class="metric-card__header">
-                        <div class="metric-card__icon metric-card__icon--ig"><i data-lucide="instagram"></i></div>
-                        <div class="metric-card__platform">Instagram</div>
-                    </div>
-                    <div class="metric-card__stats">
-                        <div class="metric-stat">
-                            <span class="metric-stat__val" data-target="876000" data-format="k">0</span>
-                            <span class="metric-stat__lbl">Alcance Total</span>
-                        </div>
-                        <div class="metric-stat">
-                            <span class="metric-stat__val" data-target="34000" data-format="k">0</span>
-                            <span class="metric-stat__lbl">Interações</span>
-                        </div>
-                    </div>
-                    <div class="metric-card__badge"><i data-lucide="users"></i> Público Qualificado</div>
-                </div>
+            <div class="sponsors-grid mt-12 flex flex-col md:flex-row items-center justify-center gap-6 md:gap-10">
+                <a href="https://www.instagram.com/bruckihomebeauty" target="_blank" rel="noopener noreferrer" class="sponsor-card opacity-0 transform translate-y-8 w-48 h-28 md:w-64 md:h-36 rounded-xl overflow-hidden shadow-[0_0_20px_rgba(212,175,55,0.05)] border border-white/5 transition-all duration-700 hover:scale-105 hover:border-[#E0B356]/50">
+                    <img src="/img/BRUCKI.jpeg" alt="Brucki" class="w-full h-full object-cover object-center scale-110">
+                </a>
+                <a href="https://www.akomacristais.com.br/" target="_blank" rel="noopener noreferrer" class="sponsor-card opacity-0 transform translate-y-8 w-48 h-28 md:w-64 md:h-36 rounded-xl overflow-hidden shadow-[0_0_20px_rgba(212,175,55,0.05)] border border-white/5 transition-all duration-700 delay-100 hover:scale-105 hover:border-[#E0B356]/50">
+                    <img src="/img/Akoma.jpeg" alt="Akoma" class="w-full h-full object-contain object-center">
+                </a>
+                <a href="https://lifeconassessoria.com.br/" target="_blank" rel="noopener noreferrer" class="sponsor-card opacity-0 transform translate-y-8 w-48 h-28 md:w-64 md:h-36 rounded-xl overflow-hidden shadow-[0_0_20px_rgba(212,175,55,0.05)] border border-white/5 transition-all duration-700 delay-200 hover:scale-105 hover:border-[#E0B356]/50">
+                    <img src="/img/Life%20Con.jpeg" alt="Life Con" class="w-full h-full object-contain object-center">
+                </a>
             </div>
         </div>
     </section>
 
-    <!-- CENA 5: As Marcas -->
-    <section class="story-scene" data-scene="5" id="scene-sponsors">
-        <div class="scene-inner scene-center">
-            <span class="scene-num">05 /</span>
-            <h2 class="scene-title">Marcas que acreditam<br><em>no poder da inclusão.</em></h2>
-            <p class="scene-body font-serif italic text-slate-300">
-                Uma aliança estratégica com instituições que<br>
-                compartilham o compromisso com o desenvolvimento humano.
-            </p>
-        </div>
-    </section>
-
-    <!-- CENA 6: O Convite -->
-    <section class="story-scene" data-scene="6" id="scene-cta">
+    <!-- CENA 5: O Convite -->
+    <section class="story-scene" data-scene="5" id="scene-cta">
         <div class="scene-inner scene-center">
             <h2 class="scene-title scene-title--cta">Faça parte<br><em>dessa história.</em></h2>
             <div class="scene-ctas">
-                <a href="https://youtube.com/@ProgramaMentesqueInspiram" target="_blank" rel="noopener" class="cta-pill cta-pill--gold" id="cta-episodes">Assista aos Episódios</a>
-                <a href="mailto:comercial@mentesqueinspiram.com" class="cta-pill cta-pill--outline" id="cta-partner">Seja uma Marca Parceira</a>
-                <a href="mailto:comercial@mentesqueinspiram.com" class="cta-pill cta-pill--outline" id="cta-invite">Convide Vanessa</a>
+                <button data-overlay-trigger="programa" class="cta-pill cta-pill--gold" id="cta-episodes">Assista aos Episódios</button>
+                <button data-overlay-trigger="mediakit" class="cta-pill cta-pill--outline" id="cta-partner">Seja uma Marca Parceira</button>
+                <button data-overlay-trigger="eventos" class="cta-pill cta-pill--outline" id="cta-invite">Convide Vanessa</button>
             </div>
         </div>
     </section>

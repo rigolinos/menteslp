@@ -27,7 +27,7 @@ window.initScrollytelling = function () {
     const smooth = (e0, e1, x) => { const t = clamp((x - e0) / (e1 - e0), 0, 1); return t * t * (3 - 2 * t); };
     const eio    = t => t < .5 ? 4*t*t*t : 1 - Math.pow(-2*t+2,3)/2;
 
-    const SCENES = 7;
+    const SCENES = 6;
 
     // ── Canvas Setup ──────────────────────────────
     const canvas = document.getElementById('mentes-canvas');
@@ -304,7 +304,7 @@ window.initScrollytelling = function () {
                 if (idx === 1) animateTraits();
                 if (idx === 2) animatePillars();
                 if (idx === 3) animateList();
-                if (idx === 4 && !metricsAnimated) animateMetrics();
+                if (idx === 4) animateSponsors();
             }
             updateScrollTracker(idx);
         }
@@ -412,6 +412,14 @@ window.initScrollytelling = function () {
         document.querySelectorAll('.scene-list li').forEach((el, i) => {
             el.classList.remove('visible');
             setTimeout(() => el.classList.add('visible'), 100 + i * 120);
+        });
+    }
+    function animateSponsors() {
+        document.querySelectorAll('.sponsor-card').forEach((el) => {
+            setTimeout(() => {
+                el.classList.remove('opacity-0', 'translate-y-8');
+                el.classList.add('opacity-100', 'translate-y-0');
+            }, 50);
         });
     }
 
@@ -1029,9 +1037,8 @@ window.initScrollytelling = function () {
             case 1: drawWoman(p);     break;
             case 2: drawProgram(p);   break;
             case 3: drawEcosystem(p); break;
-            case 4: drawAudience(p);  break;
-            case 5: drawPartners(p);  break;
-            case 6: drawCTA(p);       break;
+            case 4: drawPartners(p);  break;
+            case 5: drawCTA(p);       break;
         }
 
         updateScenes(idx, p);

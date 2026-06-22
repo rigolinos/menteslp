@@ -1,9 +1,10 @@
 ---
 import episodes from '../../data/episodes.json';
 
-// Destaque do último episódio no Bento Grid hero
-const latestEpisode = episodes[0];
-const otherEpisodes = episodes.slice(1);
+// Destacar o último episódio da Temporada 2
+const latestEpisode = episodes[episodes.length - 1];
+const season1 = episodes.filter(ep => ep.season === 1);
+const season2 = episodes.filter(ep => ep.season === 2 && ep.id !== latestEpisode.id);
 ---
 
 <div class="space-y-8 md:space-y-16 pb-12 w-full">
@@ -28,8 +29,8 @@ const otherEpisodes = episodes.slice(1);
     </p>
   </div>
 
-  <!-- BENTO GRID (Desktop) / FEED VERTICAL (Mobile) -->
-  <div class="grid grid-cols-1 md:grid-cols-12 gap-6 md:gap-8">
+  <!-- DESTAQUE GLOBAL (Hero Bento + Spotify Widget) -->
+  <div class="grid grid-cols-1 md:grid-cols-12 gap-6 md:gap-8 pb-8 md:pb-12 border-b border-white/5">
     
     <!-- Latest Episode (Hero Bento) -->
     {latestEpisode && (
@@ -41,15 +42,12 @@ const otherEpisodes = episodes.slice(1);
         
         <div class="relative z-10 p-6 md:p-10 w-full md:w-3/4">
           <span class="inline-flex items-center h-8 px-3 rounded bg-[#D4AF37] text-black font-mono font-bold text-xs mb-4">
-            EPISÓDIO RECENTE
+            ÚLTIMO EPISÓDIO LANÇADO
           </span>
           <h4 class="font-serif text-3xl md:text-5xl text-white group-hover:text-[#D4AF37] transition-colors duration-300 leading-tight mb-3">
-            {latestEpisode.title}
+            {latestEpisode.title} <span class="text-slate-300 text-2xl md:text-4xl">({latestEpisode.guest})</span>
           </h4>
-          <p class="text-slate-300 text-sm md:text-base line-clamp-2 mb-6">
-            {latestEpisode.description}
-          </p>
-          <div class="flex items-center gap-3 text-white font-medium">
+          <div class="flex items-center gap-3 text-white font-medium mt-6">
             <span class="flex items-center justify-center w-12 h-12 rounded-full bg-white/10 group-hover:bg-[#D4AF37] group-hover:text-black transition-colors backdrop-blur-sm">
               <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="ml-1"><polygon points="6 3 20 12 6 21 6 3"></polygon></svg>
             </span>
@@ -73,39 +71,157 @@ const otherEpisodes = episodes.slice(1);
         Ouvir no Spotify
       </a>
     </div>
+  </div>
 
-    <!-- Outros Episódios -->
-    {otherEpisodes.map((ep) => (
-      <a href={`https://youtube.com/watch?v=${ep.youtubeId}`} target="_blank" rel="noopener noreferrer" class="bento-item group md:col-span-6 lg:col-span-4 bg-[#0B0D12] rounded-2xl border border-white/5 overflow-hidden hover:border-[#D4AF37]/30 transition-all duration-500 hover:bg-white/[0.02]">
-        <!-- Thumbnail Wrap (Wide Aspect for Feed) -->
+  <!-- TABS UI PREMIUM (GSAP) -->
+  <div class="relative mb-8 mt-4 w-full" id="tabs-container">
+    <!-- Trilho Base -->
+    <div class="absolute bottom-0 left-0 w-full h-[1px] bg-white/10"></div>
+    <!-- Linha Ativa Dourada -->
+    <div id="active-indicator" class="absolute bottom-0 left-0 h-[2px] bg-[#E0B356] origin-left z-10 w-0"></div>
+
+    <div class="flex items-center gap-8 md:gap-12 w-full">
+      <div id="tab-s1" class="season-tab cursor-pointer text-xl md:text-2xl font-serif text-[#E0B356] transition-colors py-3 px-2 md:px-4 select-none origin-center inline-block">
+        Temporada 1
+      </div>
+      <div id="tab-s2" class="season-tab cursor-pointer text-xl md:text-2xl font-serif text-zinc-500 transition-colors py-3 px-2 md:px-4 select-none origin-center inline-block">
+        Temporada 2
+      </div>
+    </div>
+  </div>
+
+  <!-- TEMPORADA 1 GRID -->
+  <div id="grid-s1" class="season-grid grid grid-cols-1 md:grid-cols-12 gap-6 md:gap-8">
+    {season1.map((ep) => (
+      <a href={`https://youtube.com/watch?v=${ep.youtubeId}`} target="_blank" rel="noopener noreferrer" class="bento-item group md:col-span-6 lg:col-span-4 bg-[#0B0D12] rounded-2xl border border-white/5 overflow-hidden hover:border-[#E0B356]/30 transition-all duration-500 hover:bg-white/[0.02]">
         <div class="relative aspect-video w-full overflow-hidden bg-slate-900">
-          <img 
-            src={ep.thumbnail} 
-            alt={ep.guest} 
-            class="w-full h-full object-cover filter grayscale group-hover:grayscale-0 group-hover:scale-105 transition-all duration-700 ease-out"
-          />
-          <div class="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-colors"></div>
-          
-          <span class="absolute top-4 left-4 bg-black/60 backdrop-blur-md border border-white/10 text-white font-mono font-bold text-[0.65rem] px-2.5 py-1.5 rounded">
+          <img src={ep.thumbnail} alt={ep.guest} class="w-full h-full object-cover filter grayscale group-hover:grayscale-0 group-hover:scale-105 transition-all duration-700 ease-out" />
+          <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
+          <span class="absolute bottom-3 right-3 text-white font-mono font-medium text-xs tracking-wider drop-shadow-md bg-black/40 backdrop-blur-sm px-2 py-1 rounded">
             EP {ep.episode}
           </span>
-          <span class="absolute bottom-4 right-4 text-[0.65rem] font-medium text-white bg-black/80 px-2 py-1 rounded font-mono backdrop-blur-md">
-            {ep.duration}
+        </div>
+        <div class="p-6">
+          <h4 class="font-serif text-xl md:text-2xl text-white group-hover:text-[#E0B356] transition-colors duration-300 leading-tight mb-3">
+            {ep.title} <span class="text-slate-400 text-lg">({ep.guest})</span>
+          </h4>
+        </div>
+      </a>
+    ))}
+  </div>
+
+  <!-- TEMPORADA 2 GRID -->
+  <div id="grid-s2" class="season-grid grid grid-cols-1 md:grid-cols-12 gap-6 md:gap-8 hidden">
+    {season2.map((ep) => (
+      <a href={`https://youtube.com/watch?v=${ep.youtubeId}`} target="_blank" rel="noopener noreferrer" class="bento-item group md:col-span-6 lg:col-span-4 bg-[#0B0D12] rounded-2xl border border-white/5 overflow-hidden hover:border-[#E0B356]/30 transition-all duration-500 hover:bg-white/[0.02]">
+        <div class="relative aspect-video w-full overflow-hidden bg-slate-900">
+          <img src={ep.thumbnail} alt={ep.guest} class="w-full h-full object-cover filter grayscale group-hover:grayscale-0 group-hover:scale-105 transition-all duration-700 ease-out" />
+          <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
+          <span class="absolute bottom-3 right-3 text-white font-mono font-medium text-xs tracking-wider drop-shadow-md bg-black/40 backdrop-blur-sm px-2 py-1 rounded">
+            EP {ep.episode}
           </span>
         </div>
-
-        <!-- Info -->
         <div class="p-6">
-          <span class="block text-[0.65rem] font-semibold text-[#D4AF37] uppercase tracking-widest mb-2">{ep.guest}</span>
-          <h4 class="font-serif text-xl md:text-2xl text-white group-hover:text-[#D4AF37] transition-colors duration-300 leading-tight mb-3">
-            {ep.title}
+          <h4 class="font-serif text-xl md:text-2xl text-white group-hover:text-[#E0B356] transition-colors duration-300 leading-tight mb-3">
+            {ep.title} <span class="text-slate-400 text-lg">({ep.guest})</span>
           </h4>
-          <p class="text-slate-400 text-sm leading-relaxed line-clamp-2">
-            {ep.description}
-          </p>
         </div>
       </a>
     ))}
   </div>
 
 </div>
+
+<script>
+  import { gsap } from 'gsap';
+
+  document.addEventListener('DOMContentLoaded', () => {
+    const tabS1 = document.getElementById('tab-s1');
+    const tabS2 = document.getElementById('tab-s2');
+    const gridS1 = document.getElementById('grid-s1');
+    const gridS2 = document.getElementById('grid-s2');
+    const indicator = document.getElementById('active-indicator');
+    const tabsContainer = document.getElementById('tabs-container');
+
+    if (!tabS1 || !tabS2 || !indicator || !tabsContainer) return;
+
+    let activeSeason = 1;
+
+    // Inicializa a posição do indicador
+    function updateIndicator(targetTab, animate = true) {
+      const containerRect = tabsContainer.getBoundingClientRect();
+      const tabRect = targetTab.getBoundingClientRect();
+
+      // Calcula a posição relativa ao contêiner
+      const offsetLeft = tabRect.left - containerRect.left;
+      const width = tabRect.width;
+
+      if (animate) {
+        gsap.to(indicator, {
+          x: offsetLeft,
+          width: width,
+          duration: 0.4,
+          ease: "power3.out"
+        });
+      } else {
+        gsap.set(indicator, { x: offsetLeft, width: width });
+      }
+    }
+
+    // Chamada inicial (sem animação para assentar na tela)
+    setTimeout(() => updateIndicator(tabS1, false), 50);
+    window.addEventListener('resize', () => {
+      updateIndicator(activeSeason === 1 ? tabS1 : tabS2, false);
+    });
+
+    function selectTab(season, targetElement) {
+      if (season === activeSeason) return; // Não faz nada se já estiver ativa
+      activeSeason = season;
+
+      // Desliza a linha
+      updateIndicator(targetElement, true);
+
+      if (season === 1) {
+        // Cores
+        tabS1.classList.replace('text-zinc-500', 'text-[#E0B356]');
+        tabS2.classList.replace('text-[#E0B356]', 'text-zinc-500');
+
+        // Mostra Grid 1 com um leve fade e esconder Grid 2
+        gridS2.classList.add('hidden');
+        gridS1.classList.remove('hidden');
+        gsap.fromTo(gridS1, { opacity: 0, y: 10 }, { opacity: 1, y: 0, duration: 0.4, ease: "power2.out" });
+
+      } else {
+        // Cores
+        tabS2.classList.replace('text-zinc-500', 'text-[#E0B356]');
+        tabS1.classList.replace('text-[#E0B356]', 'text-zinc-500');
+
+        // Mostra Grid 2
+        gridS1.classList.add('hidden');
+        gridS2.classList.remove('hidden');
+        gsap.fromTo(gridS2, { opacity: 0, y: 10 }, { opacity: 1, y: 0, duration: 0.4, ease: "power2.out" });
+      }
+    }
+
+    // Micro-interações de clique (Pointer Events)
+    [tabS1, tabS2].forEach((tab, index) => {
+      const season = index + 1;
+
+      // Touch / Clicar afunda o botão
+      tab.addEventListener('pointerdown', () => {
+        gsap.to(tab, { scale: 0.95, duration: 0.1 });
+      });
+
+      // Soltar ativa e faz efeito mola
+      tab.addEventListener('pointerup', () => {
+        gsap.to(tab, { scale: 1, duration: 0.4, ease: "back.out(2)" });
+        selectTab(season, tab);
+      });
+
+      // Cancelar caso arraste para fora
+      tab.addEventListener('pointerleave', () => {
+        gsap.to(tab, { scale: 1, duration: 0.4, ease: "back.out(2)" });
+      });
+    });
+  });
+</script>
