@@ -97,7 +97,7 @@ img { display: block; width: 100%; }
 
 /* ── Scroll Driver (virtual height) ─────────── */
 #scroll-driver {
-    height: 700vh;
+    height: 600vh;
     position: relative;
     z-index: 2;
 }

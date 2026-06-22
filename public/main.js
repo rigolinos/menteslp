@@ -27,7 +27,7 @@ window.initScrollytelling = function () {
     const smooth = (e0, e1, x) => { const t = clamp((x - e0) / (e1 - e0), 0, 1); return t * t * (3 - 2 * t); };
     const eio    = t => t < .5 ? 4*t*t*t : 1 - Math.pow(-2*t+2,3)/2;
 
-    const SCENES = 8;
+    const SCENES = 7;
 
     // ── Canvas Setup ──────────────────────────────
     const canvas = document.getElementById('mentes-canvas');
@@ -152,8 +152,8 @@ window.initScrollytelling = function () {
     function updateProgramVideo(idx, p) {
         if (!programVideo) return;
         let target = 0;
-        // Video in O Programa (scene 3): card frame
-        if (idx === 3) {
+        // Video in O Programa (scene 2): card frame
+        if (idx === 2) {
             target = smooth(0.05, 0.35, p) * (1 - smooth(0.8, 0.98, p));
         }
         videoFadeTarget = target;
@@ -279,7 +279,7 @@ window.initScrollytelling = function () {
                 }
             }
             if (programVideo) {
-                if (idx === 3) {
+                if (idx === 2) {
                     programVideo.play().catch(() => {});
                 } else {
                     programVideo.pause();
@@ -289,7 +289,7 @@ window.initScrollytelling = function () {
             // Spline 3D Brain Visibility
             const splineBrain = document.getElementById('spline-brain-container');
             if (splineBrain) {
-                if (idx === 4) {
+                if (idx === 3) {
                     splineBrain.classList.remove('opacity-0');
                     splineBrain.classList.add('opacity-100');
                 } else {
@@ -302,9 +302,9 @@ window.initScrollytelling = function () {
                 if (idx === 0 && !typewriterDone) initTypewriter();
                 if (idx === 0 && typeof window.replayHeroLogo === 'function') window.replayHeroLogo();
                 if (idx === 1) animateTraits();
-                if (idx === 3) animatePillars();
-                if (idx === 4) animateList();
-                if (idx === 5 && !metricsAnimated) animateMetrics();
+                if (idx === 2) animatePillars();
+                if (idx === 3) animateList();
+                if (idx === 4 && !metricsAnimated) animateMetrics();
             }
             updateScrollTracker(idx);
         }
@@ -1027,12 +1027,11 @@ window.initScrollytelling = function () {
         switch(idx){
             case 0: drawHero(p);      break;
             case 1: drawWoman(p);     break;
-            case 2: drawTalk(p);      break;
-            case 3: drawProgram(p);   break;
-            case 4: drawEcosystem(p); break;
-            case 5: drawAudience(p);  break;
-            case 6: drawPartners(p);  break;
-            case 7: drawCTA(p);       break;
+            case 2: drawProgram(p);   break;
+            case 3: drawEcosystem(p); break;
+            case 4: drawAudience(p);  break;
+            case 5: drawPartners(p);  break;
+            case 6: drawCTA(p);       break;
         }
 
         updateScenes(idx, p);
@@ -1065,7 +1064,7 @@ window.initScrollytelling = function () {
 
             // Spline 3D Tilt Effect
             const splineBrain = document.getElementById('spline-brain-container');
-            if (splineBrain && currentScene === 4 && mouseX !== -9999) {
+            if (splineBrain && currentScene === 3 && mouseX !== -9999) {
                 const dx = (mouseX - window.innerWidth / 2) / (window.innerWidth / 2);
                 const dy = (mouseY - window.innerHeight / 2) / (window.innerHeight / 2);
                 const targetTiltY = dx * 20; // max 20 degrees
@@ -1075,7 +1074,7 @@ window.initScrollytelling = function () {
                 currentTiltY = lerp(currentTiltY, targetTiltY, 0.05);
                 
                 splineBrain.style.transform = `perspective(1000px) rotateX(${currentTiltX}deg) rotateY(${currentTiltY}deg)`;
-            } else if (splineBrain && currentScene !== 4) {
+            } else if (splineBrain && currentScene !== 3) {
                 // Return to center slowly when leaving scene
                 currentTiltX = lerp(currentTiltX, 0, 0.05);
                 currentTiltY = lerp(currentTiltY, 0, 0.05);
