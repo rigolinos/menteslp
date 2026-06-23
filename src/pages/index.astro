@@ -97,8 +97,23 @@ import GlobalMenu from '../components/GlobalMenu.astro';
 
 <canvas id="mentes-canvas" transition:persist="canvas"></canvas>
 
-<!-- Altura virtual para controlar o scroll das cenas -->
-<div id="scroll-driver"></div>
+<!-- Altura virtual para controlar o scroll das cenas com pontos de Snap -->
+<div id="scroll-driver">
+    <!-- Bloco 1 (Hero): 0 a 100vh -->
+    <div class="snap-block" style="height: 100vh;"></div>
+    <!-- Bloco 2 (A Mulher): 100vh a 166.66vh -->
+    <div class="snap-block" style="height: 66.66vh;"></div>
+    <!-- Bloco 3 (O Programa): 166.66vh a 233.33vh -->
+    <div class="snap-block" style="height: 66.66vh;"></div>
+    <!-- Bloco 4 (Ecossistema): 233.33vh a 300vh -->
+    <div class="snap-block" style="height: 66.66vh;"></div>
+    <!-- Bloco 5 (Parceiros): 300vh a 400vh -->
+    <div class="snap-block" style="height: 100vh;"></div>
+    <!-- Bloco 6 (CTA Final): 400vh a 500vh (Fim das Cenas) -->
+    <div class="snap-block" style="height: 100vh;"></div>
+    <!-- Bloco 7 (Zona Fantasma): 500vh a 600vh (Gatilho do Loop) -->
+    <div class="snap-block" style="height: 100vh;"></div>
+</div>
 
 <!-- Scroll Tracker Lateral Premium -->
 <nav id="scroll-tracker" aria-label="Progresso da narrativa">
@@ -204,6 +219,10 @@ import GlobalMenu from '../components/GlobalMenu.astro';
                     <span class="trait">Desenvolvimento Humano</span>
                     <span class="trait">Liderança e Inspiração</span>
                 </div>
+                <button data-overlay-trigger="programa" class="group text-[#D4AF37] text-xs tracking-[0.2em] uppercase hover:text-white transition-colors mt-6 flex items-center gap-2">
+                    <span class="border-b border-[#D4AF37]/30 pb-[2px] group-hover:border-white/50 transition-colors">Veja os episódios e mais!</span>
+                    <span class="text-[0.65rem] opacity-70 group-hover:translate-x-1 transition-transform">→</span>
+                </button>
             </div>
             <div class="scene-video-col">
                 <div class="scene-video-frame">

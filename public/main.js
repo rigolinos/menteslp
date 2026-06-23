@@ -139,8 +139,16 @@ window.initScrollytelling = function () {
     function onScroll() {
         if (window.__isSitePaused) return; // block background scroll updates while overlay is active
         if (loopTransition) return; // block scroll updates during loop
-        const max = driver.offsetHeight - window.innerHeight;
+        
+        // Subtraímos 2x innerHeight (1 viewport do final + 1 viewport da Zona Fantasma)
+        // para que targetProgress alcance 1.0 exatamente na última cena.
+        const max = driver.offsetHeight - (window.innerHeight * 2);
         targetProgress = clamp(window.scrollY / Math.max(max, 1), 0, 1);
+
+        // Dispara o loop somente quando o usuário entrar na Zona Fantasma (max + 50px de margem)
+        if (window.scrollY > max + 50 && !loopTransition) {
+            triggerLoopTransition();
+        }
     }
     window.addEventListener('scroll', onScroll, { passive: true });
 
@@ -1046,11 +1054,6 @@ window.initScrollytelling = function () {
         // ── Loop transition overlay (top layer) ────
         if (loopTransition) {
             drawLoopTransition(now);
-        }
-
-        // ── Trigger loop at end (replaces auto-reveal) ──
-        if (scrollProgress >= 0.985 && !loopTransition && !window.__isSitePaused) {
-            triggerLoopTransition();
         }
     }
 

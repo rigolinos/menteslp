@@ -97,9 +97,18 @@ img { display: block; width: 100%; }
 
 /* ── Scroll Driver (virtual height) ─────────── */
 #scroll-driver {
-    height: 500vh;
     position: relative;
     z-index: 2;
+}
+
+@media (max-width: 768px) {
+    html {
+        scroll-snap-type: y mandatory;
+    }
+    .snap-block {
+        scroll-snap-align: start;
+        scroll-snap-stop: always;
+    }
 }
 
 /* ── Skip Button ────────────────────────────── */

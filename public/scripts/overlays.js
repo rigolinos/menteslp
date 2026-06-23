@@ -174,6 +174,9 @@
 
         entranceTimeline.add(function() { startBreathing(); }, 0.6);
         isEcoActive = true;
+
+        // Enable pointer-events only while eco scene is active
+        portals.forEach(function(p) { p.style.pointerEvents = 'auto'; });
     }
 
 
@@ -207,6 +210,9 @@
         });
 
         isEcoActive = true;
+
+        // Enable pointer-events only while eco scene is active
+        if (mobileTrack) mobileTrack.style.pointerEvents = 'auto';
     }
 
     function updateMobileFocus(index) {
@@ -313,6 +319,10 @@
 
         portals.forEach(function(p) { p.classList.remove('eco-active', 'eco-dimmed'); });
         window.__ecoLine.active = false;
+
+        // Disable pointer-events when eco scene is not active (prevents invisible button clicks)
+        portals.forEach(function(p) { p.style.pointerEvents = ''; });
+        if (mobileTrack) mobileTrack.style.pointerEvents = '';
     }
 
     window.addEventListener('resize', function() {

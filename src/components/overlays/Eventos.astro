@@ -51,7 +51,7 @@
         </p>
       </div>
 
-      <form class="space-y-4" onsubmit="event.preventDefault(); alert('Solicitação enviada com sucesso! Entraremos em contato em breve.');">
+      <form class="space-y-4" onsubmit="event.preventDefault(); var f=event.target; var body='Nome: '+f['event-name'].value+'%0AInstituição: '+f['event-org'].value+'%0AEmail: '+f['event-email'].value+'%0ATelefone: '+(f['event-phone']?f['event-phone'].value:'')+'%0AFormato: '+f['event-format'].value+'%0APúblico: '+(f['event-audience']?f['event-audience'].value:'')+'%0AMensagem: '+(f['event-msg']?f['event-msg'].value:''); window.location.href='mailto:comercial@mentesqueinspiram.com?subject=Solicitação de Agenda - Palestra/Evento&body='+body; alert('Redirecionando para seu e-mail. Caso não abra, envie para comercial@mentesqueinspiram.com');">
         <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
           <div class="space-y-2">
             <label for="event-name" class="text-xs font-semibold text-slate-300">Seu Nome *</label>

@@ -50,14 +50,20 @@ import courses from '../../data/courses.json';
             <span class="text-xs font-bold text-white font-mono">{course.duration}</span>
           </div>
 
-          <a 
-            href={course.link}
-            target="_blank"
-            rel="noopener noreferrer"
-            class="px-6 h-12 flex items-center justify-center bg-transparent text-[#D4AF37] border border-[#D4AF37]/30 text-xs font-semibold rounded-full hover:bg-[#D4AF37] hover:text-black hover:border-[#D4AF37] transition-all duration-300"
-          >
-            Quero Conhecer
-          </a>
+          {course.link && course.link !== '#' ? (
+            <a 
+              href={course.link}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="px-6 h-12 flex items-center justify-center bg-transparent text-[#D4AF37] border border-[#D4AF37]/30 text-xs font-semibold rounded-full hover:bg-[#D4AF37] hover:text-black hover:border-[#D4AF37] transition-all duration-300"
+            >
+              Quero Conhecer
+            </a>
+          ) : (
+            <span class="px-6 h-12 flex items-center justify-center bg-transparent text-slate-500 border border-white/10 text-xs font-semibold rounded-full cursor-default">
+              Em breve
+            </span>
+          )}
         </div>
       </div>
     ))}
