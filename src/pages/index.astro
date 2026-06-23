@@ -9,7 +9,9 @@ import Livro from '../components/overlays/Livro.astro';
 import Eventos from '../components/overlays/Eventos.astro';
 import Consultoria from '../components/overlays/Consultoria.astro';
 import MediaKit from '../components/overlays/MediaKit.astro';
+import SobreVanessa from '../components/overlays/SobreVanessa.astro';
 import HeroLogo from '../components/HeroLogo.astro';
+import GlobalMenu from '../components/GlobalMenu.astro';
 ---
 
 <!DOCTYPE html>
@@ -58,6 +60,41 @@ import HeroLogo from '../components/HeroLogo.astro';
 </div>
 
 <!-- Canvas de fundo animado -->
+<GlobalMenu />
+
+<!-- Overlays Container (Approach B Hybrid) -->
+<div id="overlays-container" class="fixed inset-0 z-50 pointer-events-none opacity-0 bg-[#050608]/95 backdrop-blur-md flex flex-col px-4 md:px-8 h-[100dvh] overflow-y-auto overscroll-contain" style="z-index: 9002;">
+    <!-- Botão Fechar -->
+    <button id="close-overlay" class="fixed top-6 right-6 md:top-8 md:right-8 text-white hover:text-[#D4AF37] transition-colors z-[60] bg-white/5 hover:bg-white/10 backdrop-blur-xl p-3 md:p-2 rounded-full border border-white/10">
+        <i data-lucide="x" class="w-6 h-6 md:w-8 md:h-8"></i>
+    </button>
+
+    <!-- Conteúdos Estáticos de cada Overlay -->
+    <div id="overlay-content" class="max-w-5xl w-full mx-auto pt-24 pb-32 text-white flex-grow relative">
+        <div id="overlay-content-programa" class="overlay-section hidden w-full">
+            <Programa />
+        </div>
+        <div id="overlay-content-cursos" class="overlay-section hidden w-full">
+            <Cursos />
+        </div>
+        <div id="overlay-content-livro" class="overlay-section hidden w-full">
+            <Livro />
+        </div>
+        <div id="overlay-content-eventos" class="overlay-section hidden w-full">
+            <Eventos />
+        </div>
+        <div id="overlay-content-consultoria" class="overlay-section hidden w-full">
+            <Consultoria />
+        </div>
+        <div id="overlay-content-mediakit" class="overlay-section hidden w-full">
+            <MediaKit />
+        </div>
+        <div id="overlay-content-sobre" class="overlay-section hidden w-full">
+            <SobreVanessa />
+        </div>
+    </div>
+</div>
+
 <canvas id="mentes-canvas" transition:persist="canvas"></canvas>
 
 <!-- Altura virtual para controlar o scroll das cenas -->
@@ -103,9 +140,37 @@ import HeroLogo from '../components/HeroLogo.astro';
         </video>
         <div class="scene-inner scene-split">
             <div class="scene-text-col">
-                <span class="scene-num">01 /</span>
-                <h2 class="scene-title text-3xl md:text-5xl">Vanessa Sanceverino<br><em>Esteves.</em></h2>
-                <h3 class="text-[#D4AF37] font-serif italic text-lg md:text-xl mt-4">"Uma mente brilhante, um coração atento."</h3>
+                <!-- Título Desktop -->
+                <div class="hidden md:block">
+                    <span class="scene-num">01 /</span>
+                    <h2 class="scene-title text-3xl md:text-5xl">Vanessa Sanceverino<br><em>Esteves.</em></h2>
+                    <button data-overlay-trigger="sobre" class="group text-[#D4AF37] text-xs tracking-[0.2em] uppercase hover:text-white transition-colors mt-6 flex items-center gap-2">
+                        <span class="border-b border-[#D4AF37]/30 pb-[2px] group-hover:border-white/50 transition-colors">Conheça a Trajetória</span>
+                        <span class="text-[0.65rem] opacity-70 group-hover:translate-x-1 transition-transform">→</span>
+                    </button>
+                </div>
+                
+                <!-- Card Integrado Mobile (Foto + Título) -->
+                <div class="block md:hidden relative w-full max-w-[340px] mx-auto mb-6 mt-2 rounded-2xl overflow-hidden shadow-2xl border border-white/10 aspect-[4/5]">
+                    <img src="/img/mentes10.jpeg" alt="Vanessa Sanceverino Esteves" class="absolute inset-0 w-full h-full object-cover object-[center_15%]">
+                    
+                    <div class="absolute inset-0 bg-gradient-to-t from-[#0B1220] via-[#0B1220]/60 to-transparent"></div>
+                    
+                    <div class="absolute bottom-0 left-0 w-full p-6 pb-4 flex flex-col justify-end text-left">
+                        <span class="scene-num mb-1">01 /</span>
+                        <h2 class="scene-title text-3xl leading-[1.15]">Vanessa Sanceverino<br><em>Esteves.</em></h2>
+                    </div>
+                </div>
+                
+                <!-- Link Mobile logo abaixo da foto -->
+                <div class="md:hidden w-full max-w-[340px] mx-auto mb-6 mt-[-0.5rem] flex justify-end px-2">
+                    <button data-overlay-trigger="sobre" class="group text-[#D4AF37] text-[0.65rem] tracking-[0.2em] uppercase hover:text-white transition-colors flex items-center gap-2">
+                        <span class="border-b border-[#D4AF37]/30 pb-[2px] group-hover:border-white/50 transition-colors">Conheça a Trajetória</span>
+                        <span class="opacity-70 group-hover:translate-x-1 transition-transform">→</span>
+                    </button>
+                </div>
+
+                <h3 class="text-[#D4AF37] font-serif italic text-lg md:text-xl mt-2 md:mt-4">"Uma mente brilhante, um coração atento."</h3>
                 <p class="scene-body mt-4 text-slate-300 leading-relaxed max-w-md text-sm md:text-base hidden md:block">
                     Com mais de dez anos de experiência em liderança pedagógica, Vanessa construiu sua carreira fundamentada na gestão de excelência e na comunicação de impacto. Sua atuação une o rigor técnico da educação à sensibilidade necessária para abordar temas de grande relevância social e urgência por inclusão.
                 </p>
@@ -153,36 +218,7 @@ import HeroLogo from '../components/HeroLogo.astro';
     <!-- CENA 4: O Ecossistema (Substituído pelo novo EcosystemHub) -->
     <EcosystemHub />
 
-    <!-- Overlays Container (Approach B Hybrid) -->
-    <div id="overlays-container" class="fixed inset-0 z-50 pointer-events-none opacity-0 bg-[#050608]/95 backdrop-blur-md flex flex-col px-4 md:px-8 h-[100dvh] overflow-y-auto overscroll-contain">
-        <!-- Botão Fechar -->
-        <button id="close-overlay" class="fixed top-6 right-6 md:top-8 md:right-8 text-white hover:text-[#D4AF37] transition-colors pointer-events-auto z-[60] bg-white/5 hover:bg-white/10 backdrop-blur-xl p-3 md:p-2 rounded-full border border-white/10">
-            <i data-lucide="x" class="w-6 h-6 md:w-8 md:h-8"></i>
-        </button>
-
-        <!-- Conteúdos Estáticos de cada Overlay -->
-        <div id="overlay-content" class="max-w-5xl w-full mx-auto pt-24 pb-32 text-white flex-grow relative">
-            <div id="overlay-content-programa" class="overlay-section hidden w-full">
-                <Programa />
-            </div>
-            <div id="overlay-content-cursos" class="overlay-section hidden w-full">
-                <Cursos />
-            </div>
-            <div id="overlay-content-livro" class="overlay-section hidden w-full">
-                <Livro />
-            </div>
-            <div id="overlay-content-eventos" class="overlay-section hidden w-full">
-                <Eventos />
-            </div>
-            <div id="overlay-content-consultoria" class="overlay-section hidden w-full">
-                <Consultoria />
-            </div>
-            <div id="overlay-content-mediakit" class="overlay-section hidden w-full">
-                <MediaKit />
-            </div>
-        </div>
-    </div>
-
+    <!-- Fim do EcosystemHub -->
     <!-- CENA 4: As Marcas -->
     <section class="story-scene" data-scene="4" id="scene-sponsors">
         <div class="scene-inner scene-center">

@@ -1388,7 +1388,15 @@ img { display: block; width: 100%; }
     .manifesto__host { grid-template-columns: 1fr; }
     .host__img { max-width: 300px; }
     .scene-split { grid-template-columns: 1fr; }
+    
+    /* Subir o conteúdo no mobile para aproveitar o espaço superior */
+    #scene-woman.story-scene {
+        align-items: flex-start;
+        padding-top: 4vh;
+    }
+    
     .scene-photo-col { display: none; }
+    
     .scene-video-col {
         margin-top: 1.5rem;
         width: 100%;

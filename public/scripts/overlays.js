@@ -216,18 +216,24 @@
                 portal.classList.add('eco-mobile-focused');
                 window.gsap.to(portal, {
                     opacity: 1, scale: 1, filter: 'blur(0px)',
+                    x: 0,
                     duration: 0.4, ease: 'power2.out'
                 });
             } else {
                 portal.classList.remove('eco-mobile-focused');
                 var distance = Math.abs(i - index);
-                var targetOpacity = Math.max(0.15, 0.4 - distance * 0.12);
-                var targetScale = Math.max(0.7, 0.9 - distance * 0.08);
-                var targetBlur = Math.min(4, distance * 2);
+                var targetOpacity = 1;
+                var targetScale = Math.max(0.85, 0.95 - distance * 0.05);
+                var targetBlur = 0;
+                
+                // Curva da lua (parabólica) para um efeito arredondado real
+                var targetX = Math.pow(distance, 2) * 12;
+                
                 window.gsap.to(portal, {
                     opacity: targetOpacity,
                     scale: targetScale,
                     filter: 'blur(' + targetBlur + 'px)',
+                    x: targetX,
                     duration: 0.4, ease: 'power2.out'
                 });
             }

@@ -11,7 +11,7 @@
     </div>
 
     <!-- 3D Brain Spline Viewer -->
-    <div class="eco-spline-wrapper absolute inset-0 z-10 flex items-center justify-center pointer-events-none opacity-0 transition-opacity duration-1000" id="spline-brain-container">
+    <div class="eco-spline-wrapper absolute inset-0 z-10 flex items-center justify-end md:justify-center translate-x-1/4 md:translate-x-0 pointer-events-none opacity-0 transition-opacity duration-1000" id="spline-brain-container">
         <!-- pointer-events-none impede de interagir com o mouse para não estragar a magia, conforme pedido do usuário -->
         <spline-viewer url="https://prod.spline.design/MVPBONVdJggzKzra/scene.splinecode" class="w-[80vw] h-[80vw] md:w-[600px] md:h-[600px] pointer-events-none" style="animation: brainBreathe 8s ease-in-out infinite; transform-origin: center center;"></spline-viewer>
     </div>
@@ -46,30 +46,30 @@
 
     <!-- MOBILE Typography Carousel -->
     <div id="eco-mobile-list" class="eco-mobile-list md:hidden absolute inset-0 z-20 flex items-center">
-        <div id="eco-mobile-track" class="eco-mobile-list__track pointer-events-auto w-full flex flex-col gap-8 px-8">
+        <div id="eco-mobile-track" class="eco-mobile-list__track pointer-events-auto w-full flex flex-col gap-8 pl-4 pr-24">
             <button class="eco-mobile-portal text-left" data-overlay="programa">
-                <span class="eco-mobile-portal__label block text-3xl font-serif italic text-white opacity-40 transition-opacity">O Programa</span>
-                <span class="eco-mobile-portal__sub block text-xs tracking-widest text-brand-gold mt-1 opacity-0 transition-opacity">PROGRAMA / PRODUÇÃO</span>
+                <span class="eco-mobile-portal__label block text-3xl font-serif italic text-white transition-opacity">O Programa</span>
+                <span class="eco-mobile-portal__sub block text-xs tracking-widest text-brand-gold mt-1 transition-opacity">PROGRAMA / PRODUÇÃO</span>
             </button>
             <button class="eco-mobile-portal text-left" data-overlay="cursos">
-                <span class="eco-mobile-portal__label block text-3xl font-serif italic text-white opacity-40 transition-opacity">Capacitações</span>
-                <span class="eco-mobile-portal__sub block text-xs tracking-widest text-brand-gold mt-1 opacity-0 transition-opacity">EDUCAÇÃO E CURSOS</span>
+                <span class="eco-mobile-portal__label block text-3xl font-serif italic text-white transition-opacity">Capacitações</span>
+                <span class="eco-mobile-portal__sub block text-xs tracking-widest text-brand-gold mt-1 transition-opacity">EDUCAÇÃO E CURSOS</span>
             </button>
             <button class="eco-mobile-portal text-left" data-overlay="livro">
-                <span class="eco-mobile-portal__label block text-3xl font-serif italic text-white opacity-40 transition-opacity">O Livro</span>
-                <span class="eco-mobile-portal__sub block text-xs tracking-widest text-brand-gold mt-1 opacity-0 transition-opacity">O LIVRO</span>
+                <span class="eco-mobile-portal__label block text-3xl font-serif italic text-white transition-opacity">O Livro</span>
+                <span class="eco-mobile-portal__sub block text-xs tracking-widest text-brand-gold mt-1 transition-opacity">O LIVRO</span>
             </button>
             <button class="eco-mobile-portal text-left" data-overlay="eventos">
-                <span class="eco-mobile-portal__label block text-3xl font-serif italic text-white opacity-40 transition-opacity">Eventos</span>
-                <span class="eco-mobile-portal__sub block text-xs tracking-widest text-brand-gold mt-1 opacity-0 transition-opacity">PALESTRAS E EVENTOS</span>
+                <span class="eco-mobile-portal__label block text-3xl font-serif italic text-white transition-opacity">Eventos</span>
+                <span class="eco-mobile-portal__sub block text-xs tracking-widest text-brand-gold mt-1 transition-opacity">PALESTRAS E EVENTOS</span>
             </button>
             <button class="eco-mobile-portal text-left" data-overlay="consultoria">
-                <span class="eco-mobile-portal__label block text-3xl font-serif italic text-white opacity-40 transition-opacity">Consultorias</span>
-                <span class="eco-mobile-portal__sub block text-xs tracking-widest text-brand-gold mt-1 opacity-0 transition-opacity">ASSESSORIA E CONSULTORIA</span>
+                <span class="eco-mobile-portal__label block text-3xl font-serif italic text-white transition-opacity">Consultorias</span>
+                <span class="eco-mobile-portal__sub block text-xs tracking-widest text-brand-gold mt-1 transition-opacity">ASSESSORIA E CONSULTORIA</span>
             </button>
             <button class="eco-mobile-portal text-left" data-overlay="mediakit">
-                <span class="eco-mobile-portal__label block text-3xl font-serif italic text-white opacity-40 transition-opacity">Media Kit</span>
-                <span class="eco-mobile-portal__sub block text-xs tracking-widest text-brand-gold mt-1 opacity-0 transition-opacity">MEDIA KIT & PARCERIAS</span>
+                <span class="eco-mobile-portal__label block text-3xl font-serif italic text-white transition-opacity">Media Kit</span>
+                <span class="eco-mobile-portal__sub block text-xs tracking-widest text-brand-gold mt-1 transition-opacity">MEDIA KIT & PARCERIAS</span>
             </button>
         </div>
     </div>
@@ -124,12 +124,13 @@
         opacity: 0.2 !important;
     }
 
-    /* Mobile Portal Focused State */
-    .eco-mobile-portal.is-active .eco-mobile-portal__label {
-        opacity: 1;
-        color: #fff;
-    }
-    .eco-mobile-portal.is-active .eco-mobile-portal__sub {
-        opacity: 1;
+    /* Mobile Crescent Layout */
+    @media (max-width: 767px) {
+        .eco-mobile-portal:nth-child(1) { transform: translateX(0px); }
+        .eco-mobile-portal:nth-child(2) { transform: translateX(20px); }
+        .eco-mobile-portal:nth-child(3) { transform: translateX(35px); }
+        .eco-mobile-portal:nth-child(4) { transform: translateX(35px); }
+        .eco-mobile-portal:nth-child(5) { transform: translateX(20px); }
+        .eco-mobile-portal:nth-child(6) { transform: translateX(0px); }
     }
 </style>

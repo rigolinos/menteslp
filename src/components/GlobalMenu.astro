@@ -1,0 +1,114 @@
+---
+// GlobalMenu.astro
+---
+
+<!-- Botão do Menu Global (Cérebro limpo e solto) -->
+<button id="global-menu-trigger" class="fixed top-6 right-6 md:top-8 md:right-8 flex items-center justify-center transition-transform hover:scale-110 focus:outline-none" style="z-index: 9000;" aria-label="Abrir Menu">
+    <img id="global-menu-icon" src="/img/logo-brain.svg" alt="Menu" class="w-10 h-10 md:w-12 md:h-12 object-contain transition-transform duration-500 ease-out">
+</button>
+
+<!-- Overlay do Menu -->
+<div id="global-menu-overlay" class="fixed inset-0 pointer-events-none opacity-0 bg-[#050608]/95 backdrop-blur-xl flex flex-col justify-center items-center transition-opacity duration-500" style="z-index: 9001;">
+    <button id="global-menu-close" class="absolute top-6 right-6 md:top-8 md:right-8 text-white/50 hover:text-[#D4AF37] text-4xl md:text-5xl p-4 transition-colors leading-none" aria-label="Fechar Menu">&times;</button>
+    
+    <nav class="flex flex-col items-center gap-6 md:gap-8 text-center w-full max-w-md px-6">
+        <button class="global-menu-link text-2xl md:text-4xl font-serif italic text-white hover:text-[#D4AF37] transition-colors focus:outline-none" data-overlay-trigger="sobre">A Liderança</button>
+        <button class="global-menu-link text-2xl md:text-4xl font-serif italic text-white hover:text-[#D4AF37] transition-colors focus:outline-none" data-overlay-trigger="programa">O Programa de TV</button>
+        <button class="global-menu-link text-2xl md:text-4xl font-serif italic text-white hover:text-[#D4AF37] transition-colors focus:outline-none" data-overlay-trigger="cursos">Capacitações & Cursos</button>
+        <button class="global-menu-link text-2xl md:text-4xl font-serif italic text-white hover:text-[#D4AF37] transition-colors focus:outline-none" data-overlay-trigger="livro">O Livro</button>
+        <button class="global-menu-link text-2xl md:text-4xl font-serif italic text-white hover:text-[#D4AF37] transition-colors focus:outline-none" data-overlay-trigger="eventos">Palestras e Eventos</button>
+        <button class="global-menu-link text-2xl md:text-4xl font-serif italic text-white hover:text-[#D4AF37] transition-colors focus:outline-none" data-overlay-trigger="consultoria">Consultoria</button>
+        <button class="global-menu-link text-2xl md:text-4xl font-serif italic text-white hover:text-[#D4AF37] transition-colors focus:outline-none" data-overlay-trigger="mediakit">Media Kit</button>
+        
+        <div class="w-12 h-px bg-[#D4AF37]/30 my-2"></div>
+        
+        <button class="global-menu-link text-sm md:text-base text-[#D4AF37] tracking-[0.2em] uppercase hover:text-white transition-colors focus:outline-none" data-scene-target="5">Fale Conosco</button>
+    </nav>
+</div>
+
+<script is:inline>
+    // Usamos um evento seguro que funciona nativamente e com Astro
+    const initMenu = () => {
+        const trigger = document.getElementById('global-menu-trigger');
+        const icon = document.getElementById('global-menu-icon');
+        const overlay = document.getElementById('global-menu-overlay');
+        const closeBtn = document.getElementById('global-menu-close');
+        const links = document.querySelectorAll('.global-menu-link');
+
+        if (!trigger || !overlay || trigger.dataset.initialized) return;
+        trigger.dataset.initialized = "true"; // Evita duplicar listeners
+
+        let isMenuOpen = false;
+
+        const openMenu = () => {
+            if(isMenuOpen) return;
+            isMenuOpen = true;
+            
+            // Animação de giro do cérebro (22.5 graus e volta)
+            if (icon) {
+                icon.style.transform = 'rotate(22.5deg)';
+                setTimeout(() => {
+                    icon.style.transform = 'rotate(0deg)';
+                }, 300);
+            }
+
+            overlay.classList.remove('pointer-events-none', 'opacity-0');
+            overlay.classList.add('pointer-events-auto', 'opacity-100');
+            
+            if (window.gsap) {
+                window.gsap.fromTo(links, 
+                    { y: 20, opacity: 0 },
+                    { y: 0, opacity: 1, duration: 0.5, stagger: 0.05, ease: 'power2.out', delay: 0.1 }
+                );
+            }
+        };
+
+        const closeMenu = () => {
+            if(!isMenuOpen) return;
+            isMenuOpen = false;
+            overlay.classList.remove('pointer-events-auto', 'opacity-100');
+            overlay.classList.add('pointer-events-none', 'opacity-0');
+        };
+
+        trigger.addEventListener('click', openMenu);
+        closeBtn.addEventListener('click', closeMenu);
+
+        overlay.addEventListener('click', (e) => {
+            if(e.target === overlay) closeMenu();
+        });
+
+        links.forEach(link => {
+            link.addEventListener('click', () => {
+                closeMenu();
+                
+                if(link.dataset.sceneTarget) {
+                    const targetScene = parseInt(link.dataset.sceneTarget);
+                    const scrollDriver = document.getElementById('scroll-driver');
+                    
+                    if (scrollDriver) {
+                        const maxScroll = scrollDriver.offsetHeight - window.innerHeight;
+                        const SCENES = 6;
+                        let targetP = 0;
+                        if (targetScene === 0) targetP = 0;
+                        else if (targetScene === SCENES - 1) targetP = 0.95;
+                        else targetP = (targetScene + 0.5) / SCENES;
+                        
+                        setTimeout(() => {
+                            window.scrollTo({
+                                top: targetP * maxScroll,
+                                behavior: 'smooth'
+                            });
+                        }, 300);
+                    }
+                }
+            });
+        });
+    };
+
+    // Tentar executar imediatamente se o DOM já tiver os elementos (Astro view transitions)
+    initMenu();
+    
+    // Garantir a execução via eventos caso demore
+    document.addEventListener('DOMContentLoaded', initMenu);
+    document.addEventListener('astro:page-load', initMenu);
+</script>
